@@ -17,7 +17,7 @@ const app = express()
 //port number for the server to listen on
 const port = 8080
 
-
+app.use(express.json())
 
 //route to send a string
 app.get("/", (request, response) => response.send("<h2>Hello world!</h2>"))
@@ -29,7 +29,9 @@ app.get("/users", (request, response) => response.status(200).send(users))
 
 app.get("/recipes", (request, response) => response.status(200).send(recipes))
 
-
+app.post("/users", (request, response) => {
+    response.send(request.body)
+})
 
 
 
