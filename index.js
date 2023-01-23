@@ -47,7 +47,7 @@ app.get("/object", (request, response) => response.send({message: "Hello world!"
 
 app.get("/users", (request, response) => response.status(200).send(users))
 
-app.get("/recipes", (request, response) => response.status(200).send(recipes))
+app.get("/recipes", async (request, response) => response.send( await RecipeModel.find() ))
 
 app.get("/recipes/:id", (request, response) => {
     const recipe = recipes[request.params.id]
