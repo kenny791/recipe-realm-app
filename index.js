@@ -1,17 +1,18 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
-const users = [
-    {username: "user1" },
-    {username: "user2" },
-    {username: "user3" }
-]
 
-// const recipes = [
-//     {name: "recipe1", author: "user1"},
-//     {name: "recipe2", author: "user2"},
-//     {name: "recipe3", author: "user3"}
-// ]
+
+/* //db creation code
+use ("reciperealm")
+db.users.insertMany([
+  {username: "user1", password: "password1"},
+  {username: "user2", password: "password2"},
+  {username: "user3", password: "password3"}
+]) 
+*/
+
+
 
 //connect to the database
 mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/reciperealm?retryWrites=true&w=majority")
@@ -27,8 +28,16 @@ const recipeSchema = new mongoose.Schema({
     author: {type: String, required: true}
 })
 
+const userSchema = new mongoose.Schema({
+    username: {type: String, required: true},
+    password: {type: String, required: true}
+})
+
+
+
 //models
 const RecipeModel = mongoose.model("Recipe", recipeSchema)
+const UserModel = mongoose.model("User", userSchema)
 
 
 
@@ -45,7 +54,7 @@ app.get("/", (request, response) => response.send("<h2>Hello world!</h2>"))
 //route to send test object
 app.get("/object", (request, response) => response.send({message: "Hello world!"}))
 
-app.get("/users", (request, response) => response.status(200).send(users))
+app.get("/users", async (request, response) => response.send( await UserModel.find() ))
 
 app.get("/recipes", async (request, response) => response.send( await RecipeModel.find() ))
 
