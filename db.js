@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config()
 
 /* //db creation code to be used in mongo db playground for reference
 use ("reciperealm")
@@ -20,7 +22,7 @@ async function dbClose() {
 
 //connect to the database
 try{
-    const m =await mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/reciperealm?retryWrites=true&w=majority")
+    const m = await mongoose.connect(process.env.ATLAS_DB_URL)
     console.log(m.connection.readyState === 1 ? "Connected to database" : "Failed to connect to database")
 }
 catch (err) {
