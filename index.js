@@ -18,6 +18,20 @@ mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongo
     .then((m) => console.log(m.connection.readyState === 1 ? "Connected to database" : "Failed to connect to database"))
     .catch((err) => console.log(err))
 
+
+
+//schemas
+//defines the structure the model will need to conform to
+const recipeSchema = new mongoose.Schema({
+    name: {type: String, required: true},
+    author: {type: String, required: true}
+})
+
+//models
+const RecipeModel = mongoose.model("Recipe", recipeSchema)
+
+
+
 //create a new instance of express
 const app = express()
 //port number for the server to listen on
@@ -52,6 +66,17 @@ app.post("/users", (request, response) => {
     response.status(201).send(newUser)
 
 })
+
+app.post("/recipes", async (request, response) => {
+    const { name,author } = request.body
+    const newRecipe = { name,author }
+    const insertedRecipe = await RecipeModel.create(newRecipe)
+    response.status(201).send(insertedRecipe)
+
+})
+
+
+
 
 
 
