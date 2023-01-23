@@ -13,6 +13,9 @@ const recipes = [
     {name: "recipe3", author: "user3"}
 ]
 
+//connect to the database
+mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/?retryWrites=true&w=majority")
+
 //create a new instance of express
 const app = express()
 //port number for the server to listen on
