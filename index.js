@@ -15,6 +15,8 @@ const recipes = [
 
 //connect to the database
 mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/reciperealm?retryWrites=true&w=majority")
+    .then((m) => console.log(m.connection.readyState === 1 ? "Connected to database" : "Failed to connect to database"))
+    .catch((err) => console.log(err))
 
 //create a new instance of express
 const app = express()
