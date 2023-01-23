@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/Recipe-devs/Server#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.4"
   }
 }
