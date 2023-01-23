@@ -32,7 +32,7 @@ catch (err) {
 //defines the structure the model will need to conform to
 const recipeSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    author: {type: String, required: true}
+    username: {type: mongoose.ObjectId, ref: "User", required: true}
 })
 
 const userSchema = new mongoose.Schema({

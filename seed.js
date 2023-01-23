@@ -15,9 +15,9 @@ const insertusers = await UserModel.insertMany(users)
 console.log("Users inserted")
 
 const recipes = [
-    { name: "recipe name 1", author: insertusers[0]},
-    { name: "recipe name 2", author: insertusers[1]},
-    { name: "recipe name 3", author: insertusers[2]}
+    { name: "recipe name 1", username: insertusers[0]},
+    { name: "recipe name 2", username: insertusers[1]},
+    { name: "recipe name 3", username: insertusers[2]}
 ]
 
 await RecipeModel.insertMany(recipes)

@@ -16,7 +16,8 @@ app.get("/object", (request, response) => response.send({message: "Hello world!"
 
 app.get("/users", async (request, response) => response.send( await UserModel.find() ))
 
-app.get("/recipes", async (request, response) => response.send( await RecipeModel.find() ))
+app.get("/recipes", async (request, response) => response.send( await RecipeModel.find().populate({path: "username", select: ["username"]}) ))
+
 
 app.get("/recipes/:id", async (request, response) => {
     try{
