@@ -1,6 +1,7 @@
 import express from 'express'
 import { UserModel, RecipeModel } from './db.js'
 import recipeRoutes from './routes/recipe_routes.js'
+import cors from 'cors'
 
 //create a new instance of express
 const app = express()
@@ -8,6 +9,8 @@ const app = express()
 const port = 8080
 
 app.use(express.json())
+app.use(cors())
+
 
 //make routes relative
 app.use ("/recipes", recipeRoutes)
