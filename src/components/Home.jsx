@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Home = () => {
+export default () => {
   return (
     <>
       <h1>Recipe Realm</h1>
     </>
   )
 }
-
-export default Home

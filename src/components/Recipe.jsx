@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Recipe = () => {
+export default () => {
   return (
     <>
       <h1>Recipes</h1>
     </>
   )
 }
-
-export default Recipe
