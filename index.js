@@ -14,7 +14,7 @@ const recipes = [
 ]
 
 //connect to the database
-mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/reciperealm?retryWrites=true&w=majority")
 
 //create a new instance of express
 const app = express()
