@@ -1,45 +1,5 @@
 import express from 'express'
-import mongoose from 'mongoose'
-
-
-
-/* //db creation code
-use ("reciperealm")
-db.users.insertMany([
-  {username: "user1", password: "password1"},
-  {username: "user2", password: "password2"},
-  {username: "user3", password: "password3"}
-]) 
-*/
-
-
-
-//connect to the database
-mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/reciperealm?retryWrites=true&w=majority")
-    .then((m) => console.log(m.connection.readyState === 1 ? "Connected to database" : "Failed to connect to database"))
-    .catch((err) => console.log(err))
-
-
-
-//schemas
-//defines the structure the model will need to conform to
-const recipeSchema = new mongoose.Schema({
-    name: {type: String, required: true},
-    author: {type: String, required: true}
-})
-
-const userSchema = new mongoose.Schema({
-    username: {type: String, required: true},
-    password: {type: String, required: true}
-})
-
-
-
-//models
-const RecipeModel = mongoose.model("Recipe", recipeSchema)
-const UserModel = mongoose.model("User", userSchema)
-
-
+import { UserModel, RecipeModel } from './db.js'
 
 //create a new instance of express
 const app = express()
