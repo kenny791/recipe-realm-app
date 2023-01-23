@@ -3,12 +3,12 @@ import { RecipeModel } from '../db.js'
 
 const router = express.Router()
 
+//!!!routes are relative, so /recipes is not needed, refer to index.js
+
+router.get("/", async (request, response) => response.send( await RecipeModel.find().populate({path: "username", select: ["username"]}) ))
 
 
-router.get("/recipes", async (request, response) => response.send( await RecipeModel.find().populate({path: "username", select: ["username"]}) ))
-
-
-router.get("/recipes/:id", async (request, response) => {
+router.get("/:id", async (request, response) => {
     try{
         const recipe = await RecipeModel.findById(request.params.id)
         if (recipe) {
@@ -23,7 +23,7 @@ router.get("/recipes/:id", async (request, response) => {
 })
 
 
-router.post("/recipes", async (request, response) => {
+router.post("/", async (request, response) => {
     try {
         const { name,author } = request.body
         const newRecipe = { name,author }
@@ -37,7 +37,7 @@ router.post("/recipes", async (request, response) => {
 
 
 
-router.put("/recipes/:id", async (request, response) => {
+router.put("/:id", async (request, response) => {
     const { name,author } = request.body
     const updatedRecipe = { name,author }
     try {
@@ -54,7 +54,7 @@ router.put("/recipes/:id", async (request, response) => {
 })
 
 
-router.delete("/recipes/:id", async (request, response) => {
+router.delete("/:id", async (request, response) => {
     try {
         const recipe = await RecipeModel.findByIdAndDelete(request.params.id)
         if (recipe) {

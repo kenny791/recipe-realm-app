@@ -9,6 +9,10 @@ const port = 8080
 
 app.use(express.json())
 
+//make routes relative
+app.use ("/recipes", recipeRoutes)
+
+
 //route to send a string
 app.get("/", (request, response) => response.send("<h2>Hello world!</h2>"))
 
