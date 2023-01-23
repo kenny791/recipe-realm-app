@@ -1,11 +1,9 @@
 import React from 'react'
 
-const User = () => {
+export default () => {
   return (
     <>
       <h1>User Home Page</h1>
     </>
   )
 }
-
-export default User
