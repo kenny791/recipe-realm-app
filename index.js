@@ -1,4 +1,5 @@
 import express from 'express'
+import mongoose from 'mongoose'
 
 const users = [
     {username: "user1" },
