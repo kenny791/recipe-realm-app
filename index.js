@@ -6,7 +6,7 @@ import cors from 'cors'
 //create a new instance of express
 const app = express()
 //port number for the server to listen on
-const port = 8080
+const port = process.env.PORT || 8080
 
 app.use(express.json())
 app.use(cors())
