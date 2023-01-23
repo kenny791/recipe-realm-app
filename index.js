@@ -7,11 +7,11 @@ const users = [
     {username: "user3" }
 ]
 
-const recipes = [
-    {name: "recipe1", author: "user1"},
-    {name: "recipe2", author: "user2"},
-    {name: "recipe3", author: "user3"}
-]
+// const recipes = [
+//     {name: "recipe1", author: "user1"},
+//     {name: "recipe2", author: "user2"},
+//     {name: "recipe3", author: "user3"}
+// ]
 
 //connect to the database
 mongoose.connect("mongodb+srv://recipedevs:recipepassword@cluster0.qhtuc7n.mongodb.net/reciperealm?retryWrites=true&w=majority")
@@ -49,12 +49,17 @@ app.get("/users", (request, response) => response.status(200).send(users))
 
 app.get("/recipes", async (request, response) => response.send( await RecipeModel.find() ))
 
-app.get("/recipes/:id", (request, response) => {
-    const recipe = recipes[request.params.id]
-    if (recipe) {
-        response.send(recipe)
-    } else {
-        response.status(404).send({message: "Recipe not found"})
+app.get("/recipes/:id", async (request, response) => {
+    try{
+        const recipe = await RecipeModel.findById(request.params.id)
+        if (recipe) {
+            response.send(recipe)
+        } else {
+            response.status(404).send({message: "Recipe not found"})
+        }
+    }
+    catch (err) {
+        response.status(500).send({error: err.message})
     }
 })
 
