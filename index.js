@@ -93,6 +93,21 @@ app.post("/recipes", async (request, response) => {
     }
 })
 
+app.put("/recipes/:id", async (request, response) => {
+    const { name,author } = request.body
+    const updatedRecipe = { name,author }
+    try {
+        const recipe = await RecipeModel.findByIdAndUpdate(request.params.id, updatedRecipe, { returnDocument: "after" })
+        if (recipe) {
+            response.send(recipe)
+        } else {
+            response.status(404).send({message: "Recipe not found"})
+        }
+    }
+    catch (err) {
+        response.status(500).send({error: err.message})
+    }
+})
 
 
 
