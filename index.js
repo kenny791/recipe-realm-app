@@ -68,11 +68,15 @@ app.post("/users", (request, response) => {
 })
 
 app.post("/recipes", async (request, response) => {
-    const { name,author } = request.body
-    const newRecipe = { name,author }
-    const insertedRecipe = await RecipeModel.create(newRecipe)
-    response.status(201).send(insertedRecipe)
-
+    try {
+        const { name,author } = request.body
+        const newRecipe = { name,author }
+        const insertedRecipe = await RecipeModel.create(newRecipe)
+        response.status(201).send(insertedRecipe)
+    }
+    catch (err) {
+        response.status(500).send({error: err.message})
+    }
 })
 
 
