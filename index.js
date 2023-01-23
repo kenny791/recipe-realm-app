@@ -1,5 +1,6 @@
 import express from 'express'
 import { UserModel, RecipeModel } from './db.js'
+import recipeRoutes from './routes/recipe_routes.js'
 
 //create a new instance of express
 const app = express()
@@ -16,22 +17,7 @@ app.get("/object", (request, response) => response.send({message: "Hello world!"
 
 app.get("/users", async (request, response) => response.send( await UserModel.find() ))
 
-app.get("/recipes", async (request, response) => response.send( await RecipeModel.find().populate({path: "username", select: ["username"]}) ))
 
-
-app.get("/recipes/:id", async (request, response) => {
-    try{
-        const recipe = await RecipeModel.findById(request.params.id)
-        if (recipe) {
-            response.send(recipe)
-        } else {
-            response.status(404).send({message: "Recipe not found"})
-        }
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
-    }
-})
 
 app.post("/users", (request, response) => {
     const { username } = request.body
@@ -42,49 +28,9 @@ app.post("/users", (request, response) => {
 
 })
 
-app.post("/recipes", async (request, response) => {
-    try {
-        const { name,author } = request.body
-        const newRecipe = { name,author }
-        const insertedRecipe = await RecipeModel.create(newRecipe)
-        response.status(201).send(insertedRecipe)
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
-    }
-})
-
-app.put("/recipes/:id", async (request, response) => {
-    const { name,author } = request.body
-    const updatedRecipe = { name,author }
-    try {
-        const recipe = await RecipeModel.findByIdAndUpdate(request.params.id, updatedRecipe, { returnDocument: "after" })
-        if (recipe) {
-            response.send(recipe)
-        } else {
-            response.status(404).send({message: "Recipe not found"})
-        }
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
-    }
-})
-
-app.delete("/recipes/:id", async (request, response) => {
-    try {
-        const recipe = await RecipeModel.findByIdAndDelete(request.params.id)
-        if (recipe) {
-            response.send(recipe)
-        } else {
-            response.status(404).send({message: "Recipe not found"})
-        }
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
-    }
-})
 
 
 
+app.use(recipeRoutes)
 
 app.listen(port, () => {console.log(`App running on port http://localhost:${port}`)})
