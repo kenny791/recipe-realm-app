@@ -81,10 +81,10 @@ export default () => {
 							<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80" class="img-thumbnail" alt="..." />
 						</div>
 						<div class="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
-							<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80" class="img-thumbnail" alt="..." />
+							<img src="https://loremflickr.com/320/240/fruit" class="img-thumbnail" alt="..." />
 						</div>
 						<div class="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
-							<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80" class="img-thumbnail" alt="..." />
+							<img src="https://loremflickr.com/320/240/sushi" class="img-thumbnail" alt="..." />
 						</div>
 					</div>
 				</div>
