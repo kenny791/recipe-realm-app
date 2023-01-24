@@ -34,13 +34,23 @@ catch (err) {
 //defines the structure the model will need to conform to
 const recipeSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    username: {type: mongoose.ObjectId, ref: "User", required: true}
+    username: {type: mongoose.ObjectId, ref: "User", required: true},
+    tags: [{type: String}],
+    ingredients: [{type: String}],
+    preparation: [{type: String}],
+    image: {type: String}
 })
 
 const userSchema = new mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true}
 })
+
+
+
+
+
+
 
 
 

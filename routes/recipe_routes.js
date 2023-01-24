@@ -25,10 +25,11 @@ router.get("/:id", async (request, response) => {
 
 router.post("/", async (request, response) => {
     try {
-        const { name,author } = request.body
-        const newRecipe = { name,author }
+        const { name, author, tags, ingredients, preparation, image } = request.body
+        const newRecipe = { name, author, tags, ingredients, preparation, image }
         const insertedRecipe = await RecipeModel.create(newRecipe)
         response.status(201).send(insertedRecipe)
+        console.log(insertedRecipe)
     }
     catch (err) {
         response.status(500).send({error: err.message})
