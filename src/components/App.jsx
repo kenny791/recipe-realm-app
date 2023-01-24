@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import Home from './Home.jsx'
+import Home from './Home'
 import User from './User'
 import Recipe from './Recipe'
 import Navbar from './Navbar'
