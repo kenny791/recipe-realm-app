@@ -17,7 +17,7 @@ export default () => {
               </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/recipe">
+                <Link className="nav-link" to="/search">
                   Recipes
                 </Link>
               </li>

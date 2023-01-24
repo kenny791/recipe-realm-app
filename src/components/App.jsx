@@ -3,6 +3,7 @@ import Home from './Home.jsx'
 import User from './User'
 import Recipe from './Recipe'
 import Navbar from './Navbar'
+import Search from './Search'
 
 export default function App() {
   return (
@@ -12,6 +13,8 @@ export default function App() {
       <Route path='/' element={<Home />} />
       <Route path='/user' element={<User />} />
       <Route path='/recipe' element={<Recipe />} />
+      <Route path='/search' element={<Search />} />
+
     </Routes>
     </>
   )
