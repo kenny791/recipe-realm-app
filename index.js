@@ -53,14 +53,14 @@ const fileFilter = (request, file, cb) => {
     }
 }
 
-
-
 const upload = multer({ storage, fileFilter, limits: { fileSize: 1000000 }, files : 1 })
-app.post("/upload", upload.single("file"), async (request, response) => {
+
+
+app.post("/:id/upload", upload.single("file"), async (request, response) => {
     const file = request.file
-    const result = await s3Upload2(file)
-    console.log(request.file.path + path.extname(request.file.originalname))
-    response.json({message: "File uploaded", result: result})
+    const urlId = request.params.id
+    const result = await s3Upload2(file, urlId)
+    response.send(result.Location)
 })
 
 
