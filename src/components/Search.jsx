@@ -15,7 +15,8 @@ export default () => {
 				{/* Still need to figure out how to make all boxes same size  */}
 				<div class="d-flex flex-wrap align-items-center w-75">
 					{/* Dropdown one */}
-					<div class="p-2 flex-fill">
+					{/* Leave padding on left as 0 to align with Search bar */}
+					<div class="pr-2 pt-2 pb-2 flex-fill">
 						<div class="form-floating">
 							<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
 								<option selected>Cuisine</option>
@@ -50,17 +51,19 @@ export default () => {
 							<label for="floatingSelect">Filter</label>
 						</div>
 					</div>
-					<div class="p-2 flex-fill">
-					<div class="form-floating">
-						<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-							<option selected>Other</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">All other options here</option>
-						</select>
-						<label for="floatingSelect">Filter</label>
+					{/* Dropdown four */}
+					{/* Leave padding right as 0 to align with Search bar */}
+					<div class="pt-2 pb-2 pl-2 flex-fill">
+						<div class="form-floating">
+							<select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+								<option selected>Other</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">All other options here</option>
+							</select>
+							<label for="floatingSelect">Filter</label>
+						</div>
 					</div>
-				</div>
 				</div>
 			</div>
     </>
