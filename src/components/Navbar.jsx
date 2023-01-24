@@ -11,14 +11,19 @@ export default () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/user">
-                Home
-              </Link>
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">
+                 Search
+                </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/recipe">
                   Recipes
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/user">
+                  Profile
                 </Link>
               </li>
               <li className="nav-item">
@@ -28,10 +33,6 @@ export default () => {
               </li>
             </ul>
         </div>
-      <form className='navbar-form pull-right'>
-        <input type='text' className='span2' placeholder="What's cooking?" />
-        <button type='submit' className='btn'>Search</button>
-      </form>
       </div>
     </nav>
   )
