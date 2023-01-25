@@ -1,7 +1,8 @@
-import express from 'express'
+import express, { response } from 'express'
 import { UserModel, RecipeModel } from './db.js'
 import recipeRoutes from './routes/recipe_routes.js'
 import cors from 'cors'
+import authRoutes from './routes/auth_routes.js'
 
 //create a new instance of express
 const app = express()
@@ -43,6 +44,7 @@ import path from 'path'
 import s3Upload2 from './s3service.js'
 
 
+
 const storage = multer.memoryStorage()
 
 const fileFilter = (request, file, cb) => {
@@ -55,7 +57,7 @@ const fileFilter = (request, file, cb) => {
 
 const upload = multer({ storage, fileFilter, limits: { fileSize: 1000000 }, files : 1 })
 
-
+//upload to file to s3
 app.post("/:id/upload", upload.single("file"), async (request, response) => {
     const file = request.file
     const urlId = request.params.id
@@ -79,6 +81,14 @@ app.use((error, request, response, next) => {
 
 
 
+
+
+
+
+
+
+
 app.use(recipeRoutes)
+app.use(authRoutes)
 
 app.listen(port, () => {console.log(`App running on port http://localhost:${port}`)})
