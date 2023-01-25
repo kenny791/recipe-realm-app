@@ -1,4 +1,4 @@
-import { UserModel, RecipeModel, dbClose } from "./db.js"
+import { UserModel, RecipeModel, CommentModel, dbClose } from "./db.js"
 
 await RecipeModel.deleteMany()
 console.log("Recipes deleted")
@@ -67,5 +67,48 @@ const recipes = [
 
 await RecipeModel.insertMany(recipes)
 console.log("Recipes inserted")
+
+
+const comments = [
+    {
+        username: "user1",
+        recipeId: "5f9f1b1b1b1b1b1b1b1b1b1b",
+        message: "lore ipsum dolor sit amet 1",
+        date: "2022-01-01"
+    },
+    {
+        username: "user1",
+        recipeId: "5f9f1b1sfsfdsfsdfsfsfsfsf",
+        message: "lore ipsum dolor sit amet 11",
+        date: "2022-01-02"
+    },
+    {
+        username: "user2",
+        recipeId: "5f9f1b1b1b1b1b1b1b1b1b1b",
+        message: "lore ipsum dolor sit amet 2",
+        date: "2022-02-02"
+    },
+    {
+        username: "user2",
+        recipeId: "5f9f1b1sfsfdsfsdfsfsfsfsf",
+        message: "lore ipsum dolor sit amet 22",
+        date: "2022-01-03"
+    },
+    {
+        username: "user3",
+        recipeId: "5f9f1b1b1b1b1b1b1b1b1b1b",
+        message: "lore ipsum dolor sit amet 3",
+        date: "2022-03-03"
+    },
+    {
+        username: "user3",
+        recipeId: "5f9f1b1sfsfdsfsdfsfsfsfsf",
+        message: "lore ipsum dolor sit amet 33",
+        date: "2022-01-04"
+    }
+]
+
+await CommentModel.insertMany(comments)
+console.log("Comments inserted")
 
 dbClose()
