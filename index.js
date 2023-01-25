@@ -1,8 +1,9 @@
 import express, { response } from 'express'
 import { UserModel, RecipeModel } from './db.js'
 import recipeRoutes from './routes/recipe_routes.js'
-import cors from 'cors'
 import authRoutes from './routes/auth_routes.js'
+import cors from 'cors'
+
 
 //create a new instance of express
 const app = express()
@@ -13,8 +14,6 @@ app.use(express.json())
 app.use(cors())
 
 
-//make routes relative
-app.use ("/recipes", recipeRoutes)
 
 
 //route to send a string
