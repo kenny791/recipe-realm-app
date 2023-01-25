@@ -19,7 +19,6 @@ async function dbClose() {
 }
 
 
-
 //connect to the database
 try{
     const m = await mongoose.connect(process.env.ATLAS_DB_URL)
@@ -30,8 +29,9 @@ catch (err) {
 }
 
 
-//schemas
+
 //defines the structure the model will need to conform to
+//recipe schema and model
 const recipeSchema = new mongoose.Schema({
     name: {type: String, required: true},
     username: {type: mongoose.ObjectId, ref: "User", required: true},
@@ -41,23 +41,28 @@ const recipeSchema = new mongoose.Schema({
     image: {type: String}
 })
 
+const RecipeModel = mongoose.model("Recipe", recipeSchema)
+
+
+//user schema and model
 const userSchema = new mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true}
 })
 
-
-
-
-
-
-
-
-
-//models
-const RecipeModel = mongoose.model("Recipe", recipeSchema)
-
 const UserModel = mongoose.model("User", userSchema)
 
 
-export { dbClose, RecipeModel, UserModel }
+//comment schema and model
+const commentSchema = new mongoose.Schema({
+    username: {type: String, required: true, default: "Anonymous"},
+    recipeId: {type: String, required: true},
+    message: {type: String, required: true},
+    date: {type: Date, required: true, default: Date.now}
+})
+
+const CommentModel = mongoose.model("Comment", commentSchema)
+
+
+
+export { dbClose, RecipeModel, UserModel, CommentModel }
