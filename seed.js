@@ -15,9 +15,54 @@ const insertusers = await UserModel.insertMany(users)
 console.log("Users inserted")
 
 const recipes = [
-    { name: "recipe name 1", username: insertusers[0]},
-    { name: "recipe name 2", username: insertusers[1]},
-    { name: "recipe name 3", username: insertusers[2]}
+    {   
+        name: "recipe name 1", 
+        username: insertusers[0],
+        tags: ["tag1", "tag2", "tag3"],
+        ingredients: [
+            "ingredient1", 
+            "ingredient2", 
+            "ingredient3"
+        ],
+        preparation: [
+            "step1", 
+            "step2", 
+            "step3"
+        ],
+        image: "https://dummyimage.com/1000x500/"    
+    },
+    {   
+        name: "recipe name 2", 
+        username: insertusers[1],
+        tags: ["tag1", "tag2", "tag3"],
+        ingredients: [
+            "ingredient1",
+            "ingredient2",
+            "ingredient3"
+        ],
+        preparation: [
+            "step1",
+            "step2",
+            "step3"
+        ],
+        image: "https://dummyimage.com/1000x500/"
+    },
+    {
+        name: "recipe name 3", 
+        username: insertusers[2],
+        tags: ["tag1", "tag2", "tag3"],
+        ingredients: [
+            "ingredient1", 
+            "ingredient2", 
+            "ingredient3"
+        ],
+        preparation: [
+            "step1", 
+            "step2", 
+            "step3"
+        ],
+        image: "https://dummyimage.com/1000x500/"
+    }
 ]
 
 await RecipeModel.insertMany(recipes)
