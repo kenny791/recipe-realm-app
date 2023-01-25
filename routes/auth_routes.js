@@ -11,8 +11,9 @@ router.post("/login", async (request, response) => {
         const foundUser = await UserModel.findOne(user)
         if (foundUser) {
             response.send(foundUser)
-        } else {
-            response.status(404).send({message: "User not found"})
+        }
+        else {
+            response.status(404).send({message: "Password or username incorrect"})
         }
     }
     catch (err) {
