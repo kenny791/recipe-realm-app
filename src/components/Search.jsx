@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import seed from './Seed.jsx'
 
 const Search = () => {
+	const [searchInput, setSearchInput] = useState('')
+
+	const handleChange = (event) => {
+		setSearchInput(event.target.value)
+	}
+
+	// const [displayData, setDisplaydata] = useState({seed})
+
+	const filterrecipes = seed.filter(recipe => {
+		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
+	})
+
   return (
     <>
 		{/* Centre whole page */}
@@ -10,7 +22,7 @@ const Search = () => {
 			{/* mb is margin bottom; w is width */}
 			<div className="form-floating m-3 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
-				<input className="form-control" id="floatingInput" placeholder="samplesearchterm"/>
+				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange}/>
 				<label for="floatingInput">Search</label>
 			</div>
 			{/* Filter dropdowns */}
@@ -84,9 +96,9 @@ const Search = () => {
 			{/* List of recipes/display recipes */}
 			<div className="container d-flex flex-wrap align-items-center justify-content-center mt-5 w-75">
 				<div className="row g-4 g-lg-6">
-					{seed.map((recipe) => (
-						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
-							<figure class="figure">
+					{filterrecipes.map((recipe) => (
+						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2" key={recipe.id}>
+							<figure className="figure">
 								<img src={recipe.image} className="figure-img img-fluid rounded" alt={recipe.name} />
 								<p>{recipe.description}</p>
 							</figure>
@@ -100,7 +112,7 @@ const Search = () => {
 
 					{/* Generic version of above */}
 					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
-						<figure class="figure">
+						<figure className="figure">
 							<img src="https://loremflickr.com/320/240/sushi" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
 							<p>Description here</p>
 						</figure>
