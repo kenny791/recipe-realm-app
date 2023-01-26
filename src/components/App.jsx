@@ -3,7 +3,6 @@ import Home from './Home'
 import User from './User'
 import Recipe from './Recipe'
 import Navbar from './Navbar'
-
 import Search from './Search'
 
 export default function App() {
