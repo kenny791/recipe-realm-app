@@ -1,4 +1,5 @@
 import React from 'react'
+import seed from './Seed.jsx'
 
 const Search = () => {
   return (
