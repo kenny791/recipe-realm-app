@@ -82,20 +82,35 @@ export default () => {
 
 			<div className="container d-flex flex-wrap align-items-center justify-content-center mt-5 w-75">
 				<div className="row g-4 g-lg-6">
-					<div className="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
-						<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80" className="img-thumbnail" alt="..." />
+					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
+						<figure class="figure">
+							<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80"  className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
+							<p>Description here</p>
+						</figure>
 					</div>
-					<div className="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
-						<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80" className="img-thumbnail" alt="..." />
+					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
+						<figure class="figure">
+							<img src="https://placekitten.com/g/400/300" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
+							<p>Description here</p>
+						</figure>
 					</div>
-					<div className="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
-						<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80" className="img-thumbnail" alt="..." />
+					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
+						<figure class="figure">
+							<img src="https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80"  className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
+							<p>Description here</p>
+						</figure>
 					</div>
-					<div className="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
-						<img src="https://loremflickr.com/320/240/fruit" className="img-thumbnail" alt="..." />
+					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
+						<figure class="figure">
+							<img src="https://loremflickr.com/320/240/fruit" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
+							<p>Description here</p>
+						</figure>
 					</div>
-					<div className="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
-						<img src="https://loremflickr.com/320/240/sushi" className="img-thumbnail" alt="..." />
+					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
+						<figure class="figure">
+							<img src="https://loremflickr.com/320/240/sushi" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
+							<p>Description here</p>
+						</figure>
 					</div>
 				</div>
 			</div>
