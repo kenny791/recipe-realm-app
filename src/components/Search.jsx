@@ -13,12 +13,13 @@ export default () => {
 				<label for="floatingInput">Search</label>
 			</div>
 			{/* Filter dropdowns */}
-			{/* Still need to figure out how to make all boxes same size  */}
+			<div className="container w-75">
+				<div className="row d-flex">
 			
-			<div className="d-flex flex-wrap w-75 justify-content-center">
+			{/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
 				{/* Dropdown one */}
-				{/* Leave padding on left as 0 to align with Search bar */}
-				<div className="p-2 flex-fill">
+				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+				<div className="p-0 flex-fill">
 					<div className="form-floating">
 						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
 							<option selected>Cuisine</option>
@@ -31,8 +32,10 @@ export default () => {
 						<label for="floatingSelect">Filter</label>
 					</div>
 				</div>
+				</div>
 				{/* Dropdown two */}
-				<div className="p-2 flex-fill">
+				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+				<div className="p-0 flex-fill">
 					<div className="form-floating">
 						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
 							<option selected>Dietary</option>
@@ -43,8 +46,11 @@ export default () => {
 						<label for="floatingSelect">Filter</label>
 					</div>
 				</div>
+				</div>
+				
 				{/* Dropdown three */}
-				<div className="p-2 flex-fill">
+				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+				<div className="p-0 flex-fill">
 					<div className="form-floating">
 						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
 							<option selected>Difficulty</option>
@@ -55,9 +61,11 @@ export default () => {
 						<label for="floatingSelect">Filter</label>
 					</div>
 				</div>
+				</div>
 				{/* Dropdown four */}
 				{/* Leave padding right as 0 to align with Search bar */}
-				<div className="p-2 flex-fill">
+				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+				<div className="p-0 flex-fill">
 					<div className="form-floating">
 						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
 							<option selected>Other</option>
@@ -67,8 +75,12 @@ export default () => {
 						</select>
 						<label for="floatingSelect">Filter</label>
 					</div>
+					</div>
 				</div>
+				{/* </div> */}
 			</div>
+			</div>
+
 			<div className="container d-flex flex-wrap align-items-center justify-content-center mt-5 w-75">
 				<div className="row g-4 g-lg-6">
 					<div className="col-6 col-md-4 col-lg-3 p-1 p-lg-2">
