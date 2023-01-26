@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default () => {
+const Search = () => {
   return (
     <>
 		{/* Centre whole page */}
@@ -118,3 +118,5 @@ export default () => {
     </>
   )
 }
+
+export default Search
