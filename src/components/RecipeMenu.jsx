@@ -36,7 +36,7 @@ export default () => {
                   </div>
                 </div>
                 <div className='col-5'>
-                  <button type="button" className="btn btn-danger" data-bs-toggle="button" autocomplete="off">Favourite</button>
+                  <button type="button" className="btn btn-danger" data-bs-toggle="button" autoComplete="off">Favourite</button>
                 </div>
               </div>
             </div>
