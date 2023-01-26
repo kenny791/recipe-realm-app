@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
-export default (props) => {
+export default () => {
   const [rating, setRating] = useState(0)
-  console.log(props)
 
   const handleClick = (event) => {
     const list = event.target.parentNode.children
