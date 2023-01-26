@@ -14,71 +14,70 @@ export default () => {
 			</div>
 			{/* Filter dropdowns */}
 			<div className="container w-75">
-				<div className="row d-flex">
-			
-			{/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
 				{/* Dropdown one */}
-				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-				<div className="p-0 flex-fill">
-					<div className="form-floating">
-						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-							<option selected>Cuisine</option>
-							{/* Note can prepopulate this from some predefined array */}
-							{/* After pre-population can make it more DRY */}
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Mediterranean</option>
-						</select>
-						<label for="floatingSelect">Filter</label>
+				<div className="row">
+				{/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
+					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+						<div className="p-0 flex-fill">
+							<div className="form-floating">
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
+									<option selected>Cuisine</option>
+									{/* Note can prepopulate this from some predefined array */}
+									{/* After pre-population can make it more DRY */}
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Mediterranean</option>
+								</select>
+								<label for="floatingSelect">Filter</label>
+							</div>
+						</div>
 					</div>
-				</div>
-				</div>
-				{/* Dropdown two */}
-				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-				<div className="p-0 flex-fill">
-					<div className="form-floating">
-						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-							<option selected>Dietary</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Gluten Free</option>
-						</select>
-						<label for="floatingSelect">Filter</label>
+					{/* Dropdown two */}
+					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+						<div className="p-0 flex-fill">
+							<div className="form-floating">
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
+									<option selected>Dietary</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Gluten Free</option>
+								</select>
+								<label for="floatingSelect">Filter</label>
+							</div>
+						</div>
 					</div>
-				</div>
-				</div>
 				
-				{/* Dropdown three */}
-				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-				<div className="p-0 flex-fill">
-					<div className="form-floating">
-						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-							<option selected>Difficulty</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Attempt only if expert</option>
-						</select>
-						<label for="floatingSelect">Filter</label>
+					{/* Dropdown three */}
+					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+						<div className="p-0 flex-fill">
+							<div className="form-floating">
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
+									<option selected>Difficulty</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Attempt only if expert</option>
+								</select>
+								<label for="floatingSelect">Filter</label>
+							</div>
+						</div>
 					</div>
-				</div>
-				</div>
-				{/* Dropdown four */}
-				{/* Leave padding right as 0 to align with Search bar */}
-				<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-				<div className="p-0 flex-fill">
-					<div className="form-floating">
-						<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-							<option selected>Other</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">All other options here</option>
-						</select>
-						<label for="floatingSelect">Filter</label>
+					{/* Dropdown four */}
+					{/* Leave padding right as 0 to align with Search bar */}
+					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+						<div className="p-0 flex-fill">
+							<div className="form-floating">
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
+									<option selected>Other</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">All other options here</option>
+								</select>
+								<label for="floatingSelect">Filter</label>
+							</div>
+						</div>
 					</div>
-					</div>
+					{/* </div> */}
 				</div>
-				{/* </div> */}
-			</div>
 			</div>
 
 			<div className="container d-flex flex-wrap align-items-center justify-content-center mt-5 w-75">
