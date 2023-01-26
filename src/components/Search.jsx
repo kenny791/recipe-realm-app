@@ -81,6 +81,7 @@ const Search = () => {
 				</div>
 			</div>
 
+			{/* List of recipes/display recipes */}
 			<div className="container d-flex flex-wrap align-items-center justify-content-center mt-5 w-75">
 				<div className="row g-4 g-lg-6">
 					{seed.map((recipe) => (
