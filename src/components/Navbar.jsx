@@ -51,7 +51,7 @@ export default () => {
 			<div className="d-block d-md-none ">
 				<nav className="navbar compact fixed-top  navbar-expand-md navbar-light bg-light">
 					<div className="container-fluid">
-						<Link className="navbar-brand" to="/">RR</Link>
+						<Link className="navbar-brand" onClick={handleLinkClick} to="/">RR</Link>
 						<button className="navbar-toggler" type="button" onClick={() => setIsOpen(!isOpen)}>
 							<span className="navbar-toggler-icon"></span>
 						</button>
