@@ -13,11 +13,11 @@ export default () => {
           <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link" to="/search">
-                 Search
+                  Search
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/search">
+                <Link className="nav-link" to="/recipe">
                   Recipes
                 </Link>
               </li>
