@@ -19,7 +19,9 @@ export default () => {
     <div className='container row justify-content-md-center'>
       <div className='col-12'>
         <h3>Ingredients</h3>
-        {ingredientsList}
+          <ul>
+            {ingredientsList}
+          </ul>
       </div>
     </div>
   )
