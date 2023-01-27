@@ -5,6 +5,7 @@ import Recipe from './Recipe'
 import Navbar from './Navbar'
 import Search from './Search'
 import ApiTest from './ApiTest'
+import Footer from './Footer'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Route path='/apitest' element={<ApiTest />} />
       <Route path='*' element={<div className='container'><h3>Page not found!</h3></div>} />
     </Routes>
+    <Footer />
     </>
   )
 }
