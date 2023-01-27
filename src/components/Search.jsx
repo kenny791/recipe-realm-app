@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 import seed from './Seed.jsx'
 
 const Search = () => {
+	const filteroptions = [
+		{name: "Cuisine", content: ['Indian', 'Italian', 'Chinese', 'Japanese', 'French', 'Thai', 'Greek']},
+		{name: "Dietary requirements", content: ['Vegetarian', 'Vegan', 'Gluten free', 'Pescaterian']},
+		{name: "Difficulty", content: ['easy', 'medium', 'hard']},
+		{name: "Other", content: []}
+	]
 	const [searchInput, setSearchInput] = useState('')
 
 	const handleChange = (event) => {
@@ -27,25 +33,26 @@ const Search = () => {
 			</div>
 			{/* Filter dropdowns */}
 			<div className="container w-75">
-				{/* Dropdown one */}
 				<div className="row">
 				{/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
+
+				{filteroptions.map((filteroption) => (
 					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
 								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>Cuisine</option>
-									{/* Note can prepopulate this from some predefined array */}
-									{/* After pre-population can make it more DRY */}
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Mediterranean</option>
+									<option selected>{filteroption.name}</option>
+									{filteroption.content.map((selection, index) => (
+										<option value={index}>{selection}</option>
+									))}
 								</select>
 								<label for="floatingSelect">Filter</label>
 							</div>
 						</div>
-					</div>
-					{/* Dropdown two */}
+					</div>					
+				))}
+
+					{/* Dropdown extended example */}
 					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
@@ -54,36 +61,6 @@ const Search = () => {
 									<option value="1">One</option>
 									<option value="2">Two</option>
 									<option value="3">Gluten Free</option>
-								</select>
-								<label for="floatingSelect">Filter</label>
-							</div>
-						</div>
-					</div>
-				
-					{/* Dropdown three */}
-					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-						<div className="p-0 flex-fill">
-							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>Difficulty</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Attempt only if expert</option>
-								</select>
-								<label for="floatingSelect">Filter</label>
-							</div>
-						</div>
-					</div>
-					{/* Dropdown four */}
-					{/* Leave padding right as 0 to align with Search bar */}
-					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-						<div className="p-0 flex-fill">
-							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>Other</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">All other options here</option>
 								</select>
 								<label for="floatingSelect">Filter</label>
 							</div>
