@@ -20,7 +20,7 @@ async function dbClose() {
 
 
 //connect to the database
-try{
+try {
     const m = await mongoose.connect(process.env.ATLAS_DB_URL)
     console.log(m.connection.readyState === 1 ? "Connected to database" : "Failed to connect to database")
 }
@@ -34,11 +34,17 @@ catch (err) {
 //recipe schema and model
 const recipeSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    username: {type: mongoose.ObjectId, ref: "User", required: true},
+    author: {type: mongoose.ObjectId, ref: "User", required: true},
+    description: {type: String, required: true},
+    ratings: [{
+        username: {type: mongoose.ObjectId, ref: "User", required: true},
+        rating: {type: Number, required: true}
+    }],
     tags: [{type: String}],
+    image: {type: String, default: "https://placekitten.com/g/600/400"},
     ingredients: [{type: String}],
-    preparation: [{type: String}],
-    image: {type: String}
+    method: [{type: String}],
+    comments: [{type: mongoose.ObjectId, ref: "Comment"}]
 })
 
 const RecipeModel = mongoose.model("Recipe", recipeSchema)
