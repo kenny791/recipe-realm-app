@@ -1,30 +1,6 @@
 import React from 'react'
 
-export default () => {
-
-  // Declare an array of comments
-  const comments = [
-    {
-      name: 'John Doe',
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore at quasi modi in deserunt quam, vero corrupti suscipit laborum quos hic aperiam sunt explicabo, consequatur aliquid error quibusdam itaque ducimus.'
-    },
-    {
-      name: 'Jane Doe',
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore at quasi modi in deserunt quam, vero corrupti suscipit laborum quos hic aperiam sunt explicabo, consequatur aliquid error quibusdam itaque ducimus.'
-    },
-    {
-      name: 'John Smith',
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore at quasi modi in deserunt quam, vero corrupti suscipit laborum quos hic aperiam sunt explicabo, consequatur aliquid error quibusdam itaque ducimus.'
-    },
-    {
-      name: 'Jane Smith',
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore at quasi modi in deserunt quam, vero corrupti suscipit laborum quos hic aperiam sunt explicabo, consequatur aliquid error quibusdam itaque ducimus.'
-    },
-    {
-      name: 'John Doe',
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore at quasi modi in deserunt quam, vero corrupti suscipit laborum quos hic aperiam sunt explicabo, consequatur aliquid error quibusdam itaque ducimus.'
-    }
-  ]
+export default ({ comments }) => {
 
   const commentHeader = comments.length === 1 ? '1 Comment' : `${comments.length} Comments`
 
