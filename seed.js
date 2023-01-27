@@ -6,9 +6,9 @@ await UserModel.deleteMany()
 console.log("Users deleted")
 
 const users = [
-    { username: "user1", password: "password1" },
-    { username: "user2", password: "password2" },
-    { username: "user3", password: "password3" }
+    { username: "user1", password: "password1", favourites: []},
+    { username: "user2", password: "password2", favourites: []},
+    { username: "user3", password: "password3", favourites: []}
 ]
 
 const insertusers = await UserModel.insertMany(users)
@@ -65,8 +65,17 @@ const recipes = [
     }
 ]
 
-await RecipeModel.insertMany(recipes)
+const insertrecipes = await RecipeModel.insertMany(recipes)
 console.log("Recipes inserted")
+
+const userswithfavs = [
+    { username: "user4", password: "password4", favourites: [insertrecipes[0], insertrecipes[1]]},
+    { username: "user5", password: "password5", favourites: [insertrecipes[1], insertrecipes[2]]},
+    { username: "user6", password: "password6", favourites: [insertrecipes[0], insertrecipes[2]]}
+]
+
+await UserModel.insertMany(userswithfavs)
+console.log("Users with favourites inserted")
 
 
 const comments = [

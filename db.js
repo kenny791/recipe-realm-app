@@ -47,7 +47,8 @@ const RecipeModel = mongoose.model("Recipe", recipeSchema)
 //user schema and model
 const userSchema = new mongoose.Schema({
     username: {type: String, required: true},
-    password: {type: String, required: true}
+    password: {type: String, required: true},
+    favourites: [{type: mongoose.ObjectId, ref: "Recipe"}]
 })
 
 const UserModel = mongoose.model("User", userSchema)
