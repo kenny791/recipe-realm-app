@@ -7,7 +7,7 @@ import RecipeMenu from './RecipeMenu'
 
 export default () => {
   return (
-    <div className='container'>
+		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
       <RecipeMenu />
       <Description />
       <Ingredients />

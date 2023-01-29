@@ -8,10 +8,10 @@ export default ({ comments }) => {
   const commentsList = comments.map((comment, index) => {
     return (
       <div className='row' key={index}>
-        <div className='col-2'>
+        <div className='col-sm-12 col-md-2'>
           <h6>{comment.name}</h6>
         </div>
-        <div className='col-8'>
+        <div className='col-sm-12 col-md-8'>
           <p>{comment.comment}</p>
         </div>
       </div>
