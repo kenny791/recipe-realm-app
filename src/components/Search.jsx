@@ -91,7 +91,7 @@ const Search = () => {
 						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2" key={recipe.id}>
 							<figure className="figure">
 								<img src={recipe.image} className="figure-img img-fluid rounded" alt={recipe.name} />
-								<p>{recipe.description}</p>
+								<h4>{recipe.name}</h4>
 							</figure>
 						</div>
 					))}
