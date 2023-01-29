@@ -1,7 +1,21 @@
 import React, { useState } from 'react'
 import seed from './Seed.jsx'
+import recipes from '../recipes.js'
 
 const Search = () => {
+
+	// const [recipes, setRecipes] = useState([])
+  
+	// useEffect(() => {
+	//   async function getRecipes() {
+	// 	const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/`)
+	// 	const data = await res.json()
+	// 	setRecipes(data) 
+	//   }
+	//   getRecipes()
+	// }, [])
+
+
 	const filteroptions = [
 		{name: "Cuisine", content: ['Indian', 'Italian', 'Chinese', 'Japanese', 'French', 'Thai', 'Greek']},
 		{name: "Dietary requirements", content: ['Vegetarian', 'Vegan', 'Gluten free', 'Pescaterian']},
@@ -16,7 +30,7 @@ const Search = () => {
 
 	// const [displayData, setDisplaydata] = useState({seed})
 
-	const filterrecipes = seed.filter(recipe => {
+	const filterrecipes = recipes.filter(recipe => {
 		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 	})
 
