@@ -1,15 +1,143 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&family=Montserrat:wght@200;400;500;600;700&family=Open+Sans:wght@300;400;700&display=swap');
 
-/* *{
+*{
     font-family: "Montserrat", "Lato", "Open Sans", sans-serif;
-    color: blue;
+
+    text-decoration: none;
+}
+
+
+:root{
+    --primary-color: green;
+    --secondary-color: #cbf2b5;
+    --tertiary-color: #f5f5f5;
+    --quaternary-color: #f5f5f5;
+}
+
+
+
+/* 
+div
+{
+    border: 1px solid red;
 } */
 
 
 
-.backdrop{
 
+/* ------------------------ carousel ------------------------*/
+
+
+.carousel-item {
+    height: 40vh !important;
+} 
+
+.carousel-link{
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+  
+
+
+
+
+
+
+/* ------------------------ Typography ------------------------*/
+
+
+
+.display-1 {
+    color: var(--primary-color);
+}
+
+h1{
+    color: var(--secondary-color);
+}
+
+
+
+
+/* adds element name infront of test, for reference only */
+/* h1::before {content: "H1..."}
+h2::before {content: "H2..."}
+h3::before {content: "H3..."}
+h4::before {content: "H4..."}
+h5::before {content: "H5..."}
+p::before {content: "P..."}
+.display-1::before {content: "D1...";}
+.display-2::before {content: "D2...";}
+.display-3::before {content: "D3...";}
+.display-4::before {content: "D4...";}
+.display-5::before {content: "D5...";}
+.display-6::before {content: "D6...";}
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------ Nav Bar ------------------------*/
+/* large screen navbar */
+/* default properties */
+.navbar.large, .navbar.compact {
+    background-color: rgba(250, 250, 250, 0)  !important;
+    transition: box-shadow 0.5s ease-out ;
+    transition: background-color 0.5s ease-out;
+}
+/* scrolled properties */
+.navbar.large.scrolled, .navbar.compact {
+    background-color: var(--secondary-color)  !important;
+    box-shadow: rgba(0,0,0,.1) 0px 5px 10px ;
+}
+
+/* unclicked link text colour */
+.navbar-brand, .nav-link{ 
+    color: var(--primary-color);  
+}
+
+/* clicked link colour */
+.navbar-brand:visited, .nav-link:visited{ 
+    color: var(--primary-color);
+}
+
+/* hover link text colour */
+.navbar-brand:hover, .nav-link:hover{ 
+    color: black;  
+}
+
+/* underline effect before hover */
+.navbar-brand:hover::after, .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.2s ease-in-out;
+}
+
+/* underline effect during hover */
+.navbar-brand:hover::after, .nav-link:hover::after {
+    width: 100%;
+}
+
+
+
+
+/* ------------------------ Landing Page ------------------------*/
+/* iamge */
+.backdrop{
     object-fit: cover;
     height: 100vh;
     width: 100%;
@@ -19,6 +147,8 @@
     background-clip: border-box;
 }
 
+
+/* Div ontop of backdrop */
 .hero{
     display: flex;
     flex-direction: column;
@@ -27,52 +157,38 @@
     height: 100vh;
 }
 
-
-.navbar.compact{
-    background-color: rgba(187, 223, 134)  !important;
+.hero > .display-1{
+    font-weight: bold !important;
 }
-
-.navbar.large {
-    background-color: rgba(250, 250, 250, 0)  !important;
-    transition: background-color 0.5s ease-out !important;
-}
-  
-.navbar.scrolled {
-    background-color: rgb(187, 223, 134)  !important;
+.hero > .display-2{
+    font-weight: bold !important;
 }
 
 
 
-/* Navbar */
-/* base link text colour */
-.navbar-brand, .nav-link{ 
-    color: green;  
+
+/* featured recipe */
+.featured-recipe{
+    background-color: var(--tertiary-color);
 }
 
-/* clicked link colour */
-.navbar-brand:visited, .nav-link:visited{ 
-    color: green;
-}
-
-
-/* hover link text colour */
-.navbar-brand:hover, .nav-link:hover{ 
-    color: black;  
-}
-
-
-.navbar-brand:hover::after, .nav-link::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 2px;
-    background-color: #333;
-    transition: width 0.2s ease-in-out;
-}
-
-.navbar-brand:hover::after, .nav-link:hover::after {
+/* image */
+.featured-img{
+    object-fit: cover;
+    height: 40vh;
     width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,3 +219,22 @@ h1::before {
     color: red;
   }
  */
+
+
+ a.featured-recipe-link{
+    color: black;
+    text-decoration: none;
+ }
+
+a.featured-recipe-link:hover{
+    color: black;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+
+
+}
+
+a.featured-recipe-link:visited{
+    color: black;
+    text-decoration: none;
+}
