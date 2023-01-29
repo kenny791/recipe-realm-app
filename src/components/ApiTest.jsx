@@ -1,24 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 
-export default () => {
-  const [recipeList, setRecipeList] = useState([])
+export default ( {recipeList} ) => {
   const [recipe, setRecipe] = useState([])
 
-// fetch all recipes
-  useEffect(() => {
-    async function getRecipeList() {
-      const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/`)
-      const data = await res.json()
-      setRecipeList(data) 
-    }
-    getRecipeList()
-  }, [])
-  
-  
-
-// fetch single recipe by id
-  const recipeId = "63d263abdd9f43e17b72cf5e"
+  // fetch single recipe by id
+  const recipeId = "63d34e3990fc119d29605ece"
 
   useEffect(() => {
     async function getRecipe() {
