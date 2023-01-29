@@ -1,7 +1,21 @@
 import React, { useState } from 'react'
 import seed from './Seed.jsx'
+import recipes from '../recipes.js'
 
 const Search = () => {
+
+	// const [recipes, setRecipes] = useState([])
+  
+	// useEffect(() => {
+	//   async function getRecipes() {
+	// 	const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/`)
+	// 	const data = await res.json()
+	// 	setRecipes(data) 
+	//   }
+	//   getRecipes()
+	// }, [])
+
+
 	const filteroptions = [
 		{name: "Cuisine", content: ['Indian', 'Italian', 'Chinese', 'Japanese', 'French', 'Thai', 'Greek']},
 		{name: "Dietary requirements", content: ['Vegetarian', 'Vegan', 'Gluten free', 'Pescaterian']},
@@ -16,7 +30,7 @@ const Search = () => {
 
 	// const [displayData, setDisplaydata] = useState({seed})
 
-	const filterrecipes = seed.filter(recipe => {
+	const filterrecipes = recipes.filter(recipe => {
 		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 	})
 
@@ -26,7 +40,7 @@ const Search = () => {
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
 			{/* Search bar */}
 			{/* mb is margin bottom; w is width */}
-			<div className="form-floating m-3 w-75 ">
+			<div className="form-floating m-3 mt-5 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
 				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange}/>
 				<label for="floatingInput">Search</label>
@@ -77,7 +91,7 @@ const Search = () => {
 						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2" key={recipe.id}>
 							<figure className="figure">
 								<img src={recipe.image} className="figure-img img-fluid rounded" alt={recipe.name} />
-								<p>{recipe.description}</p>
+								<h4>{recipe.name}</h4>
 							</figure>
 						</div>
 					))}
