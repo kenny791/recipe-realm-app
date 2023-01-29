@@ -40,7 +40,7 @@ const Search = () => {
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
 			{/* Search bar */}
 			{/* mb is margin bottom; w is width */}
-			<div className="form-floating m-3 w-75 ">
+			<div className="form-floating m-3 mt-5 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
 				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange}/>
 				<label for="floatingInput">Search</label>
