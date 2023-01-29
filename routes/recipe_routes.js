@@ -4,8 +4,15 @@ import { RecipeModel } from '../db.js'
 const router = express.Router()
 
 
-router.get("/recipes", async (request, response) => response.send( await RecipeModel.find().populate({path: "username", select: ["username"]}) ))
-
+router.get("/recipes", async (request, response) => {
+    try {
+        const recipes = await RecipeModel.find()
+        response.send(recipes)
+    }
+    catch (err) {
+        response.status(500).send({error: err.message})
+    }
+})
 
 router.get("/recipes/:id", async (request, response) => {
     try{
