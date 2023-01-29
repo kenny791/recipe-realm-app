@@ -18,12 +18,12 @@ export default ({addComment}) => {
           </div>
         </div>
         <div className='row justify-content-md-center'>
-          <div className='col-12'>
+          <div className='col-12 pb-3'>
             <input type="text" className="form-control" value={comment} onChange={(event) => setComment(event.target.value)} id="floatingInput" />
           </div>
         </div>
         <div className='row justify-content-md-center'>
-          <div className='col-12'>
+          <div className='col-12 pb-3'>
             <button type="submit" className="btn btn-secondary" data-bs-toggle="button" autoComplete="off">Publish</button>
           </div>
         </div>

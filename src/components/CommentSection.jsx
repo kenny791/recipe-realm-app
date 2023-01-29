@@ -11,9 +11,11 @@ export default () => {
   }
 
   return (
-    <div className='container'>
-      <CommentForm addComment={addComment} />
-      <Comment comments={comments} />
+    <div className='container row justify-content-md-center mx-auto'>
+      <div className='col-12 col-lg-10'>
+        <CommentForm addComment={addComment} />
+        <Comment comments={comments} />
+      </div>
     </div>
   )
 }
