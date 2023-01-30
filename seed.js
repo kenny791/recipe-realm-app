@@ -6,9 +6,9 @@ await UserModel.deleteMany()
 console.log("Users deleted")
 
 const users = [
-    { username: insertusers[1], password: "password1", favourites: []},
-    { username: insertusers[1], password: "password2", favourites: []},
-    { username: insertusers[1], password: "password3", favourites: []}
+    { username: "user1", password: "password1", favourites: []},
+    { username: "user2", password: "password2", favourites: []},
+    { username: "user3", password: "password3", favourites: []}
 ]
 
 const insertusers = await UserModel.insertMany(users)
