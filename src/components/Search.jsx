@@ -1,9 +1,28 @@
 import React, { useState } from 'react'
 import seed from './Seed.jsx'
+import recipes from '../recipes.js'
 
-const Search = ({ searchInput, setSearchInput }) => {
-	//moved up to parent component, to be deleted
-	// const [searchInput, setSearchInput] = useState('')
+const Search = () => {
+
+	// const [recipes, setRecipes] = useState([])
+  
+	// useEffect(() => {
+	//   async function getRecipes() {
+	// 	const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/`)
+	// 	const data = await res.json()
+	// 	setRecipes(data) 
+	//   }
+	//   getRecipes()
+	// }, [])
+
+
+	const filteroptions = [
+		{name: "Cuisine", content: ['Indian', 'Italian', 'Chinese', 'Japanese', 'French', 'Thai', 'Greek']},
+		{name: "Dietary requirements", content: ['Vegetarian', 'Vegan', 'Gluten free', 'Pescaterian']},
+		{name: "Difficulty", content: ['easy', 'medium', 'hard']},
+		{name: "Other", content: []}
+	]
+	const [searchInput, setSearchInput] = useState('')
 
 	const handleChange = (event) => {
 		setSearchInput(event.target.value)
@@ -11,7 +30,7 @@ const Search = ({ searchInput, setSearchInput }) => {
 
 	// const [displayData, setDisplaydata] = useState({seed})
 
-	const filterrecipes = seed.filter(recipe => {
+	const filterrecipes = recipes.filter(recipe => {
 		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 	})
 
@@ -21,32 +40,33 @@ const Search = ({ searchInput, setSearchInput }) => {
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
 			{/* Search bar */}
 			{/* mb is margin bottom; w is width */}
-			<div className="form-floating m-3 w-75 ">
+			<div className="form-floating m-3 mt-5 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
 				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange} value={searchInput}/>
 				<label for="floatingInput">Search</label>
 			</div>
 			{/* Filter dropdowns */}
 			<div className="container w-75">
-				{/* Dropdown one */}
 				<div className="row">
 				{/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
+
+				{filteroptions.map((filteroption) => (
 					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
 								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>Cuisine</option>
-									{/* Note can prepopulate this from some predefined array */}
-									{/* After pre-population can make it more DRY */}
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Mediterranean</option>
+									<option selected>{filteroption.name}</option>
+									{filteroption.content.map((selection, index) => (
+										<option value={index}>{selection}</option>
+									))}
 								</select>
 								<label for="floatingSelect">Filter</label>
 							</div>
 						</div>
-					</div>
-					{/* Dropdown two */}
+					</div>					
+				))}
+
+					{/* Dropdown extended example */}
 					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
@@ -55,36 +75,6 @@ const Search = ({ searchInput, setSearchInput }) => {
 									<option value="1">One</option>
 									<option value="2">Two</option>
 									<option value="3">Gluten Free</option>
-								</select>
-								<label for="floatingSelect">Filter</label>
-							</div>
-						</div>
-					</div>
-				
-					{/* Dropdown three */}
-					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-						<div className="p-0 flex-fill">
-							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>Difficulty</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Attempt only if expert</option>
-								</select>
-								<label for="floatingSelect">Filter</label>
-							</div>
-						</div>
-					</div>
-					{/* Dropdown four */}
-					{/* Leave padding right as 0 to align with Search bar */}
-					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-						<div className="p-0 flex-fill">
-							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>Other</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">All other options here</option>
 								</select>
 								<label for="floatingSelect">Filter</label>
 							</div>
@@ -101,7 +91,7 @@ const Search = ({ searchInput, setSearchInput }) => {
 						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2" key={recipe.id}>
 							<figure className="figure">
 								<img src={recipe.image} className="figure-img img-fluid rounded" alt={recipe.name} />
-								<p>{recipe.description}</p>
+								<h4>{recipe.name}</h4>
 							</figure>
 						</div>
 					))}
