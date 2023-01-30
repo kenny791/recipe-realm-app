@@ -24,7 +24,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Soup", "Vegetarian", "Easy"],
-      image: "",
+      image: "https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80",
       ingredients: ["1 onion, diced", "1 carrot, diced", "1 potato, diced", "1 cup of water", "1 can of diced tomatoes", "2 cloves of garlic, minced", "1 tsp of olive oil", "1 tsp of salt", "1/2 tsp of black pepper", "1/4 tsp of thyme"],
       method: ["In a large pot, heat the olive oil over medium heat", "Add the onion, carrot, and potato and sauté for 5 minutes", "Add the garlic, salt, pepper, and thyme and sauté for an additional 2 minutes", "Add the diced tomatoes and water, bring the mixture to a boil", "Reduce the heat to low, cover and let simmer for 30 minutes or until vegetables are tender", "Serve with bread or crackers if desired"],
       comments: [
@@ -49,7 +49,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Pasta", "Italian", "Easy"],
-      image: "",
+      image: "https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80",
       ingredients: ["1 pound of spaghetti", "1 pound of ground beef", "1 onion, diced", "2 cloves of garlic, minced", "1 can of diced tomatoes", "1 cup of beef broth", "1 tsp of olive oil", "1 tsp of salt", "1/2 tsp of black pepper", "1 tsp of dried basil"],
       method: ["Cook the spaghetti according to package instructions and set aside", "In a large pot, heat the olive oil over medium heat", "Add the onion, garlic, and ground beef and sauté until the beef is browned", "Add the diced tomatoes, beef broth, salt, pepper, and basil and bring to a boil", "Reduce the heat to low, cover and let simmer for 30 minutes", "Serve the meat sauce over the cooked spaghetti"],
       comments: [
@@ -74,7 +74,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Seafood", "Italian"],
-      image: "",
+      image: "https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80",
       ingredients: ["1 lb shrimp, peeled and deveined", "4 cloves of garlic, minced", "1/4 cup of lemon juice", "1/4 cup of white wine", "4 tablespoons of butter", "Salt and pepper, to taste", "1/4 cup of parsley, chopped", "1 lb of spaghetti"],
       method: ["Cook pasta according to package instructions, reserve 1 cup of pasta water before draining. ",
       "In a large skillet, melt butter over medium heat. Add garlic and cook until fragrant, about 1 minute. Add shrimp and cook for 2-3 minutes per side or until pink. ",
@@ -103,7 +103,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Chicken", "Italian"],
-      image: "",
+      image: "https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80",
       ingredients: ["4 boneless, skinless chicken breasts", "Salt and pepper", "Flour for dusting", "1/4 cup olive oil", "1/4 cup butter", "1/2 cup chicken broth", "1/2 cup lemon juice", "1/4 cup capers", "1/4 cup chopped fresh parsley"],
       method: ["Pound the chicken breasts to an even thickness, season with salt and pepper, and dust with flour. In a large skillet, heat the olive oil and butter over medium-high heat. Cook the chicken for 3-4 minutes per side, or until golden brown and cooked through. Remove the chicken to a platter and cover with foil to keep warm. In the same skillet, add the chicken broth, lemon juice, capers, and parsley. Cook for 2-3 minutes, or until the sauce is thickened and bubbly. Serve the chicken over spaghetti or rice, and spoon the sauce over the top."],
       comments: [
@@ -128,7 +128,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["dessert", "cookies", "chocolate chip"],
-      image: "",
+      image: "https://loremflickr.com/320/240/fruit",
       ingredients: [
           "2 and 1/4 cups all-purpose flour",
           "1 tsp baking soda",
@@ -173,7 +173,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["spicy", "peanut sauce", "noodles", "dinner"],
-      image: "",
+      image: "https://loremflickr.com/320/240/fruit",
       ingredients: ["8 oz linguine", "1/4 cup creamy peanut butter", "1/4 cup soy sauce", "1/4 cup rice vinegar", "2 tbsp sesame oil", "1 tbsp honey", "1 tbsp grated ginger", "1 tsp red pepper flakes", "3 cloves garlic, minced"],
       method: ["Cook the linguine according to package instructions.", "Meanwhile, in a small saucepan, whisk together the peanut butter, soy sauce, rice vinegar, sesame oil, honey, ginger, red pepper flakes and garlic. Cook over medium heat, stirring constantly, until the sauce is heated through and smooth.", "Drain the cooked linguine and toss with the peanut sauce.", "Serve hot, garnished with chopped peanuts and green onions if desired."],
       comments: [
@@ -198,7 +198,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "gluten-free", "spicy", "black bean", "tacos"],
-      image: "",
+      image: "https://loremflickr.com/320/240/fruit",
       ingredients: ["1 can black beans, drained and rinsed", "1 tbsp olive oil", "1 onion, diced", "3 cloves garlic, minced", "1 tbsp chili powder", "1 tsp cumin", "1/2 tsp smoked paprika", "1/4 tsp chipotle powder", "1/4 tsp salt", "1/4 cup water", "8 corn tortillas", "Toppings of choice (avocado, cilantro, lime wedges, etc.)"],
       method: ["In a medium saucepan, heat the olive oil over medium heat. Add the onion and garlic and cook until softened, about 5 minutes.", "Stir in the black beans, chili powder, cumin, smoked paprika, chipotle powder, salt, and water. Bring to a simmer and cook for 10-15 minutes, or until the sauce has thickened.", "While the bean mixture is cooking, warm the tortillas in the oven or on a skillet.", "To assemble the tacos, fill each tortilla with the black bean mixture and your desired toppings.", "Serve immediately and enjoy!"],
       comments: [
@@ -223,7 +223,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["chicken", "mushroom", "creamy", "garlic", "dinner"],
-      image: "",
+      image: "https://loremflickr.com/320/240/fruit",
       ingredients: ["4 boneless, skinless chicken breasts", "1/4 cup all-purpose flour", "1 tsp salt", "1/2 tsp black pepper", "1 tbsp olive oil", "1 tbsp butter", "8 oz sliced mushrooms", "3 cloves garlic, minced", "1 cup chicken broth", "1/2 cup heavy cream", "1/4 cup grated Parmesan cheese", "2 tbsp chopped fresh parsley"],
       method: ["In a shallow dish, combine the flour, salt and pepper. Dredge the chicken in the flour mixture, shaking off any excess.", "In a large skillet, heat the olive oil and butter over medium heat. Add the chicken and cook for 6-8 minutes per side, or until golden brown and cooked through.", "Remove the chicken from the skillet and set aside.", "Add the mushrooms and garlic to the skillet and cook until softened, about 5 minutes. Stir in the chicken broth, heavy cream and Parmesan cheese. Bring to a simmer and cook for 2-3 minutes, or until the sauce has thickened.", "Return the chicken to the skillet and spoon the sauce over the top. Sprinkle with parsley and serve immediately."],
       comments: [
@@ -248,7 +248,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "lentils", "shepherd's pie", "comfort food"],
-      image: "",
+      image: "https://loremflickr.com/320/240/sushi",
       ingredients: ["2 cups cooked green or brown lentils", "1 onion, diced", "2 cloves garlic, minced", "1 carrot, diced", "1 cup frozen peas", "1 tbsp tomato paste", "1 tbsp flour", "1 tsp dried thyme", "1 tsp dried rosemary", "1/4 tsp black pepper", "1 cup vegetable broth", "4 cups mashed potatoes", "1 tbsp vegan butter", "1 tbsp chopped fresh parsley"],
       method: ["Preheat the oven to 375°F (190°C). Grease a 9x13 inch baking dish.", "In a large skillet, sauté the onion and garlic in a little bit of oil until softened. Add the carrot and cook for a few minutes more.", "Stir in the lentils, peas, tomato paste, flour, thyme, rosemary and pepper. Add the broth and bring the mixture to a simmer. Cook for about 5 minutes, or until the mixture has thickened.", "Transfer the lentil mixture to the prepared baking dish. Spread the mashed potatoes over the top, smoothing out the surface.", "Bake for 25-30 minutes, or until the top is golden brown and the filling is bubbly.", "Remove from the oven and let cool for a few minutes before serving."],
       comments: [
@@ -273,7 +273,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "chickpea", "Indian", "comfort food"],
-      image: "",
+      image: "https://loremflickr.com/320/240/sushi",
       ingredients: ["1 tbsp vegetable oil", "1 onion, diced", "3 cloves garlic, minced", "1 tbsp grated ginger", "2 tsp ground cumin", "1 tsp ground coriander", "1/2 tsp ground turmeric", "1/2 tsp ground cinnamon", "1/4 tsp cayenne pepper", "1 (14 oz) can diced tomatoes", "1 cup vegetable broth", "1 cup coconut milk", "2 cups cooked chickpeas", "1 cup diced carrots", "1 cup diced potatoes", "1 cup frozen peas", "1 tbsp chopped fresh cilantro"],
       method: ["In a large pot, heat the oil over medium heat. Add the onion and cook until softened, about 5 minutes. Add the garlic and ginger and cook for 1-2 minutes more.", "Stir in the cumin, coriander, turmeric, cinnamon, and cayenne pepper. Cook for 1-2 minutes, or until fragrant.", "Add the diced tomatoes, vegetable broth, coconut milk, chickpeas, carrots, potatoes, and peas. Bring the mixture to a simmer and cook until the vegetables are tender, about 20-25 minutes.", "Stir in the cilantro and serve over rice or with naan bread."],
       comments: [
@@ -298,7 +298,7 @@ const recipes = [
         {username: insertusers[1], rating: 5}, {username: insertusers[2], rating: 4}
       ],
       tags: ["chicken", "tikka masala", "curry", "Indian"],
-      image: "",
+      image: "https://loremflickr.com/320/240/sushi",
       ingredients: ["1 lb boneless, skinless chicken breasts, cut into bite-sized chunks", "1 cup plain yogurt", "1 tbsp grated ginger", "2 cloves garlic, minced", "1 tsp ground cumin", "1 tsp ground coriander", "1/2 tsp ground turmeric", "1/2 tsp ground cinnamon", "1/4 tsp cayenne pepper", "1/4 tsp ground black pepper", "1 tbsp vegetable oil", "1 onion, diced", "3 cloves garlic, minced", "1 tbsp grated ginger", "1 tsp ground cumin", "1 tsp ground coriander", "1/2 tsp ground turmeric", "1/2 tsp ground cinnamon", "1/4 tsp cayenne pepper", "1/4 tsp ground black pepper", "1 (14 oz) can diced tomatoes", "1 cup heavy cream", "1/4 cup chopped fresh cilantro"],
       method: ["In a large bowl, combine the chicken, yogurt, ginger, garlic, cumin, coriander, turmeric, cinnamon, cayenne pepper, and black pepper. Mix well, cover and refrigerate for at least 2 hours.", "In a large pot, heat the oil over medium heat. Add the onion and cook until softened, about 5 minutes. Add the garlic and ginger and cook for 1-2 minutes more.", "Stir in the cumin, coriander, turmeric, cinnamon, and cayenne pepper. Cook for 1-2 minutes, or until fragrant.", "Add the diced tomatoes and bring the mixture to a simmer. Cook for 10-15 minutes.", "Thread the marinated chicken onto skewers and grill or broil until cooked through. Add the cooked chicken to the simmering sauce and stir in the heavy cream and cilantro. Cook for 5-10 minutes more, or until heated through. Serve with rice or naan bread."],
       comments: [
@@ -323,7 +323,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegetable", "fried rice", "vegan", "gluten-free"],
-      image: "",
+      image: "https://loremflickr.com/320/240/sushi",
       ingredients: ["4 cups cooked white rice", "2 tbsp vegetable oil", "1 onion, diced", "2 cloves garlic, minced", "1 cup diced carrots", "1 cup frozen peas", "1 cup diced bell peppers", "3 tbsp soy sauce", "1 tbsp rice vinegar", "1 tsp sesame oil", "2 green onions, thinly sliced"],
       method: ["In a large skillet or wok, heat the vegetable oil over medium-high heat. Add the onion and garlic and cook until softened, about 2-3 minutes.", "Add the carrots, peas, and bell peppers and cook until the vegetables are tender, about 5 minutes.", "Stir in the cooked rice, soy sauce, rice vinegar, and sesame oil. Cook, stirring frequently, until the rice is heated through, about 3-4 minutes.", "Stir in the green onions and cook for 1-2 minutes more.", "Serve the fried rice immediately."],
       comments: [
@@ -348,7 +348,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "breakfast", "tacos"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 block of firm tofu", "1 tbsp olive oil", "1/2 red onion, diced", "1 red bell pepper, diced", "1 green bell pepper, diced", "1 tsp chili powder", "1/2 tsp ground cumin", "1/2 tsp garlic powder", "1/4 tsp salt", "1/4 tsp black pepper", "1 avocado, diced", "1/2 cup salsa", "8 corn tortillas"],
       method: ["Drain the tofu and crumble it into a bowl. Heat the olive oil in a skillet over medium heat. Add the onion, bell peppers, chili powder, cumin, garlic powder, salt and pepper to the skillet. Cook for about 5 minutes or until the vegetables are tender.", "Add the crumbled tofu to the skillet and cook for another 5 minutes or until the tofu is heated through. Stir occasionally.", "Warm the tortillas in the microwave or on a skillet. Divide the tofu mixture among the tortillas. Top each taco with avocado and salsa.", "Serve the vegan breakfast tacos immediately."],
       comments: [
@@ -373,7 +373,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["english", "breakfast", "traditional"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["4 eggs", "4 slices of bacon", "4 sausages", "4 slices of black pudding", "1 can of baked beans", "2 tomatoes, halved", "8 mushrooms, halved", "Salt and pepper, to taste", "Butter or oil, for frying", "4 slices of toast"],
       method: ["Heat a pan over medium-high heat and add a little butter or oil. Fry the bacon, sausages, black pudding, tomatoes, and mushrooms until cooked through. Season with salt and pepper to taste.", "In a separate pan, fry or scramble the eggs to your liking.", "Serve the cooked meats and vegetables on plates, with the fried eggs on top. Warm the baked beans in a saucepan or microwave and serve on the side.", "Serve with toast and a cup of tea."],
       comments: [
@@ -398,7 +398,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["asian", "szechuan", "spicy"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 lb boneless chicken, cut into small chunks", "1 red bell pepper, cut into small chunks", "1 green bell pepper, cut into small chunks", "1/2 cup peanuts", "1/4 cup cornstarch", "2 tablespoons oil", "2 cloves garlic, minced", "1 tablespoon ginger, minced", "2 green onions, sliced", "1/4 cup Kung Pao sauce", "1/4 cup chicken broth", "1 tablespoon soy sauce", "1 tablespoon rice vinegar", "1 teaspoon sesame oil", "1 teaspoon sugar", "1/4 teaspoon red pepper flakes"],
       method: ["Mix the chicken chunks with the cornstarch in a bowl and toss to coat the chicken evenly.", "Heat a pan or wok over high heat and add oil. Once hot, add the chicken chunks and stir-fry for about 4-5 minutes or until the chicken is cooked through.", "Remove the chicken from the pan and set aside.", "Add the garlic, ginger, and red and green bell peppers to the pan and stir-fry for 2-3 minutes or until the vegetables are tender.", "Add the Kung Pao sauce, chicken broth, soy sauce, rice vinegar, sesame oil, sugar, and red pepper flakes to the pan and stir to combine.", "Add the chicken back to the pan and stir to coat it in the sauce.", "Add the peanuts and green onions to the pan and stir to combine.", "Serve over steamed rice."],
       comments: [
@@ -423,7 +423,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["asian", "pork", "deep-fried"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["4 pork cutlets", "1 cup flour", "2 eggs, beaten", "2 cups bread crumbs", "1 head of cabbage, shredded", "oil for frying", "Tonkatsu Sauce:", "1/2 cup ketchup", "1/4 cup Worcestershire sauce", "1 tablespoon sugar", "1 tablespoon soy sauce", "1 tablespoon sake", "1 teaspoon grated onion"],
       method: ["Mix the ketchup, Worcestershire sauce, sugar, soy sauce, sake and grated onion in a small saucepan over medium heat. Bring to a boil, then reduce the heat and simmer for 5 minutes to thicken.", "Season the pork cutlets with salt and pepper.", "Place the flour, beaten eggs, and breadcrumbs in separate shallow dishes.", "Dredge each pork cutlet in the flour, then dip it in the beaten eggs and coat it with the breadcrumbs.", "Heat a large skillet over medium-high heat and add enough oil to come 1/4 inch up the sides of the pan.", "Fry the pork cutlets for 2-3 minutes per side or until golden brown and cooked through.", "Remove the pork cutlets from the pan and drain on a paper towel.", "Serve the pork cutlets with the shredded cabbage and tonkatsu sauce on the side."],
       comments: [
@@ -448,7 +448,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Australian", "meat", "pie"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 lb ground beef", "1 onion, diced", "2 cloves garlic, minced", "1 cup diced carrots", "1 cup diced potatoes", "1 cup frozen peas", "1/2 cup beef broth", "1 tablespoon tomato paste", "1 teaspoon dried thyme", "1/4 teaspoon nutmeg", "Salt and pepper to taste", "1 sheet puff pastry, thawed", "1 egg, beaten"],
       method: ["Preheat the oven to 400F.", "In a large skillet over medium-high heat, brown the ground beef until fully cooked.", "Add the onion, garlic, carrots, potatoes, and peas, and cook for 5 minutes.", "Add the beef broth, tomato paste, thyme, nutmeg, salt and pepper, and bring to a simmer.", "Cook for an additional 10 minutes, or until the vegetables are tender.", "Remove the skillet from the heat and let the filling cool for 10 minutes.", "Roll out the puff pastry on a lightly floured surface and cut it into 4 equal squares.", "Spoon the cooled filling onto the center of each square.", "Brush the edges of the pastry with the beaten egg.", "Fold the pastry in half to form a triangle, and press the edges to seal.", "Brush the top of each pie with the remaining beaten egg.", "Bake the pies for 20-25 minutes or until the pastry is golden brown and puffed.", "Serve the pies hot with tomato sauce."],
       comments: [
@@ -473,7 +473,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Arabic", "salad", "vegetarian"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 head of romaine lettuce, chopped", "1 cucumber, chopped", "1 tomato, chopped", "1/2 red onion, chopped", "1/2 cup chopped fresh parsley", "1/2 cup chopped fresh mint", "1/4 cup chopped fresh cilantro", "1/2 cup crumbled feta cheese", "1/2 cup diced toasted or fried pita bread", "1/4 cup lemon juice", "1/4 cup olive oil", "1 teaspoon sumac"],
       method: ["In a large bowl, combine the romaine lettuce, cucumber, tomato, red onion, parsley, mint, and cilantro.", "Add the feta cheese and toasted pita bread.", "In a small bowl, whisk together the lemon juice, olive oil, and sumac.", "Pour the dressing over the salad and toss to coat.", "Serve the salad immediately."],
       comments: [
@@ -498,7 +498,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Spicy", "Sausage", "Potato", "Skillet"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 pound spicy sausage, sliced", "4 potatoes, peeled and diced", "1 onion, diced", "1 bell pepper, diced", "1 tablespoon olive oil", "1/4 teaspoon salt", "1/4 teaspoon black pepper", "1/4 cup shredded cheese"],
       method: ["In a large skillet, heat the olive oil over medium heat.", "Add the spicy sausage and cook for about 5 minutes or until browned.", "Add the potatoes, onion, and bell pepper to the skillet and stir to combine.", "Sprinkle the salt and pepper over the top.", "Cook for about 15 minutes or until the potatoes are tender and the vegetables are softened.", "Sprinkle the shredded cheese over the top and cook for an additional 2 minutes or until the cheese is melted.", "Serve hot."],
       comments: [
@@ -523,7 +523,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Potato", "Chickpea", "Curry", "Indian"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 tablespoon vegetable oil", "1 onion, chopped", "4 cloves of garlic, minced", "1 tablespoon grated ginger", "2 teaspoons cumin powder", "2 teaspoons coriander powder", "1 teaspoon turmeric powder", "1 teaspoon red chili powder", "1/2 teaspoon salt", "1 can diced tomatoes", "2 cups vegetable broth", "2 cups cubed potatoes", "1 can chickpeas, drained and rinsed", "1/4 cup chopped cilantro"],
       method: ["In a large pot or dutch oven, heat the oil over medium heat. Add the onion and sauté until softened.", "Add the garlic and ginger and sauté for another minute.", "Add the spices and salt and stir to combine.", "Add the diced tomatoes, vegetable broth, potatoes and chickpeas.", "Bring to a boil, then reduce the heat to low and simmer for 15-20 minutes or until the potatoes are tender.", "Stir in the cilantro and serve over rice."],
       comments: [
@@ -548,7 +548,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Chicken", "Vegetable", "Skewers"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 pound boneless, skinless chicken breasts, cut into 1-inch cubes", "1 red bell pepper, cut into 1-inch pieces", "1 yellow bell pepper, cut into 1-inch pieces", "1 red onion, cut into wedges", "1 zucchini, cut into 1-inch pieces", "1/4 cup olive oil", "juice of 1 lemon", "2 cloves of garlic, minced", "1 teaspoon dried oregano", "1 teaspoon dried basil", "1/2 teaspoon salt", "1/4 teaspoon black pepper", "1 cup plain yogurt", "1 clove of garlic, minced", "1/4 teaspoon salt"],
       method: ["In a large bowl, combine the chicken, bell peppers, onion, and zucchini.", "In a separate bowl, whisk together the olive oil, lemon juice, garlic, oregano, basil, salt, and pepper.", "Pour the marinade over the chicken and vegetables and toss to coat.", "Thread the chicken and vegetables onto skewers, alternating between the different ingredients.", "Grill the skewers over medium-high heat for 8-10 minutes per side or until the chicken is cooked through.", "In a small bowl, mix together the yogurt, garlic, and salt for the garlic yogurt sauce.", "Serve the skewers with the garlic yogurt sauce."],
       comments: [
@@ -573,7 +573,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Shrimp", "Cauliflower Rice", "Spicy"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 pound raw shrimp, peeled and deveined", "1 teaspoon chili powder", "1 teaspoon cumin", "1 teaspoon smoked paprika", "1/2 teaspoon salt", "1/4 teaspoon black pepper", "2 tablespoons olive oil", "1 red bell pepper, diced", "1 yellow onion, diced", "4 cloves of garlic, minced", "1 head of cauliflower, grated", "1/4 cup chopped cilantro"],
       method: ["In a large bowl, combine the shrimp, chili powder, cumin, smoked paprika, salt, and pepper.", "In a large skillet, heat the olive oil over medium-high heat.", "Add the bell pepper, onion, and garlic to the skillet and sauté for 5-7 minutes or until softened.", "Add the cauliflower to the skillet and sauté for an additional 5-7 minutes or until the cauliflower is tender.", "Add the shrimp to the skillet and sauté for 3-5 minutes or until the shrimp is pink and cooked through.", "Serve the shrimp and cauliflower rice in bowls and garnish with cilantro."],
       comments: [
@@ -598,7 +598,7 @@ const recipes = [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Quinoa", "Salad", "Mediterranean"],
-      image: "",
+      image: "https://placekitten.com/g/400/300",
       ingredients: ["1 cup quinoa, rinsed and drained", "1 1/2 cups water", "1/2 teaspoon salt", "1/2 cup chopped cherry tomatoes", "1/2 cup chopped cucumber", "1/2 cup crumbled feta cheese", "1/4 cup chopped kalamata olives", "1/4 cup chopped red onion", "1/4 cup chopped fresh parsley", "1/4 cup chopped fresh mint", "1/4 cup olive oil", "3 tablespoons lemon juice", "1 clove of garlic, minced", "1/4 teaspoon salt", "1/4 teaspoon black pepper"],
       method: ["In a medium saucepan, bring the quinoa, water, and salt to a boil. Reduce heat to low, cover and simmer for 18 minutes. Remove from heat and let it sit, covered, for 5 minutes. Fluff with a fork and let it cool.", "In a large bowl, combine the cooked quinoa, tomatoes, cucumber, feta cheese, olives, red onion, parsley, and mint.", "In a small bowl, whisk together the olive oil, lemon juice, garlic, salt and pepper. Pour over the quinoa mixture and toss to coat.", "Serve chilled or at room temperature."],
       comments: [
