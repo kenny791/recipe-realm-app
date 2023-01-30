@@ -20,7 +20,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 	]
 
 	// const [recipes, setRecipes] = useState(recipeList)
-	const [filter1, setFilter1] = useState(null)
+	const [filter1, setFilter1] = useState('')
 	const [filter2, setFilter2] = useState('')
 	const [filter3, setFilter3] = useState('')
 	const [filter4, setFilter4] = useState('')
@@ -29,9 +29,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		switch(evt.target.firstChild.label) {
 			case "Cuisine":
 				if (evt.target.value == evt.target.firstChild.value) { 
-					setFilter1(null)
-					console.log(evt.target.value)
-					console.log(filter1)
+					setFilter1('')
 				} else {
 					setFilter1(evt.target.value.toLowerCase())
 				}
@@ -60,7 +58,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		}
 	}
 
-	const filterrecipes = recipeList
+	var filterrecipes = recipeList
 		.filter(recipe => {
 			return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 		})
@@ -69,6 +67,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 			// console.log(recipeTags)
 			// console.log(filter1)
 			// return recipeTags.includes(filter1)
+
 			let filtered = false
 			console.log(filter1)
 			for (let tags of recipe.tags) {
@@ -76,10 +75,43 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 					filtered = true
 				}
 			}
+
+			// for (let tags in recipe.tags) {
+			// 	if (recipe.tags[tags].toLowerCase().includes(filter1)) {
+			// 		filtered = true
+			// 	}
+			// }
+
 			return filtered
 			})
+		.filter(recipe => {
+			let filtered = false
+			for (let tags of recipe.tags) {
+				if (tags.toLowerCase().includes(filter2)) {
+					filtered = true
+				}
+			}
+			return filtered
+		})
+		.filter(recipe => {
+			let filtered = false
+			for (let tags of recipe.tags) {
+				if (tags.toLowerCase().includes(filter3)) {
+					filtered = true
+				}
+			}
+			return filtered
+		})
+		.filter(recipe => {
+			let filtered = false
+			for (let tags of recipe.tags) {
+				if (tags.toLowerCase().includes(filter4)) {
+					filtered = true
+				}
+			}
+			return filtered
+		})
 		
-
 
   return (
     <>
