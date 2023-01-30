@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export default () => {
+export default ({ setSearchInput }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const handleLinkClick = () => setIsOpen(false)
 	const [navbarClass, setNavbarClass] = useState("")
@@ -20,11 +20,11 @@ export default () => {
 		  		window.removeEventListener("scroll", handleScroll)
 			}
 	}, [])
-	
+		
 	const ListLink = ({ isSmallNav, to, textToDisplay }) => {
 		return (
 			<li className="nav-item">
-				<Link className="nav-link" onClick={isSmallNav ? {handleLinkClick} : null} to={to}>
+				<Link className="nav-link" onClick={() => { isSmallNav ? handleLinkClick() : null; setSearchInput("")}}  to={to}>
 				{textToDisplay}
 				</Link>
 			</li>
