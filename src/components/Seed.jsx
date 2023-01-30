@@ -32,7 +32,7 @@ const Seed = [{
     "id": 7,
     "name": "Rim Lichen",
     "description": "Lecanora caesiorubella Ach.",
-    "image": "https://loremflickr.com/320/240/fruite"
+    "image": "https://loremflickr.com/320/240/fruit"
     ,"tags": ["Indian", "Italian", "Japanese", "Vegan", "medium"]  }, {
     "id": 8,
     "name": "Coastal Burnweed",

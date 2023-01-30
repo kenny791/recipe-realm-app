@@ -29,7 +29,7 @@ export default function App() {
     <Navbar />
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput}/>} />
-      <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput}/>} />
+      <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />
       <Route path='/user' element={<User />} />
       <Route path='/recipe' element={<Recipe />} />
       <Route path='/apitest' element={<ApiTest recipeList={recipeList}/>} />
