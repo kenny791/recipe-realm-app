@@ -24,9 +24,11 @@ export default function App() {
   //Search input state  
   const [searchInput, setSearchInput] = useState("")
   
+
+
   return (
     <>
-    <Navbar />
+    <Navbar setSearchInput={setSearchInput}/>
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput}/>} />
       <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />

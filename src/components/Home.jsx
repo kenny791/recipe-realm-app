@@ -6,7 +6,12 @@ const Home = ({ setSearchInput }) => {
 
 	const handleClick = (prefillSearch) => {
 		setSearchInput(prefillSearch)
-	  };
+	};
+
+	const handleChange = (event) => {
+		setSearchInput(event.target.value)
+	}
+
 
  	return (
 		<div className="container-fluid landing">
@@ -20,8 +25,10 @@ const Home = ({ setSearchInput }) => {
 				<div className="col-lg-6 mx-auto">
 					<div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
 						<div className="input-group mb-3 ">
-							<input className="form-control" id="floatingInput" placeholder="Search" />
+							<input className="form-control" id="floatingInput" placeholder="Search" onChange={handleChange}  />
+							<Link to="/search">
 							<button className="btn btn-outline-secondary" type="button" id="button-addon2" style={{backgroundColor: "lightGray", }}>Go!</button>
+							</Link>
 						</div>
 					</div>
 				</div>
