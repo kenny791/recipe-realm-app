@@ -33,6 +33,7 @@ catch (err) {
 //defines the structure the model will need to conform to
 //recipe schema and model
 const recipeSchema = new mongoose.Schema({
+    id: {type: Number, required: true},
     name: {type: String, required: true},
     author: {type: mongoose.ObjectId, ref: "User", required: true},
     description: {type: String, required: true},
@@ -41,10 +42,14 @@ const recipeSchema = new mongoose.Schema({
         rating: {type: Number, required: true}
     }],
     tags: [{type: String}],
-    image: {type: String, default: "https://placekitten.com/g/600/400"},
+    image: {type: String, default: "https://placekitten.com/g/400/400"},
     ingredients: [{type: String}],
     method: [{type: String}],
-    comments: [{type: mongoose.ObjectId, ref: "Comment"}]
+    comments: [{
+        username: {type: mongoose.ObjectId, ref: "User", required: true},
+        date: {type: Date, required: true, default: Date.now},
+        comment: {type: String, required: true}
+    }]
 })
 
 const RecipeModel = mongoose.model("Recipe", recipeSchema)
