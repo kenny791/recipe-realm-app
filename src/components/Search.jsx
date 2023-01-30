@@ -5,11 +5,20 @@ import seed from './Seed.jsx'
 
 const Search = ({ searchInput, setSearchInput, recipeList }) => {
 
+	let recipeTags = []
+	for (let recipe of recipeList) {
+		for (let tag of recipe.tags) {
+			if (!recipeTags.includes(tag)) {
+				recipeTags.push(tag)
+			}
+		}
+	}
+
 	const filteroptions = [
 		{name: "Cuisine", content: ['Indian', 'Italian', 'Chinese', 'Japanese', 'French', 'Thai', 'Greek']},
 		{name: "Dietary requirements", content: ['Vegetarian', 'Vegan', 'Gluten free', 'Pescaterian']},
 		{name: "Difficulty", content: ['easy', 'medium', 'hard']},
-		{name: "Other", content: []}
+		{name: "Other", content: recipeTags}
 	]
 
 	// let currentFilters = filters
@@ -31,25 +40,21 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		console.log(evt.target)
 	}
 
-	var filterrecipes = recipeList
+	const filterrecipes = recipeList
+		.filter(recipe => {
+			return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
+		})
 		.filter(recipe => {
 			let filtered = false 
-			// if (recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)) {
-			// 	filtered = true
-			// }
-			for (let tags in recipe.tags) {
-				if (recipe.tags[tags].toLowerCase().includes(filter1) && 
-					recipe.tags[tags].toLowerCase().includes(filter2) && 
-					recipe.tags[tags].toLowerCase().includes(filter3) && 
-					recipe.tags[tags].toLowerCase().includes(filter4)) {
+
+			for (let tags of recipe.tags) {
+				if (tags.toLowerCase().includes(filter1)) {
 					filtered = true
 				}
 			}
 			return filtered
 			})
-		.filter(recipe => {
-			return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
-		})
+		
 
 
   return (
