@@ -1,6 +1,7 @@
 import express, { response } from 'express'
 import { UserModel, RecipeModel } from './db.js'
 import recipeRoutes from './routes/recipe_routes.js'
+import userRoutes from './routes/user_routes.js'
 import authRoutes from './routes/auth_routes.js'
 import cors from 'cors'
 
@@ -10,19 +11,16 @@ const app = express()
 //port number for the server to listen on
 const port = process.env.PORT || 8080
 
+//json middleware
 app.use(express.json())
+//cors middleware
 app.use(cors())
 
+//routers for the different routes
+app.use(recipeRoutes)
+app.use(authRoutes)
+app.use(userRoutes)
 
-
-
-//route to send a string
-app.get("/", (request, response) => response.send("<h2>Hello world!</h2>"))
-
-//route to send test object
-app.get("/object", (request, response) => response.send({message: "Hello world!"}))
-
-app.get("/users", async (request, response) => response.send( await UserModel.find() ))
 
 
 
@@ -37,7 +35,7 @@ app.post("/users", (request, response) => {
 
 
 
-
+// AWS s3 upload route
 import multer from 'multer'
 import path from 'path'
 import s3Upload2 from './s3service.js'
@@ -81,19 +79,5 @@ app.use((error, request, response, next) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-app.use(recipeRoutes)
-app.use(authRoutes)
 
 app.listen(port, () => {console.log(`App running on port http://localhost:${port}`)})
