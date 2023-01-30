@@ -4,7 +4,7 @@ import './Styles.css'
 
 const Home = ({ setSearchInput }) => {
 
-	const handleClick = (prefillSearch) => {
+	const handleClick = (prefillSearch ) => {
 		setSearchInput(prefillSearch)
 	};
 
@@ -55,34 +55,30 @@ const Home = ({ setSearchInput }) => {
 			<div>
 				<div id="carouselExample" className="carousel slide mt-5">
 					<div className="carousel-inner">
-						<Link className="carousel-link" to="/search" >
+						<Link className="carousel-link" to="/search" onClick={() => handleClick("spicy")}>
 							<div className="carousel-item active ">
 								<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" className=" backdrop rounded" alt="..."/>
-								<p className="text-center h1 mt-5">Cuisine 1</p>
+								<p className="text-center display-1 mt-5">SPICY</p>
 							</div>
 						</Link>
-						<Link className="carousel-link" to="/search">
+						<Link className="carousel-link" to="/search" onClick={() => handleClick("noodles")}>
 							<div className="carousel-item">
 								<img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1560&q=80" className=" backdrop rounded " alt="..."/>
-								<p className="text-center h1 mt-5">Cuisine 2</p>
+								<p className="text-center display-1 mt-5">NOODLES</p>
 							</div>
 						</Link>
-						<Link className="carousel-link" to="/search" >
+						<Link className="carousel-link" to="/search" onClick={() => handleClick("vegan")}>
 							<div className="carousel-item ">
 									<img src="https://images.unsplash.com/photo-1597589022928-bb4002c099ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" className="backdrop rounded" alt="..."/>
-									<p className="text-center h1 mt-5">Cuisine 3</p>
+									<p className="text-center display-1 mt-5">VEGAN</p>
 							</div>
 						</Link>
-						<Link className="carousel-link" to="/search" >
+						<Link className="carousel-link" to="/search" onClick={() => handleClick("salad")}>
 							<div className="carousel-item ">
 									<img src="https://i.imgur.com/2hr32KA.jpeg" className="backdrop rounded" alt="..."/>
-									<p className="text-center h1 mt-5">Cuisine 4</p>
+									<p className="text-center display-1 mt-5">SALAD</p>
 							</div>
 						</Link>
-
-
-
-
 
 
 
