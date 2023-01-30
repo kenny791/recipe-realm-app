@@ -19,7 +19,7 @@ export default ({recipe}) => {
             <h1>{recipe.name}</h1>
           <div className='row row-cols-2'>
             <div className='col p-3'>
-              <h4>{recipe.author}</h4>
+              <h4>{recipe.author.username}</h4>
             </div>
             <div className='col p-3'>
               <h4><Link to='#comment-anchor' className='text-decoration-none'>Comments</Link></h4>
