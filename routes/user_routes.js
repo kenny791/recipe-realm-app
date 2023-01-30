@@ -17,13 +17,24 @@ router.get("/users", async (request, response) => {
     }
 })
 
-//get user by id
-router.get("/users/:id", async (request, response) => {
+//get user by id or username
+router.get("/users/:val", async (request, response) => {
     try{
-        const user = await UserModel.findById(request.params.id)
+        const user = await UserModel.findOne( {username: request.params.val} )
+        .select("-password")
+        .populate({path: "favourites", select: "name"})
         if (user) {
             response.send(user)
-        } else {
+        } 
+        else if (request.params.val.length === 24) {
+            const user = await UserModel.findById(request.params.val)
+            .select("-password")
+            .populate({path: "favourites", select: "name"})
+            if (user) {
+                response.send(user)
+            }
+        }
+        else {
             response.status(404).send({message: "User not found"})
         }
     }
@@ -31,6 +42,15 @@ router.get("/users/:id", async (request, response) => {
         response.status(500).send({error: err.message})
     }
 })
+        
+
+ 
+
+
+
+
+
+
 
 
 

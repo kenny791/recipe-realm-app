@@ -7,6 +7,9 @@ const router = express.Router()
 router.get("/recipes", async (request, response) => {
     try {
         const recipes = await RecipeModel.find()
+            .populate({path: "author", select: "username"})
+            .populate({path: "rating_list.username", select: "username"})
+            .populate({path: "comments.username", select: "username"})
         response.send(recipes)
     }
     catch (err) {
@@ -17,6 +20,9 @@ router.get("/recipes", async (request, response) => {
 router.get("/recipes/:id", async (request, response) => {
     try{
         const recipe = await RecipeModel.findById(request.params.id)
+            .populate({path: "author", select: "username"})
+            .populate({path: "rating_list.username", select: "username"})
+            .populate({path: "comments.username", select: "username"})
         if (recipe) {
             response.send(recipe)
         } else {
@@ -28,7 +34,7 @@ router.get("/recipes/:id", async (request, response) => {
     }
 })
 
-
+//to be fixed
 router.post("/recipes", async (request, response) => {
     try {
         const { name, author, tags, ingredients, preparation, image } = request.body
@@ -43,7 +49,7 @@ router.post("/recipes", async (request, response) => {
 })
 
 
-
+//to be fixed
 router.put("/recipes/:id", async (request, response) => {
     const { name,author } = request.body
     const updatedRecipe = { name,author }
@@ -60,7 +66,7 @@ router.put("/recipes/:id", async (request, response) => {
     }
 })
 
-
+//to be fixed
 router.delete("/recipes/:id", async (request, response) => {
     try {
         const recipe = await RecipeModel.findByIdAndDelete(request.params.id)
