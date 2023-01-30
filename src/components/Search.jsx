@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import seed from './Seed.jsx'
-import recipes from '../recipes.js'
+// import recipes from '../recipes.js'
 
-const Search = ({ searchInput, setSearchInput }) => {
+const Search = ({ searchInput, setSearchInput, recipeList }) => {
 
 	// const [recipes, setRecipes] = useState([])
   
@@ -29,7 +29,7 @@ const Search = ({ searchInput, setSearchInput }) => {
 
 	// const [displayData, setDisplaydata] = useState({seed})
 
-	const filterrecipes = recipes.filter(recipe => {
+	const filterrecipes = recipeList.filter(recipe => {
 		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 	})
 
