@@ -22,7 +22,7 @@ router.get("/users/:val", async (request, response) => {
     try{
         const user = await UserModel.findOne( {username: request.params.val} )
         .select("-password")
-        .populate({path: "favourites", select: "name"})
+        .populate({path: "favourites", select: "name id"})
         if (user) {
             response.send(user)
         } 
