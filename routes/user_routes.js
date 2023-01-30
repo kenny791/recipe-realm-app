@@ -1,5 +1,5 @@
 import express from 'express'
-import { UserModel } from '../db.js'
+import { UserModel, RecipeModel } from '../db.js'
 
 const router = express.Router()
 
@@ -42,6 +42,7 @@ router.get("/users/:val", async (request, response) => {
         response.status(500).send({error: err.message})
     }
 })
+
         
 
  

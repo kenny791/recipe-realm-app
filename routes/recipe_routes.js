@@ -1,5 +1,6 @@
 import express from 'express'
-import { RecipeModel } from '../db.js'
+import { RecipeModel, UserModel } from '../db.js'
+import mongoose from 'mongoose'
 
 const router = express.Router()
 
@@ -33,6 +34,87 @@ router.get("/recipes/:id", async (request, response) => {
         response.status(500).send({error: err.message})
     }
 })
+
+
+
+//add new comment by username 
+router.post("/recipes/:id/comments", async (request, response) => {
+    try {
+        const { username, comment } = request.body
+        //find user id by username
+        const userId = await UserModel.findOne( {username: request.body.username} ) 
+        const  newComment = {
+            username: userId._id,
+            comment: request.body.comment
+        }
+        const recipe = await RecipeModel.findById(request.params.id)
+        if (recipe) {
+            recipe.comments.push(newComment)
+            await recipe.save()
+            response.send({
+                message: "Comment added",
+                comments: recipe.comments
+              })
+        } else {
+            response.status(404).send({message: "Recipe not found"})
+        }
+    }
+    catch (err) {
+        response.status(500).send({error: err.message})
+    }
+})
+
+//add new rating by username 
+router.post("/recipes/:id/rating", async (request, response) => {
+    try {
+        const { username, rating } = request.body
+        //find user id by username
+        const userId = await UserModel.findOne( {username: request.body.username} )
+        const  newRating = {
+            username: userId._id,
+            rating: request.body.rating
+        }
+        const recipe = await RecipeModel.findById(request.params.id)
+        if (recipe) {
+            recipe.rating_list.push(newRating)
+            await recipe.save()
+            response.send(recipe.rating_list)
+        } else {
+            response.status(404).send({message: "Recipe not found"})
+        }
+    }
+    catch (err) {
+        response.status(500).send({error: err.message})
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //to be fixed
 router.post("/recipes", async (request, response) => {
@@ -80,6 +162,7 @@ router.delete("/recipes/:id", async (request, response) => {
         response.status(500).send({error: err.message})
     }
 })
+
 
 
 
