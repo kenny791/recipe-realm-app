@@ -1,18 +1,9 @@
 import React from 'react'
 
 
-export default () => {
+export default ({recipeMethod}) => {
 
-  // Declare an array of steps in a recipe's method
-  const steps = [
-    'Prepare ingredients',
-    'Mix ingredients',
-    'Bake for 30 minutes',
-    'Serve'
-  ]
-
-  // Map the array of steps to a list of <li> elements
-  const stepsList = steps.map((step, index) => {
+  const method = recipeMethod.map((step, index) => {
     return <li key={index}>{step}</li>
   })
 
@@ -21,7 +12,7 @@ export default () => {
       <div className='col-12 col-lg-10'>
         <h3>Method</h3>
         <ol>
-          {stepsList}
+          {method}
         </ol>
       </div>
     </div>

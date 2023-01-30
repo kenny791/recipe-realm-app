@@ -9,8 +9,12 @@ export default () => {
 
   return (
     <>
-      {/* <button type="button" className={favourite ? "btn btn-success" : "btn btn-danger"} onClick={handleClick} data-bs-toggle="button" autoComplete="off">Favourite</button> */}
-      <button type="button" className={favourite ? "btn btn-success" : "btn btn-danger"} onClick={handleClick} data-bs-toggle="button" autoComplete="off">{favourite ? "Added" : "Favourite"}</button>
+      <button 
+        type="button" 
+        className={favourite ? "btn btn-success" : "btn btn-danger"} 
+        onClick={handleClick} data-bs-toggle="button" 
+        autoComplete="off">{favourite ? "Added" : "Favourite"}
+      </button>
     </>
   )
 }
