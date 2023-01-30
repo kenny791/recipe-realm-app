@@ -38,12 +38,12 @@ export default ({ setSearchInput }) => {
 			<div className="d-none d-md-block" >
 				<nav className={`navbar large fixed-top  navbar-expand-md   ${navbarClass}`}>
 					<div className="container-fluid">
-						<Link className="navbar-brand" to="/">RR</Link>
+						<Link className="navbar-brand" onClick={() =>setSearchInput("")} to="/">Recipe Realm</Link>
 						<ul className="navbar-nav mb-2 mb-md-0 ms-auto">
 							<ListLink isSmallNav={false} to="/search" textToDisplay="Search" />
 							<ListLink isSmallNav={false} to="/recipe" textToDisplay="Recipes" />
 							<ListLink isSmallNav={false} to={isLoggedIn ? "/user" : "/login"} textToDisplay={isLoggedIn ? "Profile" : "Login"} />
-							</ul>
+						</ul>
 					</div>
 				</nav>
 			</div>
@@ -51,7 +51,7 @@ export default ({ setSearchInput }) => {
 			<div className="d-block d-md-none ">
 				<nav className="navbar compact fixed-top  navbar-expand-md ">
 					<div className="container-fluid">
-						<Link className="navbar-brand" onClick={handleLinkClick} to="/">RR</Link>
+						<Link className="navbar-brand" onClick={() => {handleLinkClick();setSearchInput("")}} to="/">Recipe Realm</Link>
 						<button className="navbar-toggler" type="button" onClick={() => setIsOpen(!isOpen)}>
 							<span className="navbar-toggler-icon"></span>
 						</button>
