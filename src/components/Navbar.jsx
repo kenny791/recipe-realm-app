@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export default ({ setSearchInput }) => {
+export default ({ setSearchInput, loggedInUser }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const handleLinkClick = () => setIsOpen(false)
 	const [navbarClass, setNavbarClass] = useState("")
@@ -41,8 +41,7 @@ export default ({ setSearchInput }) => {
 						<Link className="navbar-brand" onClick={() =>setSearchInput("")} to="/">Recipe Realm</Link>
 						<ul className="navbar-nav mb-2 mb-md-0 ms-auto">
 							<ListLink isSmallNav={false} to="/search" textToDisplay="Search" />
-							<ListLink isSmallNav={false} to="/recipe" textToDisplay="Recipes" />
-							<ListLink isSmallNav={false} to={isLoggedIn ? "/user" : "/login"} textToDisplay={isLoggedIn ? "Profile" : "Login"} />
+							<ListLink isSmallNav={false} to={isLoggedIn ? "/user" : "/login"} textToDisplay={isLoggedIn ? `${loggedInUser.username} Profile` : "Login"} />
 						</ul>
 					</div>
 				</nav>
@@ -58,8 +57,7 @@ export default ({ setSearchInput }) => {
 						<div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
 							<ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
 								<ListLink isSmallNav={true} to="/search" textToDisplay="Search" />
-								<ListLink isSmallNav={true} to="/recipe" textToDisplay="Recipes" />
-								<ListLink isSmallNav={true} to={isLoggedIn ? "/user" : "/login"} textToDisplay={isLoggedIn ? "Profile" : "Login"} />
+								<ListLink isSmallNav={true} to={isLoggedIn ? "/user" : "/login"} textToDisplay={isLoggedIn ? `${loggedInUser.username} Profile` : "Login"} />
 							</ul>
 						</div>
 					</div>

@@ -23,16 +23,32 @@ export default function App() {
   
   //Search input state  
   const [searchInput, setSearchInput] = useState("")
+
+
+  //user state
+  const [loggedInUser, setLoggedInUser] = useState("")
   
+
+  useEffect (() => {
+    async function getUser() {
+      const res = await fetch('https://server-production-6a0e.up.railway.app/users/user4')
+      const data = await res.json()
+      setLoggedInUser(data)
+    }
+    getUser()
+    },[])
+
+
+
 
 
   return (
     <>
-    <Navbar setSearchInput={setSearchInput}/>
+    <Navbar loggedInUser={loggedInUser} setSearchInput={setSearchInput} />
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput}/>} />
       <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />
-      <Route path='/user' element={<User />} />
+      <Route path='/user' element={<User loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
       <Route path='/recipe/:recipeId' element={<Recipe recipeList={recipeList} />} />
       <Route path='/apitest' element={<ApiTest recipeList={recipeList}/>} />
       <Route path='*' element={<div className='container'><h3>Page not found!</h3></div>} />
