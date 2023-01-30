@@ -14,14 +14,8 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 
 	const [recipes, setRecipes] = useState(recipeList)
 
-	const handleChange = (event) => {
-		setSearchInput(event.target.value)
-	}
-
-	const [displayData, setDisplaydata] = useState({seed})
-
 	const filterrecipes = recipeList.filter(recipe => {
-		// console.log(recipe)
+		// console.log(recipe.name.toLowerCase().includes("salad"))
 		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 	})
 
@@ -33,7 +27,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 			{/* mb is margin bottom; w is width */}
 			<div className="form-floating m-3 mt-5 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
-				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange} value={searchInput}/>
+				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={(evt) => setSearchInput(evt.target.value)} value={searchInput}/>
 				<label htmlFor="floatingInput">Search</label>
 			</div>
 			{/* Filter dropdowns */}
