@@ -622,9 +622,9 @@ console.log("Recipes inserted")
 
 
 const userswithfavs = [
-    { username: insertusers[1], password: "password4", favourites: [insertrecipes[0], insertrecipes[1]]},
-    { username: insertusers[1], password: "password5", favourites: [insertrecipes[1], insertrecipes[2]]},
-    { username: insertusers[1], password: "password6", favourites: [insertrecipes[0], insertrecipes[2]]}
+    { username: "user4", password: "password4", favourites: [insertrecipes[0], insertrecipes[1]]},
+    { username: "user5", password: "password5", favourites: [insertrecipes[1], insertrecipes[2]]},
+    { username: "user6", password: "password6", favourites: [insertrecipes[0], insertrecipes[2]]}
 ]
 
 await UserModel.insertMany(userswithfavs)
