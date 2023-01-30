@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Favourite from './Favourite'
 import Rating from './Rating'
 
 export default () => {
@@ -27,7 +28,7 @@ export default () => {
               <Rating />
             </div>
             <div className='col p-3'>
-              <button type="button" className="btn btn-danger" data-bs-toggle="button" autoComplete="off">Favourite</button>
+              <Favourite />
             </div>
           </div>
         </div>
