@@ -16,7 +16,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 	// let filterLabel = event.target.firstChild.label
 	// let specificFilter = event.target.value
 
-	const [recipes, setRecipes] = useState(recipeList)
+	// const [recipes, setRecipes] = useState(recipeList)
 	const [filter1, setFilter1] = useState('')
 	const [filter2, setFilter2] = useState('')
 	const [filter3, setFilter3] = useState('')
@@ -31,23 +31,26 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		console.log(evt.target)
 	}
 
-	const filterrecipes = recipeList
+	var filterrecipes = recipeList
 		.filter(recipe => {
 			let filtered = false 
 			// if (recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)) {
 			// 	filtered = true
 			// }
 			for (let tags in recipe.tags) {
-				if (recipe.tags[tags].toLowerCase().includes(filter1)) {
+				if (recipe.tags[tags].toLowerCase().includes(filter1) && 
+					recipe.tags[tags].toLowerCase().includes(filter2) && 
+					recipe.tags[tags].toLowerCase().includes(filter3) && 
+					recipe.tags[tags].toLowerCase().includes(filter4)) {
 					filtered = true
 				}
 			}
 			return filtered
 			})
-	// filterrecipes = filterrecipes.filter(recipe => {
-	// 		return recipe.tags.includes(filter1)
-	// 		})
-	// 	}
+		.filter(recipe => {
+			return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
+		})
+
 
   return (
     <>
