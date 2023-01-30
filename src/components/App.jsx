@@ -31,7 +31,7 @@ export default function App() {
       <Route path='/' element={<Home setSearchInput={setSearchInput}/>} />
       <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />
       <Route path='/user' element={<User />} />
-      <Route path='/recipe' element={<Recipe />} />
+      <Route path='/recipe/:recipeId' element={<Recipe recipeList={recipeList} />} />
       <Route path='/apitest' element={<ApiTest recipeList={recipeList}/>} />
       <Route path='*' element={<div className='container'><h3>Page not found!</h3></div>} />
     </Routes>

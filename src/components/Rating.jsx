@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 
-export default () => {
+export default ({recipeRating}) => {
+  
+  const averageRating = recipeRating.reduce((acc, curr) => acc + curr.rating, 0) / recipeRating.length
+
   const [rating, setRating] = useState(0)
 
   const handleClick = (event) => {
