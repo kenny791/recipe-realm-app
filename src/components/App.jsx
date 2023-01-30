@@ -20,14 +20,16 @@ export default function App() {
     }
     getRecipeList()
   }, [])
-
-
+  
+  //Search input state  
+  const [searchInput, setSearchInput] = useState("")
+  
   return (
     <>
     <Navbar />
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/search' element={<Search />} />
+      <Route path='/' element={<Home setSearchInput={setSearchInput}/>} />
+      <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput}/>} />
       <Route path='/user' element={<User />} />
       <Route path='/recipe' element={<Recipe />} />
       <Route path='/apitest' element={<ApiTest recipeList={recipeList}/>} />

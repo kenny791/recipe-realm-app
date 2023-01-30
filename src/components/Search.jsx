@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import seed from './Seed.jsx'
 
-const Search = () => {
-	const [searchInput, setSearchInput] = useState('')
+const Search = ({ searchInput, setSearchInput }) => {
+	//moved up to parent component, to be deleted
+	// const [searchInput, setSearchInput] = useState('')
 
 	const handleChange = (event) => {
 		setSearchInput(event.target.value)
@@ -22,7 +23,7 @@ const Search = () => {
 			{/* mb is margin bottom; w is width */}
 			<div className="form-floating m-3 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
-				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange}/>
+				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange} value={searchInput}/>
 				<label for="floatingInput">Search</label>
 			</div>
 			{/* Filter dropdowns */}
