@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import seed from './Seed.jsx'
 // import recipes from '../recipes.js'
 
@@ -88,19 +89,15 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 				<div className="row g-4 g-lg-6">
 					{filterrecipes.map((recipe) => (
 						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2" key={recipe.id}>
-							<figure className="figure">
-								<img src={recipe.image} className="figure-img img-fluid rounded" alt={recipe.name} />
-								<h4>{recipe.name}</h4>
-							</figure>
+							<Link to={`/recipe/${recipe.id}`} style={{color: "black"}}>
+								<figure className="figure">
+									<img src={recipe.image} className="figure-img img-fluid rounded" alt={recipe.name} />
+									<h4>{recipe.name}</h4>
+								</figure>
+							</Link>
 						</div>
 					))}
-					{/* Random images: https://images.unsplash.com/photo-1606604830262-2e0732b12acc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1363&q=80
-					
-					https://loremflickr.com/320/240/fruit
-					
-					https://loremflickr.com/320/240/sushi*/}
 
-					{/* Generic version of above */}
 					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
 						<figure className="figure">
 							<img src="https://loremflickr.com/320/240/sushi" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
