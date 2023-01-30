@@ -1,4 +1,4 @@
-import { UserModel, RecipeModel, CommentModel, dbClose } from "./db.js"
+import { UserModel, RecipeModel, dbClose } from "./db.js"
 
 await RecipeModel.deleteMany()
 console.log("Recipes deleted")
@@ -21,7 +21,7 @@ const recipes = [
       author: insertusers[0],
       description: "A hearty and comforting soup made with a variety of vegetables, perfect for a cold winter day.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Soup", "Vegetarian", "Easy"],
       image: "",
@@ -46,7 +46,7 @@ const recipes = [
       author: insertusers[0],
       description: "A classic Italian dish made with a rich meat sauce and spaghetti.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Pasta", "Italian", "Easy"],
       image: "",
@@ -71,7 +71,7 @@ const recipes = [
       author: insertusers[0],
       description: "This Lemon Garlic Shrimp Scampi recipe is the perfect quick and easy dinner that can be ready in under 30 minutes. Succulent shrimp are cooked in a buttery lemon garlic sauce and served over pasta for a satisfying meal.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Seafood", "Italian"],
       image: "",
@@ -100,7 +100,7 @@ const recipes = [
       author: insertusers[0],
       description: "This classic Italian-American dish features tender chicken cutlets in a tangy lemon sauce, served over spaghetti or a bed of rice. Perfect for a fancy dinner at home or a special occasion.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Chicken", "Italian"],
       image: "",
@@ -125,7 +125,7 @@ const recipes = [
       author: insertusers[0],
       description: "These classic chocolate chip cookies are soft, chewy, and loaded with chocolate chips. Perfect for a sweet treat or a dessert option.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["dessert", "cookies", "chocolate chip"],
       image: "",
@@ -170,7 +170,7 @@ const recipes = [
       author: insertusers[0],
       description: "This recipe is perfect for a quick and easy weeknight dinner that is packed with flavor. Spicy peanut noodles are made with a homemade peanut sauce, and are perfect served over rice or noodles.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["spicy", "peanut sauce", "noodles", "dinner"],
       image: "",
@@ -195,7 +195,7 @@ const recipes = [
       author: insertusers[0],
       description: "These Spicy Chipotle Black Bean Tacos are the perfect vegan and gluten-free meal. Packed with protein and flavor, these tacos are sure to please.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "gluten-free", "spicy", "black bean", "tacos"],
       image: "",
@@ -220,7 +220,7 @@ const recipes = [
       author: insertusers[0],
       description: "Creamy Garlic Mushroom Chicken is a comforting and delicious dinner that is perfect for any night of the week. Tender chicken is cooked in a rich and creamy garlic mushroom sauce, making it perfect served over rice or noodles.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["chicken", "mushroom", "creamy", "garlic", "dinner"],
       image: "",
@@ -245,7 +245,7 @@ const recipes = [
       author: insertusers[0],
       description: "This Vegan Lentil Shepherd's Pie is hearty, comforting and perfect for a cold winter evening. Lentils are cooked with vegetables and spices, topped with a layer of creamy mashed potatoes, and then baked until golden brown.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "lentils", "shepherd's pie", "comfort food"],
       image: "",
@@ -270,7 +270,7 @@ const recipes = [
       author: insertusers[0],
       description: "This vegan chickpea curry is a hearty and comforting dish that is perfect for a weeknight dinner. Chickpeas are simmered in a flavorful tomato-based sauce with spices and vegetables, and served over rice or with naan bread.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "chickpea", "Indian", "comfort food"],
       image: "",
@@ -295,7 +295,7 @@ const recipes = [
       author: insertusers[0],
       description: "This is an authentic recipe for the popular Indian dish, Chicken Tikka Masala. Tender chunks of chicken are marinated in yogurt and spices, then grilled or broiled, and simmered in a creamy tomato-based sauce. It is best served with rice or naan bread.",
       rating_list: [
-        {name: insertusers[1], rating: 5}, {name: insertusers[2], rating: 4}
+        {username: insertusers[1], rating: 5}, {username: insertusers[2], rating: 4}
       ],
       tags: ["chicken", "tikka masala", "curry", "Indian"],
       image: "",
@@ -320,7 +320,7 @@ const recipes = [
       author: insertusers[0],
       description: "This delicious and easy recipe is a great way to use up leftover rice and vegetables. It's a perfect dish to make when you're short on time and looking for a quick and simple meal. It's also vegan and can be made gluten-free by using tamari instead of soy sauce",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegetable", "fried rice", "vegan", "gluten-free"],
       image: "",
@@ -345,7 +345,7 @@ const recipes = [
       author: insertusers[0],
       description: "These vegan breakfast tacos are a delicious and healthy way to start your day. They're filled with scrambled tofu, sautéed peppers, and onions, and topped with avocado and salsa. They're perfect for a quick and easy breakfast, and can be easily customized to suit your taste.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["vegan", "breakfast", "tacos"],
       image: "",
@@ -370,7 +370,7 @@ const recipes = [
       author: insertusers[0],
       description: "This traditional English breakfast is the perfect way to start your day. It includes all the classic components of a full English breakfast: eggs, bacon, sausage, black pudding, baked beans, grilled tomatoes, and mushrooms. Serve with a side of toast and a cup of tea for a truly authentic experience.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["english", "breakfast", "traditional"],
       image: "",
@@ -395,7 +395,7 @@ const recipes = [
       author: insertusers[0],
       description: "Kung Pao Chicken is a popular Szechuan dish made with tender chicken, peanuts, vegetables, and a spicy Kung Pao sauce. This dish is perfect for those who love a little heat in their food. Serve it over steamed rice for a complete meal.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["asian", "szechuan", "spicy"],
       image: "",
@@ -420,7 +420,7 @@ const recipes = [
       author: insertusers[0],
       description: "Tonkatsu is a popular Japanese dish that consists of breaded and deep-fried pork cutlets. It is often served with a side of shredded cabbage and a tonkatsu sauce, made with a combination of fruit, vegetable, and meat or fish-based ingredients. This dish is perfect for those who love a crispy and savory meal.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["asian", "pork", "deep-fried"],
       image: "",
@@ -445,7 +445,7 @@ const recipes = [
       author: insertusers[0],
       description: "Australian Meat Pie is a classic Australian dish that consists of a flaky pastry crust filled with a savory meat and vegetable filling. It's often served with tomato sauce, and is a favorite at sports games, picnics, and as a quick snack. This dish is perfect for those who love a hearty and comforting meal.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Australian", "meat", "pie"],
       image: "",
@@ -470,7 +470,7 @@ const recipes = [
       author: insertusers[0],
       description: "Fattoush is a traditional Arabic salad that's typically made with a variety of fresh vegetables and herbs, along with toasted or fried pita bread. It's a great way to use up stale bread and is a perfect side dish to any meal. The salad is usually dressed with a simple lemon and olive oil dressing and garnished with sumac.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Arabic", "salad", "vegetarian"],
       image: "",
@@ -495,7 +495,7 @@ const recipes = [
       author: insertusers[0],
       description: "This Spicy Sausage and Potato Skillet is a hearty and comforting one-pan meal that's perfect for a quick and easy dinner. The spicy sausage and tender potatoes are cooked together in a skillet with onions and bell peppers, and then topped with a sprinkle of shredded cheese. It's a perfect dish to feed a crowd.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Spicy", "Sausage", "Potato", "Skillet"],
       image: "",
@@ -520,7 +520,7 @@ const recipes = [
       author: insertusers[0],
       description: "This spicy potato and chickpea curry is a delicious, hearty and comforting dish that's perfect for a cold night. Potatoes and chickpeas are simmered in a flavorful tomato-based sauce with spices like cumin, coriander and turmeric, making this curry both healthy and satisfying.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Potato", "Chickpea", "Curry", "Indian"],
       image: "",
@@ -545,7 +545,7 @@ const recipes = [
       author: insertusers[0],
       description: "These grilled chicken and vegetable skewers are a delicious and easy to make dinner option. Marinated in a flavorful blend of olive oil, lemon juice, and herbs, the skewers are grilled to perfection and served with a side of garlic yogurt sauce.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Chicken", "Vegetable", "Skewers"],
       image: "",
@@ -570,7 +570,7 @@ const recipes = [
       author: insertusers[0],
       description: "This spicy shrimp and cauliflower rice dish is a delicious and healthy dinner option. The shrimp is sautéed with spices and served on top of a bed of cauliflower rice cooked with peppers and onions. Perfect for a quick and easy weeknight meal.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Shrimp", "Cauliflower Rice", "Spicy"],
       image: "",
@@ -595,7 +595,7 @@ const recipes = [
       author: insertusers[0],
       description: "This Mediterranean quinoa salad is a delicious and healthy way to enjoy the flavors of the Mediterranean. It's packed with fresh veggies, quinoa, and a flavorful lemon vinaigrette. Perfect for a light lunch or a side dish to any meal.",
       rating_list: [
-        {name: insertusers[1], rating: 4}, {name: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
       ],
       tags: ["Quinoa", "Salad", "Mediterranean"],
       image: "",
@@ -614,61 +614,12 @@ const recipes = [
         }
       ]
     }
-  ]
+]
 
 const insertrecipes = await RecipeModel.insertMany(recipes)
+
 console.log("Recipes inserted")
 
-// const recipes = [
-//     {   
-//         name: "recipe name 1", 
-//         username: insertusers[0],
-//         tags: ["tag1", "tag2", "tag3"],
-//         ingredients: [
-//             "ingredient1", 
-//             "ingredient2", 
-//             "ingredient3"
-//         ],
-//         preparation: [
-//             "step1", 
-//             "step2", 
-//             "step3"
-//         ],
-//         image: ""    
-//     },
-//     {   
-//         name: "recipe name 2", 
-//         username: insertusers[1],
-//         tags: ["tag1", "tag2", "tag3"],
-//         ingredients: [
-//             "ingredient1",
-//             "ingredient2",
-//             "ingredient3"
-//         ],
-//         preparation: [
-//             "step1",
-//             "step2",
-//             "step3"
-//         ],
-//         image: ""
-//     },
-//     {
-//         name: "recipe name 3", 
-//         username: insertusers[2],
-//         tags: ["tag1", "tag2", "tag3"],
-//         ingredients: [
-//             "ingredient1", 
-//             "ingredient2", 
-//             "ingredient3"
-//         ],
-//         preparation: [
-//             "step1", 
-//             "step2", 
-//             "step3"
-//         ],
-//         image: ""
-//     }
-// ]
 
 const userswithfavs = [
     { username: insertusers[1], password: "password4", favourites: [insertrecipes[0], insertrecipes[1]]},
@@ -678,48 +629,5 @@ const userswithfavs = [
 
 await UserModel.insertMany(userswithfavs)
 console.log("Users with favourites inserted")
-
-
-// const comments = [
-//     {
-//         username: insertusers[1],
-//         recipeId: "5f9f1b1b1b1b1b1b1b1b1b1b",
-//         message: "lore ipsum dolor sit amet 1",
-//         date: "2022-01-01"
-//     },
-//     {
-//         username: insertusers[1],
-//         recipeId: "5f9f1b1sfsfdsfsdfsfsfsfsf",
-//         message: "lore ipsum dolor sit amet 11",
-//         date: "2022-01-02"
-//     },
-//     {
-//         username: insertusers[1],
-//         recipeId: "5f9f1b1b1b1b1b1b1b1b1b1b",
-//         message: "lore ipsum dolor sit amet 2",
-//         date: "2022-02-02"
-//     },
-//     {
-//         username: insertusers[1],
-//         recipeId: "5f9f1b1sfsfdsfsdfsfsfsfsf",
-//         message: "lore ipsum dolor sit amet 22",
-//         date: "2022-01-03"
-//     },
-//     {
-//         username: insertusers[1],
-//         recipeId: "5f9f1b1b1b1b1b1b1b1b1b1b",
-//         message: "lore ipsum dolor sit amet 3",
-//         date: "2022-03-03"
-//     },
-//     {
-//         username: insertusers[1],
-//         recipeId: "5f9f1b1sfsfdsfsdfsfsfsfsf",
-//         message: "lore ipsum dolor sit amet 33",
-//         date: "2022-01-04"
-//     }
-// ]
-
-// await CommentModel.insertMany(comments)
-// console.log("Comments inserted")
 
 dbClose()
