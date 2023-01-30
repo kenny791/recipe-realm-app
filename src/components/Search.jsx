@@ -13,11 +13,20 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 	]
 
 	const [recipes, setRecipes] = useState(recipeList)
+	const [filter1, setFilter1] = useState('')
+	const [filter2, setFilter2] = useState('')
+	const [filter3, setFilter3] = useState('')
+	const [filter4, setFilter4] = useState('')
 
-	const filterrecipes = recipeList.filter(recipe => {
-		// console.log(recipe.name.toLowerCase().includes("salad"))
-		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
-	})
+	function changeHandler(evt) {
+		setFilter1(evt.target.value)
+	}
+
+	const filterrecipes = recipeList
+		.filter(recipe => {
+			// console.log(recipe.name.toLowerCase().includes("salad"))
+			return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
+			})
 
   return (
     <>
@@ -55,7 +64,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler}>
 									<option defaultValue>Dietary</option>
 									<option value="1">One</option>
 									<option value="2">Two</option>
