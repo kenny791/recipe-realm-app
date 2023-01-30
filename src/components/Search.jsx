@@ -5,18 +5,6 @@ import seed from './Seed.jsx'
 
 const Search = ({ searchInput, setSearchInput, recipeList }) => {
 
-	// const [recipes, setRecipes] = useState([])
-  
-	// useEffect(() => {
-	//   async function getRecipes() {
-	// 	const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/`)
-	// 	const data = await res.json()
-	// 	setRecipes(data) 
-	//   }
-	//   getRecipes()
-	// }, [])
-
-
 	const filteroptions = [
 		{name: "Cuisine", content: ['Indian', 'Italian', 'Chinese', 'Japanese', 'French', 'Thai', 'Greek']},
 		{name: "Dietary requirements", content: ['Vegetarian', 'Vegan', 'Gluten free', 'Pescaterian']},
@@ -24,13 +12,16 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		{name: "Other", content: []}
 	]
 
+	const [recipes, setRecipes] = useState(recipeList)
+
 	const handleChange = (event) => {
 		setSearchInput(event.target.value)
 	}
 
-	// const [displayData, setDisplaydata] = useState({seed})
+	const [displayData, setDisplaydata] = useState({seed})
 
 	const filterrecipes = recipeList.filter(recipe => {
+		// console.log(recipe)
 		return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 	})
 
@@ -43,24 +34,24 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 			<div className="form-floating m-3 mt-5 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
 				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange} value={searchInput}/>
-				<label for="floatingInput">Search</label>
+				<label htmlFor="floatingInput">Search</label>
 			</div>
 			{/* Filter dropdowns */}
 			<div className="container w-75">
 				<div className="row">
 				{/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
 
-				{filteroptions.map((filteroption) => (
+				{filteroptions.map((filteroption, index) => (
 					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>{filteroption.name}</option>
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" key={index}>
+									<option defaultValue>{filteroption.name}</option>
 									{filteroption.content.map((selection, index) => (
-										<option value={index}>{selection}</option>
+										<option value={selection} key={index}>{selection}</option>
 									))}
 								</select>
-								<label for="floatingSelect">Filter</label>
+								<label htmlFor="floatingSelect">Filter</label>
 							</div>
 						</div>
 					</div>					
@@ -71,12 +62,12 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
 								<select className="form-select" id="floatingSelect" aria-label="Floating label select example">
-									<option selected>Dietary</option>
+									<option defaultValue>Dietary</option>
 									<option value="1">One</option>
 									<option value="2">Two</option>
 									<option value="3">Gluten Free</option>
 								</select>
-								<label for="floatingSelect">Filter</label>
+								<label htmlFor="floatingSelect">Filter</label>
 							</div>
 						</div>
 					</div>
