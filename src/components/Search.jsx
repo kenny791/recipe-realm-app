@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import seed from './Seed.jsx'
 import recipes from '../recipes.js'
 
-const Search = () => {
+const Search = ({ searchInput, setSearchInput }) => {
 
 	// const [recipes, setRecipes] = useState([])
   
@@ -22,7 +22,6 @@ const Search = () => {
 		{name: "Difficulty", content: ['easy', 'medium', 'hard']},
 		{name: "Other", content: []}
 	]
-	const [searchInput, setSearchInput] = useState('')
 
 	const handleChange = (event) => {
 		setSearchInput(event.target.value)
@@ -42,7 +41,7 @@ const Search = () => {
 			{/* mb is margin bottom; w is width */}
 			<div className="form-floating m-3 mt-5 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
-				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange}/>
+				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={handleChange} value={searchInput}/>
 				<label for="floatingInput">Search</label>
 			</div>
 			{/* Filter dropdowns */}

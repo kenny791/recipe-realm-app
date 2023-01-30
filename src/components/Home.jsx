@@ -2,7 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Styles.css'
 
-const Home = () => {
+const Home = ({ setSearchInput }) => {
+
+	const handleClick = (cuisine) => {
+		setSearchInput(cuisine)
+	  };
 
  	return (
 		<div className="container-fluid landing">
@@ -44,19 +48,19 @@ const Home = () => {
 			<div>
 				<div id="carouselExample" className="carousel slide mt-5">
 					<div className="carousel-inner">
-						<Link className="carousel-link" to="/search">
+						<Link className="carousel-link" to="/search" onClick={handleClick("chicken")}>
 							<div className="carousel-item active ">
 								<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" className=" backdrop rounded" alt="..."/>
 								<p className="text-center h1 mt-5">Cuisine 1</p>
 							</div>
 						</Link>
-						<Link className="carousel-link" to="/search">
+						<Link className="carousel-link" to="/search" onClick={handleClick("noodles")}>
 							<div className="carousel-item">
 								<img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1560&q=80" className=" backdrop rounded " alt="..."/>
 								<p className="text-center h1 mt-5">Cuisine 2</p>
 							</div>
 						</Link>
-						<Link className="carousel-link" to="/search">
+						<Link className="carousel-link" to="/search" onClick={handleClick("spicy")}>
 							<div className="carousel-item ">
 									<img src="https://images.unsplash.com/photo-1597589022928-bb4002c099ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" className="backdrop rounded" alt="..."/>
 									<p className="text-center h1 mt-5">Cuisine 3</p>
