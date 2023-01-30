@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import seed from './Seed.jsx'
-// import recipes from '../recipes.js'
 
 const Search = ({ searchInput, setSearchInput, recipeList }) => {
 
@@ -21,23 +19,45 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		{name: "Other", content: recipeTags}
 	]
 
-	// let currentFilters = filters
-	// let filterLabel = event.target.firstChild.label
-	// let specificFilter = event.target.value
-
 	// const [recipes, setRecipes] = useState(recipeList)
-	const [filter1, setFilter1] = useState('')
+	const [filter1, setFilter1] = useState(null)
 	const [filter2, setFilter2] = useState('')
 	const [filter3, setFilter3] = useState('')
 	const [filter4, setFilter4] = useState('')
 
 	function changeHandler1(evt) {
-		if (evt.target.value == evt.target.firstChild.label) { 
-			setFilter1('')
-		} else {
-			setFilter1(evt.target[evt.target.value].text.toLowerCase())
+		switch(evt.target.firstChild.label) {
+			case "Cuisine":
+				if (evt.target.value == evt.target.firstChild.value) { 
+					setFilter1(null)
+					console.log(evt.target.value)
+					console.log(filter1)
+				} else {
+					setFilter1(evt.target.value.toLowerCase())
+				}
+				break
+			case "Dietary requirements":
+				if (evt.target.value == evt.target.firstChild.label) { 
+					setFilter2('')
+				} else {
+					setFilter2(evt.target.value.toLowerCase())
+				}
+				break
+			case "Difficulty":
+				if (evt.target.value == evt.target.firstChild.label) { 
+					setFilter3('')
+				} else {
+					setFilter3(evt.target.value.toLowerCase())
+				}
+				break
+			case "Other":
+				if (evt.target.value == evt.target.firstChild.label) { 
+					setFilter4('')
+				} else {
+					setFilter4(evt.target.value.toLowerCase())
+				}
+				break
 		}
-		console.log(evt.target)
 	}
 
 	const filterrecipes = recipeList
@@ -45,8 +65,12 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 			return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
 		})
 		.filter(recipe => {
-			let filtered = false 
-
+			// let recipeTags = recipe.tags.map(tag => tag.toLowerCase())
+			// console.log(recipeTags)
+			// console.log(filter1)
+			// return recipeTags.includes(filter1)
+			let filtered = false
+			console.log(filter1)
 			for (let tags of recipe.tags) {
 				if (tags.toLowerCase().includes(filter1)) {
 					filtered = true
@@ -77,7 +101,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" key={index}>
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler1}>
 									<option defaultValue>{filteroption.name}</option>
 									{filteroption.content.map((selection, index) => (
 										<option value={selection} key={index}>{selection}</option>
