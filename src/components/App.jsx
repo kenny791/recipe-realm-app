@@ -48,8 +48,9 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput}/>} />
       <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />
-      <Route path='/user' element={<User loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
-      <Route path='/recipe/:recipeId' element={<Recipe recipeList={recipeList} />} />
+      <Route path='/user' element={<User loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>} />
+      <Route path='/recipe/:recipeId' element={<Recipe recipeList={recipeList} loggedInUser={loggedInUser} />} />
+      <Route path='/recipe/add' element={<NewRecipe loggedInUser={loggedInUser} setRecipeList={setRecipeList}/>} />
       <Route path='/apitest' element={<ApiTest recipeList={recipeList}/>} />
       <Route path='*' element={<div className='container'><h3>Page not found!</h3></div>} />
     </Routes>
