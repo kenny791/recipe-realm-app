@@ -4,7 +4,6 @@ import mongoose from 'mongoose'
 
 const router = express.Router()
 
-
 router.get("/recipes", async (request, response) => {
     try {
         const recipes = await RecipeModel.find()
@@ -43,7 +42,6 @@ router.post("/recipes", async(request, response) => {
     }
 })
 
-
 router.get("/recipes/:id", async (request, response) => {
     try{
         const recipe = await RecipeModel.findById(request.params.id)
@@ -60,8 +58,6 @@ router.get("/recipes/:id", async (request, response) => {
         response.status(500).send({error: err.message})
     }
 })
-
-
 
 //add new comment by username 
 router.post("/recipes/:id/comments", async (request, response) => {
@@ -114,34 +110,6 @@ router.post("/recipes/:id/rating", async (request, response) => {
     }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //to be fixed
 router.post("/recipes", async (request, response) => {
     try {
@@ -155,7 +123,6 @@ router.post("/recipes", async (request, response) => {
         response.status(500).send({error: err.message})
     }
 })
-
 
 //to be fixed
 router.put("/recipes/:id", async (request, response) => {
@@ -188,21 +155,5 @@ router.delete("/recipes/:id", async (request, response) => {
         response.status(500).send({error: err.message})
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default router
