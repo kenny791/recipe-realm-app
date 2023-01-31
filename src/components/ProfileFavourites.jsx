@@ -18,7 +18,7 @@ export default ({loggedInUser, setLoggedInUser}) => {
 
   const sendData = async (favourites) => {
     try {
-      const response = await fetch(`http://localhost:8080/users/${loggedInUser._id}/favourites`, {
+      const response = await fetch(`http://server-production-6a0e.up.railway.app/users/${loggedInUser._id}/favourites`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
