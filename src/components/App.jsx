@@ -26,12 +26,12 @@ export default function App() {
 
 
   //user state
-  const [loggedInUser, setLoggedInUser] = useState("")
+  const [loggedInUser, setLoggedInUser] = useState("WhiskWizard")
   
 
   useEffect (() => {
     async function getUser() {
-      const res = await fetch('https://server-production-6a0e.up.railway.app/users/user4')
+      const res = await fetch(`https://server-production-6a0e.up.railway.app/users/${loggedInUser}`)
       const data = await res.json()
       setLoggedInUser(data)
     }
