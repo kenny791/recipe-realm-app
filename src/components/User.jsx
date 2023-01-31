@@ -3,30 +3,47 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import ProfileFavourites from './ProfileFavourites'
 
-const User = ({ loggedInUser, setLoggedInUser}) => {
+const User = ({ loggedInUser, setLoggedInUser, recipeList}) => {
 
 
 
 
-	const favourites = loggedInUser.favourites.map((recipe, index) => {
-		return (
-		<li>
-			<Link to={`/recipe/${recipe.id}`}>
-			{recipe.name}
-			</Link>
-		</li>
-		)
-	})
+	// const favourites = loggedInUser.favourites.map((recipe, index) => {
+	// 	return (
+	// 		<div>
+	// 			<li key={index}>
+	// 				<Link to={`/recipe/${recipe.id}`}>
+	// 					{recipe.name}
+	// 				</Link>
+	// 			</li>
+	// 		</div>
+	// 	)
+	// })
 
 
-	useEffect (() => {
-		async function getUser() {
-		  const res = await fetch('https://server-production-6a0e.up.railway.app/users/user4')
-		  const data = await res.json()
-		  setLoggedInUser(data)
-		}
-		getUser()
-	},[])
+	// // find all user comments from recipeList
+	// const userComments = recipeList.map((recipe) => {
+	// 	return recipe.comments.filter((comment) => {
+	// 		return comment.user === loggedInUser.username
+	// 	})
+	// })
+	// console.log(userComments)
+
+
+
+
+
+
+
+
+	// useEffect (() => {
+	// 	async function getUser() {
+	// 	  const res = await fetch('https://server-production-6a0e.up.railway.app/users/WhiskWizard')
+	// 	  const data = await res.json()
+	// 	  setLoggedInUser(data)
+	// 	}
+	// 	getUser()
+	// },[])
 	
 
 
@@ -35,14 +52,22 @@ const User = ({ loggedInUser, setLoggedInUser}) => {
 
 
 	return (
-		<div className="container-fluid">
+		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
+
 
 
 
 			<h1>welcome {loggedInUser.username}</h1>
 			<h2>Favourites</h2>
-			{favourites}
-			{/* <ProfileFavourites loggedInUser={loggedInUser}/> */}
+			{/* {favourites} */}
+
+
+
+
+
+
+
+
 
 		</div>
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Search = ({ searchInput, setSearchInput, recipeList }) => {
 
+	// Get list of all tags for all recipes
 	let recipeTags = []
 	for (let recipe of recipeList) {
 		for (let tag of recipe.tags) {
@@ -12,6 +13,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		}
 	}
 
+	// Pre-defined filter list options
 	const filteroptions = [
 		{name: "Cuisine", content: ['Asian', 'Indian', 'Italian', 'Mexican', 'Thai', ]},
 		{name: "Type", content: ['Vegetarian', 'Vegan', 'Gluten-free', 'Soup', 'Pasta', 'dinner', 'chicken', 'salad']},
@@ -19,98 +21,59 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		{name: "Other", content: recipeTags}
 	]
 
-	// const [recipes, setRecipes] = useState(recipeList)
+	// State for each filter option
 	const [filter1, setFilter1] = useState('')
 	const [filter2, setFilter2] = useState('')
 	const [filter3, setFilter3] = useState('')
 	const [filter4, setFilter4] = useState('')
 
-	function changeHandler1(evt) {
+	// Function to set filter
+	function setFilterOption(evt, setFilter) {
+		if (evt.target.value == evt.target.firstChild.value) { 
+			setFilter('')
+		} else {
+			setFilter(evt.target.value.toLowerCase())
+		}
+	}
+
+	// Update filter each time a new change is selected
+	function changeHandler(evt) {
 		switch(evt.target.firstChild.label) {
 			case "Cuisine":
-				if (evt.target.value == evt.target.firstChild.value) { 
-					setFilter1('')
-				} else {
-					setFilter1(evt.target.value.toLowerCase())
-				}
+				setFilterOption(evt, setFilter1)
 				break
 			case "Type":
-				if (evt.target.value == evt.target.firstChild.label) { 
-					setFilter2('')
-				} else {
-					setFilter2(evt.target.value.toLowerCase())
-				}
+				setFilterOption(evt, setFilter2)
 				break
 			case "Difficulty":
-				if (evt.target.value == evt.target.firstChild.label) { 
-					setFilter3('')
-				} else {
-					setFilter3(evt.target.value.toLowerCase())
-				}
+				setFilterOption(evt, setFilter3)
 				break
 			case "Other":
-				if (evt.target.value == evt.target.firstChild.label) { 
-					setFilter4('')
-				} else {
-					setFilter4(evt.target.value.toLowerCase())
-				}
+				setFilterOption(evt, setFilter4)
 				break
 		}
 	}
 
+	// Function to determine if a recipe contains a specific filter tag
+	function doesTagExist(recipe, filter) {
+		// let recipeTags = recipe.tags.map(tag => tag.toLowerCase())
+		// return recipeTags.includes(filter1)
+
+		for (let tags of recipe.tags) {
+			if (tags.toLowerCase().includes(filter)) {
+				return true
+			}
+		}
+		return false
+	}
+
+	// Filter recipes
 	var filterrecipes = recipeList
-		.filter(recipe => {
-			return recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput)
-		})
-		.filter(recipe => {
-			// let recipeTags = recipe.tags.map(tag => tag.toLowerCase())
-			// console.log(recipeTags)
-			// console.log(filter1)
-			// return recipeTags.includes(filter1)
-
-			let filtered = false
-			console.log(filter1)
-			for (let tags of recipe.tags) {
-				if (tags.toLowerCase().includes(filter1)) {
-					filtered = true
-				}
-			}
-
-			// for (let tags in recipe.tags) {
-			// 	if (recipe.tags[tags].toLowerCase().includes(filter1)) {
-			// 		filtered = true
-			// 	}
-			// }
-
-			return filtered
-			})
-		.filter(recipe => {
-			let filtered = false
-			for (let tags of recipe.tags) {
-				if (tags.toLowerCase().includes(filter2)) {
-					filtered = true
-				}
-			}
-			return filtered
-		})
-		.filter(recipe => {
-			let filtered = false
-			for (let tags of recipe.tags) {
-				if (tags.toLowerCase().includes(filter3)) {
-					filtered = true
-				}
-			}
-			return filtered
-		})
-		.filter(recipe => {
-			let filtered = false
-			for (let tags of recipe.tags) {
-				if (tags.toLowerCase().includes(filter4)) {
-					filtered = true
-				}
-			}
-			return filtered
-		})
+		.filter(recipe => recipe.name.toLowerCase().includes(searchInput) || recipe.description.toLowerCase().includes(searchInput) || doesTagExist(recipe, searchInput))
+		.filter(recipe => doesTagExist(recipe, filter1))
+		.filter(recipe => doesTagExist(recipe, filter2))
+		.filter(recipe => doesTagExist(recipe, filter3))
+		.filter(recipe => doesTagExist(recipe, filter4))
 		
 
   return (
@@ -118,7 +81,6 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 		{/* Centre whole page */}
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
 			{/* Search bar */}
-			{/* mb is margin bottom; w is width */}
 			<div className="form-floating m-3 mt-5 w-75 ">
 				{/* Need to have placeholder as uses it as a pseudoelement */}
 				<input className="form-control" id="floatingInput" placeholder="samplesearchterm" onChange={(evt) => setSearchInput(evt.target.value)} value={searchInput}/>
@@ -130,10 +92,10 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 				{/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
 
 				{filteroptions.map((filteroption, index) => (
-					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2" key={index}>
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler1}>
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler}>
 									<option defaultValue>{filteroption.name}</option>
 									{filteroption.content.map((selection, index) => (
 										<option value={selection} key={index}>{selection}</option>
@@ -146,19 +108,19 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 				))}
 
 					{/* Dropdown extended example */}
-					<div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
+					{/* <div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
 						<div className="p-0 flex-fill">
 							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler1}>
-									<option defaultValue>Dietary</option>
-									<option value="1">One</option>
-									<option value="2">Spicy</option>
-									<option value="3">Salad</option>
+								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler}>
+									<option defaultValue key={0} >Dietary</option>
+									<option value="1" key={1}>One</option>
+									<option value="2" key={2}>Spicy</option>
+									<option value="3" key={3}>Salad</option>
 								</select>
 								<label htmlFor="floatingSelect">Filter</label>
 							</div>
 						</div>
-					</div>
+					</div> */}
 					{/* </div> */}
 				</div>
 			</div>
@@ -177,12 +139,13 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 						</div>
 					))}
 
-					<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
+					{/* Recipe display extended example
+						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
 						<figure className="figure">
 							<img src="https://loremflickr.com/320/240/sushi" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
 							<p>Description here</p>
 						</figure>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
