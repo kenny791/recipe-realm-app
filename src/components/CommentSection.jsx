@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
 
-export default ({ loggedInUser }) => {
-  const [comments, setComments] = useState([])
+export default ({ recipeComments, loggedInUser }) => {
+  console.log(recipeComments)
+
+  const [comments, setComments] = useState(recipeComments)
 
   const addComment = (newComment) => {
     // Comment is added with 'User' placeholder name
-    setComments([...comments, { name: 'User', comment: newComment }])
+    setComments([...comments, { username: loggedInUser, date: new Date(), comment: newComment }])
   }
 
   return (

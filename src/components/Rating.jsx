@@ -2,21 +2,19 @@ import React, { useState } from 'react'
 
 export default ({recipeRating, recipe, loggedInUser }) => {
 
-  console.log(loggedInUser)
-  
   const averageRating = Math.round(recipeRating.reduce((acc, curr) => acc + curr.rating, 0) / recipeRating.length)
   const recipeId = recipe._id
 
-  const [rating, setRating] = useState(0)
+  const [rating, setRating] = useState(averageRating)
 
   const handleClick = (event) => {
     const list = event.target.parentNode.children
     const index = Array.from(list).indexOf(event.target)
     setRating(index + 1)
-    updateDB(index + 1)
+    updateRatings(index + 1)
   }
 
-  const updateDB = async (rating) => {
+  const updateRatings = async (rating) => {
     const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
     {
       method: 'PATCH',
@@ -43,7 +41,8 @@ const stars = []
 
   return (
     <div className='container'>
-      {stars}
+      {stars} 
+      <span> | {averageRating}</span>
     </div>
   )
 }
