@@ -1,8 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default ({loggedInUser, setLoggedInUser}) => {
+export default ({loggedInUser, setLoggedInUser, recipeList}) => {
 
+
+
+
+
+ 
+
+    
+
+    
 
 
   const extractIds = (favourites) => {
@@ -37,33 +46,33 @@ export default ({loggedInUser, setLoggedInUser}) => {
   }
  
 
-	//display favourites
-	const favourites = loggedInUser.favourites && Array.isArray(loggedInUser.favourites) ? loggedInUser.favourites.map((recipe, index) => {		  
-		return (
-			<div className='row' key={index}>
-				<Link to={`/recipe/${recipe.id}`}>
-				<div class="col-sm-4">
-				<img class="img-fluid" src={recipe.image} alt="" />
-				</div>
-    			<div class="col-sm-7">
-				{recipe.name}
-				</div>
-				
-				</Link>
-				<div class="col-sm-1">
-        <button type="button" class="btn btn-danger" onClick={() => handleClick(recipe.id)}>Remove</button>
-				</div>
 
-			</div>
-		)
-	})
-	: null
+
+    for (let i = 0; i < recipeList.length; i++) {
+        let comment = recipeList[i].comments.find((comment) => comment.username.username === loggedInUser.username)
+        recipeList[i].comment = comment ? comment.comment : null
+        }
+
+    //loop through object if ratings is not null, add to ratings object with recipe name and id
+    const comments = Object.values(recipeList).map(recipe => {
+        if (recipe.comment !== null) {
+            return (
+                <div className="container text-center">
+                    <Link to={`/recipe/${recipe.id}`}>
+                    <h3>{recipe.name}</h3>
+                    <p>{recipe.comment}</p>
+                    </Link>
+                </div>
+            )
+        }
+    })
+
 
   return (
     <div className="container text-center">
-      <h2>Favourites</h2>
+      <h2>Comments</h2>
       <div class="container text-center">
-      {favourites}
+      {comments}
       </div>
     </div>
   )
