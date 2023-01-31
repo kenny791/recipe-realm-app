@@ -13,9 +13,9 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 	}
 
 	const filteroptions = [
-		{name: "Cuisine", content: ['Indian', 'Italian', 'Chinese', 'Japanese', 'French', 'Thai', 'Greek']},
-		{name: "Dietary requirements", content: ['Vegetarian', 'Vegan', 'Gluten free', 'Pescaterian']},
-		{name: "Difficulty", content: ['easy', 'medium', 'hard']},
+		{name: "Cuisine", content: ['Asian', 'Indian', 'Italian', 'Mexican', 'Thai', ]},
+		{name: "Type", content: ['Vegetarian', 'Vegan', 'Gluten-free', 'Soup', 'Pasta', 'dinner', 'chicken', 'salad']},
+		{name: "Difficulty", content: ['Easy', 'Medium', 'Hard']},
 		{name: "Other", content: recipeTags}
 	]
 
@@ -34,7 +34,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 					setFilter1(evt.target.value.toLowerCase())
 				}
 				break
-			case "Dietary requirements":
+			case "Type":
 				if (evt.target.value == evt.target.firstChild.label) { 
 					setFilter2('')
 				} else {
