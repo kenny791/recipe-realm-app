@@ -15,9 +15,9 @@ export default ({recipeRating}) => {
 const stars = []
   for (let i = 0; i < 5; i++) {
     if (i < rating) {
-      stars.push(<span key={i} onClick={handleClick}>★️️️️️</span>)
+      stars.push(<span style={{ cursor: 'pointer'}} key={i} onClick={handleClick}>★️️️️️</span>)
     } else {
-      stars.push(<span key={i} onClick={handleClick}>☆</span>)
+      stars.push(<span style={{ cursor: 'pointer'}} key={i} onClick={handleClick}>☆</span>)
     }
   }
 
