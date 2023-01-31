@@ -22,7 +22,7 @@ router.get("/users/:val", async (request, response) => {
     try{
         const user = await UserModel.findOne( {username: request.params.val} )
         .select("-password")
-        .populate({path: "favourites", select: "name id"})
+        .populate({path: "favourites", select: "name id image"})
         if (user) {
             response.send(user)
         } 
@@ -43,7 +43,32 @@ router.get("/users/:val", async (request, response) => {
     }
 })
 
-        
+//get comments by one user
+router.get("/users/:id/comments", async (request, response) => {
+    try{
+        const recipe = await RecipeModel.findOne( {username: request.params.id} )
+    if (recipe) {
+        response.send(recipe.comments)
+    } else {
+        response.status(404).send({message: "Comments not found"})
+    }
+    }
+    catch (err) {
+        response.status(500).send({error: err.message})
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 
