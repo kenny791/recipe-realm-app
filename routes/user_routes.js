@@ -72,17 +72,17 @@ router.patch("/users/:id", async (req, res) => {
 })
 
 //replace favourites array of user
-router.post("/users/:userId/favourites", async (req, res) => {
+router.post("/users/:userId/favourites", async (request, response) => {
     try {
         const user = await UserModel.findByIdAndUpdate(
-            req.params.userId,
-            { favourites: req.body.favourites },
+            request.params.userId,
+            { favourites: request.body.favourites },
             { new: true }
         )
-        res.send(user)
+        response.send(user)
     }
     catch (err) {
-        res.status(500).send({ error: err.message })
+        response.status(500).send({ error: err.message })
     }
 
 })
