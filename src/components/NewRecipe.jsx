@@ -17,10 +17,6 @@ const NewRecipe = ({ loggedInUser, setRecipeList }) => {
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
             <h1>Submit a new recipe</h1>
             <form className="m-3 mt-5 w-75">
-                {/* <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-                </div> */}
                 <div style={styled}>
                     <label htmlFor="name">Recipe Name</label>
                     <input type="text" className="form-control" id="recipeName" />
@@ -54,7 +50,9 @@ const NewRecipe = ({ loggedInUser, setRecipeList }) => {
                     <textarea className="form-control" id="recipeMethod" placeholder="e.g. 1. Cut carrots, onions and celeries into big chunks; 2. Place chicken and vegetables in large pot and boil for 30 minutes; 3. Serve with parsley" />
                 </div>
             </form>
+            <button type="submit" className="btn btn-primary btn-lg">Submit</button>
         </div>
+        
     </>
   )
 }
