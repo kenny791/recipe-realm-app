@@ -19,14 +19,14 @@ const User = ({ loggedInUser, setLoggedInUser}) => {
 	})
 
 
-	useEffect (() => {
-		async function getUser() {
-		  const res = await fetch('https://server-production-6a0e.up.railway.app/users/user4')
-		  const data = await res.json()
-		  setLoggedInUser(data)
-		}
-		getUser()
-	},[])
+	// useEffect (() => {
+	// 	async function getUser() {
+	// 	  const res = await fetch('https://server-production-6a0e.up.railway.app/users/WhiskWizard')
+	// 	  const data = await res.json()
+	// 	  setLoggedInUser(data)
+	// 	}
+	// 	getUser()
+	// },[])
 	
 
 
