@@ -24,7 +24,7 @@ const recipes = [
       author: insertusers[0],
       description: "A hearty and comforting soup made with a variety of vegetables, perfect for a cold winter day.",
       rating_list: [
-        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}, {username: insertusers[3], rating: 5}
       ],
       tags: ["Soup", "Vegetarian", "Easy"],
       image: "https://res.cloudinary.com/dzz3meeb6/image/upload/v1675125479/Recipe%20Photos/image_f7aixd.png",
@@ -40,6 +40,11 @@ const recipes = [
           username: insertusers[2],
           date: "2023-01-30",
           comment: "So easy to make and so comforting on a cold day. Will definitely make this again."
+        },
+        {
+          username: insertusers[3],
+          date: "2023-01-30",
+          comment: "Generic comment."
         }
       ]
     },
@@ -65,6 +70,11 @@ const recipes = [
           username: insertusers[2],
           date: "2023-01-30",
           comment: "This recipe is a family favorite, it's so easy to make and always a hit."
+        },
+        {
+          username: insertusers[3],
+          date: "2023-01-30",
+          comment: "Generic comment 2."
         }
       ]
     },
