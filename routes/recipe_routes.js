@@ -141,6 +141,20 @@ router.put("/recipes/:id", async (request, response) => {
     }
 })
 
+router.patch("/recipes/:id", async (req, res) => {
+    try {
+        const recipe = await RecipeModel.findByIdAndUpdate(req.params.id, req.body, { returnDocument: "after" })
+        if (recipe) {
+            res.json(recipe)
+        } else {
+            res.status(404).json({ message: "Recipe not found" })
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+        
+
 //to be fixed
 router.delete("/recipes/:id", async (request, response) => {
     try {
