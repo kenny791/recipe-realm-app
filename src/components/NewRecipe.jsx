@@ -18,17 +18,16 @@ const NewRecipe = ({ loggedInUser, setRecipeList }) => {
     const styled = {margin: '15px'}
 
     function updateEntry(evt) {
-        console.log(evt.target)
         setEntry({
             ...entry,
             [evt.target.id]: evt.target.value
         })
-        console.log(entry)
     }
 
     function submit(evt) {
         evt.preventDefault()
-        console.log(evt.target)
+        alert(`Successfully submitted! ${{entry}}`)
+        console.log(entry)
     }
 
   return (
