@@ -18,6 +18,32 @@ router.get("/recipes", async (request, response) => {
     }
 })
 
+router.post("/recipes", async(request, response) => {
+    try {
+        // Create new recipe entry
+        const { user, recipe } = request.body
+        const userObject = await UserModel.findOne({ username: user })
+        const newRecipe = { 
+            id: recipe.id, 
+            name: recipe.name, 
+            author: userObject._id, 
+            description: recipe.description, 
+            rating_list: [], 
+            tags: recipe.tags, 
+            image: recipe.image, 
+            ingredients: recipe.ingredients, 
+            method: recipe.method, 
+            comments: []}
+        const insertedRecipe = await RecipeModel.create(newRecipe)
+        // Send new entry with 201 status
+        response.status(201).send(await insertedRecipe.populate({ path: 'author', select: ['_id', 'username']}))
+    }
+    catch (err) {
+        response.status(500).send({ error: err.message })
+    }
+})
+
+
 router.get("/recipes/:id", async (request, response) => {
     try{
         const recipe = await RecipeModel.findById(request.params.id)
