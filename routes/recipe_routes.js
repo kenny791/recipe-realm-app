@@ -36,7 +36,7 @@ router.post("/recipes", async(request, response) => {
             comments: []}
         const insertedRecipe = await RecipeModel.create(newRecipe)
         // Send new entry with 201 status
-        response.status(201).send(await insertedRecipe.populate({ path: 'user', select: ['_id', 'username']}))
+        response.status(201).send(await insertedRecipe.populate({ path: 'author', select: ['_id', 'username']}))
     }
     catch (err) {
         response.status(500).send({ error: err.message })
