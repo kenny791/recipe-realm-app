@@ -8,7 +8,10 @@ console.log("Users deleted")
 const users = [
     { username: "BakeBoss", password: "password1", favourites: []},
     { username: "KitchenKing", password: "password2", favourites: []},
-    { username: "CookCraze", password: "password3", favourites: []}
+    { username: "CookCraze", password: "password3", favourites: []},
+    { username: "WhiskWizard", password: "password4", favourites: []},
+    { username: "RecipeRocker", password: "password5", favourites: []},
+    { username: "MasterChefMate", password: "password6", favourites: []}   
 ]
 
 const insertusers = await UserModel.insertMany(users)
@@ -621,13 +624,21 @@ const insertrecipes = await RecipeModel.insertMany(recipes)
 console.log("Recipes inserted")
 
 
-const userswithfavs = [
-    { username: "WhiskWizard", password: "password4", favourites: [insertrecipes[0], insertrecipes[1]]},
-    { username: "RecipeRocker", password: "password5", favourites: [insertrecipes[1], insertrecipes[2]]},
-    { username: "MasterChefMate", password: "password6", favourites: [insertrecipes[0], insertrecipes[2]]}
-]
+await UserModel.updateMany(
+  { username: { $in: [insertusers[0].username, insertusers[1].username] } },
+  { $push: { favourites: { $each: [insertrecipes[1], insertrecipes[2], insertrecipes[3]] } } }
+);
 
-await UserModel.insertMany(userswithfavs)
+await UserModel.updateMany(
+  { username: { $in: [insertusers[2].username, insertusers[3].username] } },
+  { $push: { favourites: { $each: [insertrecipes[4], insertrecipes[5], insertrecipes[6]] } } }
+);
+
+await UserModel.updateMany(
+  { username: { $in: [insertusers[4].username, insertusers[5].username] } },
+  { $push: { favourites: { $each: [insertrecipes[0], insertrecipes[2], insertrecipes[3]] } } }
+);
+
 console.log("Users with favourites inserted")
 
 dbClose()
