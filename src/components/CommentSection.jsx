@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
 
-export default () => {
+export default ({ loggedInUser }) => {
   const [comments, setComments] = useState([])
 
   const addComment = (newComment) => {

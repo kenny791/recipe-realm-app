@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default () => {
+export default ({ loggedInUser }) => {
   const [favourite, setFavourite] = useState(false)
 
   const handleClick = () => {

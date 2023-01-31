@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Favourite from './Favourite'
 import Rating from './Rating'
 
-export default ({recipe}) => {
+export default ({ recipe, loggedInUser }) => {
 
   return (
     <div className='container w-75 mb-3'>
@@ -26,10 +26,10 @@ export default ({recipe}) => {
             </div>
             <div className='col p-3'>
               <h4>Rating</h4>
-              <Rating recipeRating={recipe.rating_list} />
+              <Rating recipeRating={recipe.rating_list} recipe={recipe} loggedInUser={loggedInUser} />
             </div>
             <div className='col p-3'>
-              <Favourite />
+              <Favourite loggedInUser={loggedInUser} />
             </div>
           </div>
         </div>
