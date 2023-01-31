@@ -59,25 +59,19 @@ router.get("/users/:id/comments", async (request, response) => {
 })
 
 
+//replace favourites array of user
+router.post("/users/:userId/favourites", async (req, res) => {
+    try {
+        const user = await UserModel.findByIdAndUpdate(
+            req.params.userId,
+            { favourites: req.body.favourites },
+            { new: true }
+        )
+        res.send(user)
+    }
+    catch (err) {
+        res.status(500).send({ error: err.message })
+    }
 
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
+})
 export default router
