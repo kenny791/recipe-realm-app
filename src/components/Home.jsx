@@ -2,14 +2,30 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Styles.css'
 
-const Home = ({ setSearchInput }) => {
+const Home = ({ setSearchInput , recipeList }) => {
 
+	//handles prefilling of search page
 	const handleClick = (prefillSearch ) => {
 		setSearchInput(prefillSearch)
 	};
-
+	//handles search input change
 	const handleChange = (event) => {
 		setSearchInput(event.target.value)
+	}
+
+	//find highest rated recipe for featured recipe and image url
+	let highest_average_rating = 0;
+	let highest_rated_recipe = ""
+	for (let i = 0; i < recipeList.length; i++) {
+		let total_rating = 0
+	for (let j = 0; j < recipeList[i].rating_list.length; j++) {
+		total_rating += recipeList[i].rating_list[j].rating
+	}
+	let average_rating = total_rating / recipeList[i].rating_list.length
+	if (average_rating > highest_average_rating) {
+		highest_average_rating = average_rating
+		highest_rated_recipe = recipeList[i]
+	}
 	}
 
 
@@ -36,17 +52,16 @@ const Home = ({ setSearchInput }) => {
 			{/* featured recipe */}
 			<div className="row d-flex align-items-center mt-5 featured-recipe">
 				<div className="col-lg-6 ">
-					<Link to="/recipe">
-					<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" className="img-fluid rounded featured-img" alt="place holder" />
+					<Link to={`/recipe/${highest_rated_recipe.id}`}>
+					<img src={highest_rated_recipe.image} className="img-fluid rounded featured-img" alt="place holder" />
 					</Link>
 				</div>
 					<div className="col-lg-6">
-						<Link className="featured-recipe-link" to="/recipe">
+						<Link className="featured-recipe-link" to={`/recipe/${highest_rated_recipe.id}`}>
 							<div>
-							<p className="text-center h1 mt-3">Recipe Of The Day</p>
-							<br />
-							<p className="h4">Recipe Name</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo earum consequuntur architecto soluta voluptatem, dolores dignissimos. Consectetur numquam cum aliquam qui quisquam repellendus, suscipit, fugiat obcaecati, modi veniam fugit magni.</p>
+							<p className="text-center h1 my-4">Featured Recipe</p>
+							<p className="h4">{highest_rated_recipe.name}</p>
+							<p>{highest_rated_recipe.description}</p>
 							</div>
 						</Link>					
 					</div>
