@@ -6,7 +6,7 @@ import Ingredients from './Ingredients'
 import Method from './Method'
 import RecipeMenu from './RecipeMenu'
 
-export default ( { recipeList, loggedInUser  } ) => {
+export default ({ recipeList, loggedInUser  }) => {
 
   const { recipeId } = useParams()
   const recipe = recipeList[recipeId]
@@ -29,7 +29,7 @@ export default ( { recipeList, loggedInUser  } ) => {
       <Description recipeDescription={recipe.description} />
       <Ingredients recipeIngredients={recipe.ingredients} />
       <Method recipeMethod={recipe.method} />
-      <CommentSection recipeComments={recipe.comments} loggedInUser={loggedInUser} />
+      <CommentSection recipe={recipe} loggedInUser={loggedInUser} />
     </div>
   )
 }

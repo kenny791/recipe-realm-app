@@ -7,7 +7,6 @@ export default ({ addComment }) => {
   const [comment, setComment] = useState('')
 
   const handleSubmit = (evt) => {
-    console.log(evt)
     evt.preventDefault()
     addComment(comment)
     setComment('')
