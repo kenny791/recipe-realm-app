@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './Styles.css'
 
@@ -16,7 +16,7 @@ const Home = ({ setSearchInput , recipeList }) => {
 		setSearchInput(event.target.value)
 	}
 
-	//find highest rated recipe for featured recipe and image url
+	//highest rated recipe for featured recipe and image url
 	let highest_average_rating = 0;
 	let highest_rated_recipe = ""
 	for (let i = 0; i < recipeList.length; i++) {
@@ -30,14 +30,28 @@ const Home = ({ setSearchInput , recipeList }) => {
 		highest_rated_recipe = recipeList[i]
 	}
 	}
-	
+
+
+	// Carousel link component
+	const CarouselLink = ({searchPrefill, imgURL, carouselText, active}) => {
+		return (
+			<Link className="carousel-link" to="/search" onClick={() => handleClick({searchPrefill})}>
+				<div className={`carousel-item   ${active} ? "active" : "" }`}>
+					<img src={imgURL} className="backdrop rounded" alt="..."/>
+					<p className="text-center display-1 mt-5">{carouselText}</p>
+				</div>
+			</Link>
+	)}
+
 
  	return (
 		<div className="container-fluid landing">
 			{/* main landing */}
 			<div className="text-center hero">
 				{/* backdrop image */}
-				<img src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" className="img-fluid backdrop" alt="Responsive image"/>
+				{/* <img src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" className="img-fluid backdrop" alt="Responsive image"/> */}
+				{/* <img src="https://res.cloudinary.com/dzz3meeb6/image/upload/a_180/v1675250314/Recipe%20Photos/image_ogmf9q.png" className="img-fluid backdrop" alt="Responsive image"/> */}
+				<img src="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675251255/Recipe%20Photos/image_tafm0z.png" className="img-fluid backdrop" alt="Responsive image"/>
 				{/* hero */}
 				<p className="display-1">Recipe Realm</p>
 				<p className="display-6">Lorem ipsum dolor sit </p>
@@ -53,7 +67,7 @@ const Home = ({ setSearchInput , recipeList }) => {
 				</div>
 			</div>
 			{/* featured recipe */}
-			<div className="row d-flex align-items-center mt-5 featured-recipe">
+			<div className="row d-flex align-items-center m-5 featured-recipe">
 				<div className="col-lg-6 ">
 					<Link to={`/recipe/${highest_rated_recipe.id}`}>
 					<img src={highest_rated_recipe.image} className="img-fluid rounded featured-img" alt="place holder" />
@@ -71,44 +85,29 @@ const Home = ({ setSearchInput , recipeList }) => {
 			</div>
 			{/* carousel */}
 			<div>
-				<div id="carouselExample" className="carousel slide mt-5">
-					<div className="carousel-inner">
-						<Link className="carousel-link" to="/search" onClick={() => handleClick("spicy")}>
-							<div className="carousel-item active ">
-								<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" className=" backdrop rounded" alt="..."/>
-								<p className="text-center display-1 mt-5">SPICY</p>
-							</div>
-						</Link>
-						<Link className="carousel-link" to="/search" onClick={() => handleClick("noodles")}>
-							<div className="carousel-item">
-								<img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1560&q=80" className=" backdrop rounded " alt="..."/>
-								<p className="text-center display-1 mt-5">NOODLES</p>
-							</div>
-						</Link>
-						<Link className="carousel-link" to="/search" onClick={() => handleClick("vegan")}>
-							<div className="carousel-item ">
-									<img src="https://images.unsplash.com/photo-1597589022928-bb4002c099ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80" className="backdrop rounded" alt="..."/>
-									<p className="text-center display-1 mt-5">VEGAN</p>
-							</div>
-						</Link>
-						<Link className="carousel-link" to="/search" onClick={() => handleClick("salad")}>
-							<div className="carousel-item ">
-									<img src="https://i.imgur.com/2hr32KA.jpeg" className="backdrop rounded" alt="..."/>
-									<p className="text-center display-1 mt-5">SALAD</p>
-							</div>
-						</Link>
-
-
-
+				<div id="carouselExampleIndicators" className="carousel slide m-5">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
 					</div>
-					<button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-						<span className="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span className="visually-hidden">Previous</span>
+					<div className="carousel-inner">
+						<CarouselLink active="active" searchPrefill="chicken" carouselText="CHICKEN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/barbecue-g82e9c37de_1280.jpg" />
+						<CarouselLink searchPrefill="mexican" carouselText="MEXICAN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/mexican-gbb5482fa4_1280.jpg" />
+						<CarouselLink searchPrefill="indian" carouselText="INDIAN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/biryani-g849e363c0_1280.jpg" />
+						<CarouselLink searchPrefill="salad" carouselText="SALAD" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/salad-g732cb055a_1280.jpg" />
+						<CarouselLink searchPrefill="vegetarian" carouselText="VEGETARIAN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/casserole-dish-g300399764_1280.jpg" />
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
 					</button>
-					<button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-						<span className="carousel-control-next-icon" aria-hidden="true"></span>
-						<span className="visually-hidden">Next</span>
-					</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
 				</div>	
 			</div>
 		

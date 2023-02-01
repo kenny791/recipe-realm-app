@@ -129,7 +129,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 			<div className="container d-flex flex-wrap align-items-center justify-content-center mt-5 w-75">
 				<div className="row g-4 g-lg-6">
 					{filterrecipes.map((recipe) => (
-						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2" key={recipe.id}>
+						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2 figurediv" key={recipe.id}>
 							<Link to={`/recipe/${recipe.id}`} style={{color: "black"}}>
 								<figure className="figure">
 									<img src={recipe.image} className="figure-img img-fluid rounded" alt={recipe.name} />
