@@ -109,49 +109,37 @@ router.post("/recipes/:id/rating", async (request, response) => {
     }
 })
 
-// Already done above
-// router.post("/recipes", async (request, response) => {
-//     try {
-//         const { name, author, tags, ingredients, preparation, image } = request.body
-//         const newRecipe = { name, author, tags, ingredients, preparation, image }
-//         const insertedRecipe = await RecipeModel.create(newRecipe)
-//         response.status(201).send(insertedRecipe)
-//         console.log(insertedRecipe)
-//     }
-//     catch (err) {
-//         response.status(500).send({error: err.message})
-//     }
-// })
-
-//to be fixed
-router.put("/recipes/:id", async (request, response) => {
-    const { name,author } = request.body
-    const updatedRecipe = { name,author }
+// Edit recipes
+router.patch("/recipes/:id", async (request, response) => {
     try {
-        const recipe = await RecipeModel.findByIdAndUpdate(request.params.id, updatedRecipe, { returnDocument: "after" })
-        if (recipe) {
-            response.send(recipe)
+        // const { recipeId, name, author, description, tags, image, ingredients, method } = request.body
+        const { name, description, tags, image, ingredients, method } = request.body
+        const editedEntry = { name, description, tags, image, ingredients, method }
+        const entry = await RecipeModel.findOneAndUpdate({id: request.params.id}, editedEntry, { returnDocument: 'after' })
+        if (entry) {
+            response.send(entry)
         } else {
-            response.status(404).send({message: "Recipe not found"})
+            response.status(404).send({ error: 'Entry not found'})
         }
     }
     catch (err) {
-        response.status(500).send({error: err.message})
+        res.status(500).send({ error: err.message})
     }
 })
 
-router.patch("/recipes/:id", async (req, res) => {
-    try {
-        const recipe = await RecipeModel.findByIdAndUpdate(req.params.id, req.body, { returnDocument: "after" })
-        if (recipe) {
-            res.json(recipe)
-        } else {
-            res.status(404).json({ message: "Recipe not found" })
-        }
-    } catch (err) {
-        res.status(500).json({ message: err.message })
-    }
-})
+// Repeat of above
+// router.patch("/recipes/:id", async (req, res) => {
+//     try {
+//         const recipe = await RecipeModel.findByIdAndUpdate(req.params.id, req.body, { returnDocument: "after" })
+//         if (recipe) {
+//             res.json(recipe)
+//         } else {
+//             res.status(404).json({ message: "Recipe not found" })
+//         }
+//     } catch (err) {
+//         res.status(500).json({ message: err.message })
+//     }
+// })
         
 
 //to be fixed
