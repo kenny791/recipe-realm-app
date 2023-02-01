@@ -43,7 +43,7 @@ router.post("/recipes", async (request, response) => {
 
 router.get("/recipes/:id", async (request, response) => {
     try{
-        const recipe = await RecipeModel.findById(request.params.id)
+        const recipe = await RecipeModel.findOne({ id: request.params.id })
             .populate({path: "author", select: "username"})
             .populate({path: "rating_list.username", select: "username"})
             .populate({path: "comments.username", select: "username"})
@@ -63,12 +63,13 @@ router.post("/recipes/:id/comments", async (request, response) => {
     try {
         const { username, comment } = request.body
         //find user id by username
-        const userId = await UserModel.findOne( {username: request.body.username} ) 
+        const userId = await UserModel.findOne( {username: username} ) 
         const  newComment = {
             username: userId._id,
-            comment: request.body.comment
+            date: Date.now(),
+            comment: comment
         }
-        const recipe = await RecipeModel.findById(request.params.id)
+        const recipe = await RecipeModel.findOne({ id: request.params.id })
         if (recipe) {
             recipe.comments.push(newComment)
             await recipe.save()
@@ -95,7 +96,7 @@ router.post("/recipes/:id/rating", async (request, response) => {
             username: userId._id,
             rating: request.body.rating
         }
-        const recipe = await RecipeModel.findById(request.params.id)
+        const recipe = await RecipeModel.findOne({ id: request.params.id })
         if (recipe) {
             recipe.rating_list.push(newRating)
             await recipe.save()
@@ -109,57 +110,29 @@ router.post("/recipes/:id/rating", async (request, response) => {
     }
 })
 
-// Already done above
-// router.post("/recipes", async (request, response) => {
-//     try {
-//         const { name, author, tags, ingredients, preparation, image } = request.body
-//         const newRecipe = { name, author, tags, ingredients, preparation, image }
-//         const insertedRecipe = await RecipeModel.create(newRecipe)
-//         response.status(201).send(insertedRecipe)
-//         console.log(insertedRecipe)
-//     }
-//     catch (err) {
-//         response.status(500).send({error: err.message})
-//     }
-// })
-
-//to be fixed
-router.put("/recipes/:id", async (request, response) => {
-    const { name,author } = request.body
-    const updatedRecipe = { name,author }
+// Edit recipes
+router.patch("/recipes/:id", async (request, response) => {
     try {
-        const recipe = await RecipeModel.findByIdAndUpdate(request.params.id, updatedRecipe, { returnDocument: "after" })
-        if (recipe) {
-            response.send(recipe)
+        // const { recipeId, name, author, description, tags, image, ingredients, method } = request.body
+        const { name, description, tags, image, ingredients, method } = request.body
+        const editedEntry = { name, description, tags, image, ingredients, method }
+        const entry = await RecipeModel.findOneAndUpdate({id: request.params.id}, editedEntry, { returnDocument: 'after' })
+        if (entry) {
+            response.send(entry)
         } else {
-            response.status(404).send({message: "Recipe not found"})
+            response.status(404).send({ error: 'Entry not found'})
         }
     }
     catch (err) {
-        response.status(500).send({error: err.message})
+        res.status(500).send({ error: err.message})
     }
 })
 
-router.patch("/recipes/:id", async (req, res) => {
-    try {
-        const recipe = await RecipeModel.findByIdAndUpdate(req.params.id, req.body, { returnDocument: "after" })
-        if (recipe) {
-            res.json(recipe)
-        } else {
-            res.status(404).json({ message: "Recipe not found" })
-        }
-    } catch (err) {
-        res.status(500).json({ message: err.message })
-    }
-})
-        
-
-//to be fixed
 router.delete("/recipes/:id", async (request, response) => {
     try {
-        const recipe = await RecipeModel.findByIdAndDelete(request.params.id)
+        const recipe = await RecipeModel.findOneAndDelete({ id: request.params.id })
         if (recipe) {
-            response.send(recipe)
+            response.sendStatus(204)
         } else {
             response.status(404).send({message: "Recipe not found"})
         }
@@ -175,7 +148,7 @@ router.delete("/recipes/:id", async (request, response) => {
 //delete comment by recipe id and comment id
 router.delete("/recipes/:recipeId/comments/:commentId", async (request, response) => {
     try {
-        const recipe = await RecipeModel.findById(request.params.recipeId)
+        const recipe = await RecipeModel.findOne({ id: request.params.recipeId })
         if (recipe) {
             const commentIndex = recipe.comments.findIndex(
             comment => comment._id.toString() === request.params.commentId
