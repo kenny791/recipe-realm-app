@@ -1,8 +1,11 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './Styles.css'
 
 const Home = ({ setSearchInput , recipeList }) => {
+	
+	// Scroll to top on page load
+	useEffect(() => { window.scrollTo(0, 0) }, [])
 
 	//handles prefilling of search page
 	const handleClick = (prefillSearch ) => {
@@ -27,7 +30,7 @@ const Home = ({ setSearchInput , recipeList }) => {
 		highest_rated_recipe = recipeList[i]
 	}
 	}
-
+	
 
  	return (
 		<div className="container-fluid landing">

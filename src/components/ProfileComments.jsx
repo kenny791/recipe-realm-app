@@ -54,10 +54,10 @@ export default ({loggedInUser, setLoggedInUser, recipeList}) => {
         }
 
     //loop through object if ratings is not null, add to ratings object with recipe name and id
-    const comments = Object.values(recipeList).map(recipe => {
+    const comments = Object.values(recipeList).map((recipe,index) => {
         if (recipe.comment !== null) {
             return (
-                <div className="container text-center">
+                <div className="container text-center" key={index}>
                     <Link to={`/recipe/${recipe.id}`}>
                     <h3>{recipe.name}</h3>
                     <p>{recipe.comment}</p>
@@ -71,7 +71,7 @@ export default ({loggedInUser, setLoggedInUser, recipeList}) => {
   return (
     <div className="container text-center">
       <h2>Comments</h2>
-      <div class="container text-center">
+      <div className="container text-center">
       {comments}
       </div>
     </div>

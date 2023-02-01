@@ -34,7 +34,7 @@ const User = ({ loggedInUser, setLoggedInUser, recipeList}) => {
 	return (
 		<div className="container text-center">
 			<h1>Welcome {loggedInUser.username}</h1>
-			<div class="container text-center">
+			<div className="container text-center">
 			<ProfileComments loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>
 			<ProfileRatings loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>
 			<ProfileFavourites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
