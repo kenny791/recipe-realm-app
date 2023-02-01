@@ -3,7 +3,6 @@ import Comment from './Comment'
 import CommentForm from './CommentForm'
 
 export default ({ recipeComments, loggedInUser }) => {
-  console.log(recipeComments)
 
   const [comments, setComments] = useState(recipeComments)
 
