@@ -17,7 +17,7 @@ router.get("/recipes", async (request, response) => {
     }
 })
 
-router.post("/recipes", async(request, response) => {
+router.put("/recipes", async(request, response) => {
     try {
         // Create new recipe entry
         const { recipeId, name, author, description, tags, image, ingredients, method } = request.body

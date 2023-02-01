@@ -453,7 +453,7 @@ const recipes = [
       author: insertusers[0],
       description: "Tonkatsu is a popular Japanese dish that consists of breaded and deep-fried pork cutlets. It is often served with a side of shredded cabbage and a tonkatsu sauce, made with a combination of fruit, vegetable, and meat or fish-based ingredients. This dish is perfect for those who love a crispy and savory meal.",
       rating_list: [
-        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}, {username: insertusers[3], rating: 5}
       ],
       tags: ["asian", "pork", "deep-fried", "hard"],
       image: "https://res.cloudinary.com/dzz3meeb6/image/upload/v1675126399/Recipe%20Photos/image_nsjtqb.png",
@@ -478,7 +478,7 @@ const recipes = [
       author: insertusers[0],
       description: "Australian Meat Pie is a classic Australian dish that consists of a flaky pastry crust filled with a savory meat and vegetable filling. It's often served with tomato sauce, and is a favorite at sports games, picnics, and as a quick snack. This dish is perfect for those who love a hearty and comforting meal.",
       rating_list: [
-        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
+        {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}, {username: insertusers[3], rating: 5}
       ],
       tags: ["Australian", "meat", "pie"],
       image: "https://res.cloudinary.com/dzz3meeb6/image/upload/v1675126365/Recipe%20Photos/image_gctalk.png",

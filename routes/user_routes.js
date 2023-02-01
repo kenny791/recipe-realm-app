@@ -87,4 +87,16 @@ router.post("/users/:userId/favourites", async (request, response) => {
 
 })
 
+
+// get all comments by one user with recipe name id, image, comment, and comment id
+
+
+
+
+
+
+
+
+
+
 export default router
