@@ -42,16 +42,16 @@ export default ({loggedInUser, setLoggedInUser}) => {
 		return (
 			<div className='row' key={index}>
 				<Link to={`/recipe/${recipe.id}`}>
-				<div class="col-sm-4">
-				<img class="img-fluid" src={recipe.image} alt="" />
+				<div className="col-sm-4">
+				<img className="img-fluid" src={recipe.image} alt="" />
 				</div>
-    			<div class="col-sm-7">
+    			<div className="col-sm-7">
 				{recipe.name}
 				</div>
 				
 				</Link>
-				<div class="col-sm-1">
-        <button type="button" class="btn btn-danger" onClick={() => handleClick(recipe.id)}>Remove</button>
+				<div className="col-sm-1">
+        <button type="button" className="btn btn-danger" onClick={() => handleClick(recipe.id)}>Remove</button>
 				</div>
 
 			</div>
@@ -62,7 +62,7 @@ export default ({loggedInUser, setLoggedInUser}) => {
   return (
     <div className="container text-center">
       <h2>Favourites</h2>
-      <div class="container text-center">
+      <div className="container text-center">
       {favourites}
       </div>
     </div>
