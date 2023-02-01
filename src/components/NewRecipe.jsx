@@ -22,7 +22,8 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     const styled = {margin: '15px'}
 
     const addEntry = async (user, entry) => {
-        const id = recipeList.length
+        // Cannot just be recipeList.length in case there are deleted recipes, in which case there will be duplicate ids
+        const id = recipeList[recipeList.length - 1].id + 1
 
         const newEntry = {
             recipeId: id,
@@ -34,7 +35,6 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
             ingredients: entry.ingredients,
             method: entry.method
         }
-        console.log(newEntry)
 
         const returnedEntry = await fetch("https://server-production-6a0e.up.railway.app/recipes/", {
             method: "POST",
@@ -47,9 +47,8 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
         
         const newRecipe = await returnedEntry.json()
         setRecipeList([...recipeList, newRecipe])
-        console.log(newRecipe)
-        console.log(recipeList)
-        // nav(`/recipe/${id}`)
+        alert('Recipe successfully created!')
+        nav(`/recipe/${id}`)
     }
 
     function updateEntry(evt) {
