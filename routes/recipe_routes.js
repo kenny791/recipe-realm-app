@@ -148,7 +148,7 @@ router.delete("/recipes/:id", async (request, response) => {
 //delete comment by recipe id and comment id
 router.delete("/recipes/:recipeId/comments/:commentId", async (request, response) => {
     try {
-        const recipe = await RecipeModel.findById(request.params.recipeId)
+        const recipe = await RecipeModel.findOne({ id: request.params.recipeId })
         if (recipe) {
             const commentIndex = recipe.comments.findIndex(
             comment => comment._id.toString() === request.params.commentId
