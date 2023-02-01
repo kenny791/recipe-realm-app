@@ -43,7 +43,7 @@ router.post("/recipes", async (request, response) => {
 
 router.get("/recipes/:id", async (request, response) => {
     try{
-        const recipe = await RecipeModel.findOne({ id: request.params.id })
+        const recipe = await RecipeModel.findById(request.params.id)
             .populate({path: "author", select: "username"})
             .populate({path: "rating_list.username", select: "username"})
             .populate({path: "comments.username", select: "username"})
@@ -59,32 +59,32 @@ router.get("/recipes/:id", async (request, response) => {
 })
 
 //add new comment by username 
-router.post("/recipes/:id/comments", async (request, response) => {
-    try {
-        const { username, comment } = request.body
-        //find user id by username
-        const userId = await UserModel.findOne( {username: username} ) 
-        const  newComment = {
-            username: userId._id,
-            date: Date.now(),
-            comment: comment
-        }
-        const recipe = await RecipeModel.findOne({ id: request.params.id })
-        if (recipe) {
-            recipe.comments.push(newComment)
-            await recipe.save()
-            response.send({
-                message: "Comment added",
-                comments: recipe.comments
-              })
-        } else {
-            response.status(404).send({message: "Recipe not found"})
-        }
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
-    }
-})
+// router.post("/recipes/:id/comments", async (request, response) => {
+//     try {
+//         const { username, comment } = request.body
+//         //find user id by username
+//         const userId = await UserModel.findOne( {username: username} ) 
+//         const  newComment = {
+//             username: userId._id,
+//             date: Date.now(),
+//             comment: comment
+//         }
+//         const recipe = await RecipeModel.findOne({ id: request.params.id })
+//         if (recipe) {
+//             recipe.comments.push(newComment)
+//             await recipe.save()
+//             response.send({
+//                 message: "Comment added",
+//                 comments: recipe.comments
+//               })
+//         } else {
+//             response.status(404).send({message: "Recipe not found"})
+//         }
+//     }
+//     catch (err) {
+//         response.status(500).send({error: err.message})
+//     }
+// })
 
 //add new rating by username 
 router.post("/recipes/:id/rating", async (request, response) => {
@@ -96,7 +96,7 @@ router.post("/recipes/:id/rating", async (request, response) => {
             username: userId._id,
             rating: request.body.rating
         }
-        const recipe = await RecipeModel.findOne({ id: request.params.id })
+        const recipe = await RecipeModel.findById(request.params.id)
         if (recipe) {
             recipe.rating_list.push(newRating)
             await recipe.save()
