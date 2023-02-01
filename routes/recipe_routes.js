@@ -17,7 +17,7 @@ router.get("/recipes", async (request, response) => {
     }
 })
 
-router.put("/recipes", async(request, response) => {
+router.post("/recipes", async(request, response) => {
     try {
         // Create new recipe entry
         const { recipeId, name, author, description, tags, image, ingredients, method } = request.body
@@ -170,6 +170,8 @@ router.delete("/recipes/:id", async (request, response) => {
 })
 
 
+
+
 //delete comment by recipe id and comment id
 router.delete("/recipes/:recipeId/comments/:commentId", async (request, response) => {
     try {
@@ -207,8 +209,7 @@ router.post("/addrecipes", async (request, response) => {
         const id = recipeId
         const newRecipe = {id, name, author, description, rating_list, tags, image, ingredients, method, comments }
         const insertedRecipe = await RecipeModel.create(newRecipe)
-        response.status(201).send(insertedRecipe)
-        console.log(insertedRecipe)
+        response.status(201).send(await insertedRecipe.populate({ path: 'author', select: ['_id', 'username']}))
     }
     catch (err) {
         response.status(500).send({error: err.message})
