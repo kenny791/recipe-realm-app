@@ -9,14 +9,16 @@ import RecipeMenu from './RecipeMenu'
 export default ({ recipeList, loggedInUser  }) => {
 
   const { recipeId } = useParams()
-  const recipe = recipeList[recipeId]
+  // Find recipe by id rather than indexing recipeId in case of deleted recipes (then recipeId will not match with id)
+  const index = recipeList.findIndex(recipe => recipe.id == recipeId)
+  const recipe = recipeList[index]
   
   if (!recipe) {
     return (
       <div className='container'>
         <br />
         <h3>
-          Loading recipe...
+          This recipe does not seem to exist...
         </h3>
         <br />
       </div>
