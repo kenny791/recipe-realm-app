@@ -22,7 +22,7 @@ router.get("/users/:val", async (request, response) => {
     try{
         const user = await UserModel.findOne( {username: request.params.val} )
         .select("-password")
-        .populate({path: "favourites", select: "name id image"})
+        .populate({path: "favourites", select: "name id image description"})
         if (user) {
             response.send(user)
         } 
@@ -86,15 +86,6 @@ router.post("/users/:userId/favourites", async (request, response) => {
     }
 
 })
-
-
-// get all comments by one user with recipe name id, image, comment, and comment id
-
-
-
-
-
-
 
 
 
