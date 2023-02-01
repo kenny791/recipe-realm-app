@@ -2,33 +2,25 @@ import React, { useState } from 'react'
 
 export default ({ recipe, loggedInUser }) => {
 
-  const isFavourite = () => {
-    for (let fav of loggedInUser.favourites) {
-      if (recipe._id === fav._id) {
-        return true
-      }
-    }
-    return false
-  }
+  const [favourite, setFavourite] = useState(
+    loggedInUser.favourites.some(fav => fav._id === recipe._id)
+  )
 
-  const [favourite, setFavourite] = useState(isFavourite)
-
-  const handleClick = () => {
+  const handleClick = async () => {
     setFavourite(!favourite)
-    updateFavourites()
+    await updateFavourites()
   }
 
   const updateFavourites = async () => {
+    const newFavourites = favourite ? loggedInUser.favourites.filter(fav => fav._id !== recipe._id) : [...loggedInUser.favourites, recipe]
+
     const res = await fetch(`https://server-production-6a0e.up.railway.app/users/${loggedInUser._id}`,
     {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        favourites: [...loggedInUser.favourites,
-          recipe]
-      })
+      body: JSON.stringify({ favourites: newFavourites })
     })
     const data = await res.json()
     console.log(data)
@@ -40,7 +32,9 @@ export default ({ recipe, loggedInUser }) => {
         type="button" 
         className={favourite ? "btn btn-success" : "btn btn-danger"} 
         onClick={handleClick} data-bs-toggle="button" 
-        autoComplete="off">{favourite ? "Added" : "Favourite"}
+        autoComplete="off"
+      >
+        {favourite ? "Added" : "Favourite"}
       </button>
     </>
   )
