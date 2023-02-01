@@ -40,7 +40,7 @@ const recipeSchema = new mongoose.Schema({
         rating: {type: Number, required: true}
     }],
     tags: [{type: String}],
-    image: {type: String, default: "https://placekitten.com/g/400/400"},
+    image: {type: String, default: "https://res.cloudinary.com/dzz3meeb6/image/upload/v1675248494/Recipe%20Photos/image_a9nqqw.png"},
     ingredients: [{type: String}],
     method: [{type: String}],
     comments: [{
