@@ -96,7 +96,7 @@ router.post("/recipes/:id/rating", async (request, response) => {
             username: userId._id,
             rating: request.body.rating
         }
-        const recipe = await RecipeModel.findById(request.params.id)
+        const recipe = await RecipeModel.findOne({ id: request.params.id })
         if (recipe) {
             recipe.rating_list.push(newRating)
             await recipe.save()
