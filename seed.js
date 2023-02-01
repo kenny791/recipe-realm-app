@@ -41,10 +41,10 @@ const recipes = [
           date: "2023-01-30",
           comment: "So easy to make and so comforting on a cold day. Will definitely make this again."
         },
-        {
+        {    
           username: insertusers[3],
-          date: "2023-01-30",
-          comment: "Generic comment."
+          date: "2023-01-01",
+          comment: "I was blown away by the quality of the ingredients used in this dish. It was fresh and bursting with flavor."
         }
       ]
     },
@@ -73,8 +73,8 @@ const recipes = [
         },
         {
           username: insertusers[3],
-          date: "2023-01-30",
-          comment: "Generic comment 2."
+          date: "2023-01-02",
+          comment: "This was my first time trying this cuisine, and I was pleasantly surprised by how much I enjoyed it. The portions were generous, and the prices were reasonable."
         }
       ]
     },
@@ -104,6 +104,11 @@ const recipes = [
           username: insertusers[2],
           date: "2023-01-30",
           comment: "I made this recipe for a dinner party and received so many compliments! It's a perfect balance of flavors and so easy to make. I highly recommend giving it a try."
+        },
+        {
+          username: insertusers[3],
+          date: "2023-01-04",
+          comment: "The taste of this dish was out of this world! I can't wait to try more recipes from this chef."
         }
       ]
     },
@@ -129,6 +134,11 @@ const recipes = [
           username: insertusers[2],
           date: "2023-01-30",
           comment: "I'm not usually a fan of capers but they really add a nice briny flavor to the dish. Will definitely make again!"
+        },
+        {
+          username: insertusers[3],
+          date: "2023-01-05",
+          comment: "This dish was a huge hit at our dinner party! Everyone loved it and asked for the recipe."
         }
       ]
     },
@@ -174,6 +184,11 @@ const recipes = [
           username: insertusers[2],
           date: "2023-01-30",
           comment: "I brought these to a party and they were a hit! So many compliments on the recipe."
+        },
+        {
+          username: insertusers[3],
+          date: "2023-01-06",
+          comment: "The flavors in this dish were so unique and enjoyable. I never would have thought to combine these ingredients, but it worked so well!"
         }
       ]
     },
@@ -199,6 +214,11 @@ const recipes = [
         username: insertusers[2],
         date: "2023-01-30",
         comment: "I made this for my family and they loved it. I will definitely be making it again."
+        },
+        {
+          username: insertusers[3],
+          date: "2023-01-07",
+          comment: "I was pleasantly surprised by how healthy this dish was while still being so flavorful and filling."
         }
       ]
     },
@@ -637,17 +657,17 @@ console.log("Recipes inserted")
 await UserModel.updateMany(
   { username: { $in: [insertusers[0].username, insertusers[1].username] } },
   { $push: { favourites: { $each: [insertrecipes[1], insertrecipes[2], insertrecipes[3]] } } }
-);
+)
 
 await UserModel.updateMany(
   { username: { $in: [insertusers[2].username, insertusers[3].username] } },
   { $push: { favourites: { $each: [insertrecipes[4], insertrecipes[5], insertrecipes[6]] } } }
-);
+)
 
 await UserModel.updateMany(
   { username: { $in: [insertusers[4].username, insertusers[5].username] } },
   { $push: { favourites: { $each: [insertrecipes[0], insertrecipes[2], insertrecipes[3]] } } }
-);
+)
 
 console.log("Users with favourites inserted")
 
