@@ -33,17 +33,17 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This soup was delicious! I added some shredded chicken and it was a great addition."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "So easy to make and so comforting on a cold day. Will definitely make this again."
         },
         {    
           username: insertusers[3],
-          date: "2023-01-01",
+          date: new Date("2023-01-30"),
           comment: "I was blown away by the quality of the ingredients used in this dish. It was fresh and bursting with flavor."
         }
       ]
@@ -63,17 +63,17 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This bolognese sauce was delicious! I added some red wine for extra flavor."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This recipe is a family favorite, it's so easy to make and always a hit."
         },
         {
           username: insertusers[3],
-          date: "2023-01-02",
+          date: new Date("2023-01-30"),
           comment: "This was my first time trying this cuisine, and I was pleasantly surprised by how much I enjoyed it. The portions were generous, and the prices were reasonable."
         }
       ]
@@ -97,17 +97,17 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made this recipe for dinner last night and it was a hit! The shrimp were cooked perfectly and the lemon garlic sauce was so flavorful. I will definitely be making this again."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made this recipe for a dinner party and received so many compliments! It's a perfect balance of flavors and so easy to make. I highly recommend giving it a try."
         },
         {
           username: insertusers[3],
-          date: "2023-01-04",
+          date: new Date("2023-01-30"),
           comment: "The taste of this dish was out of this world! I can't wait to try more recipes from this chef."
         }
       ]
@@ -127,17 +127,17 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This was absolutely delicious! I've made it for dinner parties and it's always a hit. I highly recommend it."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I'm not usually a fan of capers but they really add a nice briny flavor to the dish. Will definitely make again!"
         },
         {
           username: insertusers[3],
-          date: "2023-01-05",
+          date: new Date("2023-01-30"),
           comment: "This dish was a huge hit at our dinner party! Everyone loved it and asked for the recipe."
         }
       ]
@@ -177,17 +177,17 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "These cookies were delicious! I will definitely make them again."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I brought these to a party and they were a hit! So many compliments on the recipe."
         },
         {
           username: insertusers[3],
-          date: "2023-01-06",
+          date: new Date("2023-01-30"),
           comment: "The flavors in this dish were so unique and enjoyable. I never would have thought to combine these ingredients, but it worked so well!"
         }
       ]
@@ -207,17 +207,17 @@ const recipes = [
       comments: [
         {
         username: insertusers[1],
-        date: "2023-01-30",
+        date: new Date("2023-01-30"),
         comment: "This recipe is amazing! I added some chicken and it was delicious."
         },
         {
         username: insertusers[2],
-        date: "2023-01-30",
+        date: new Date("2023-01-30"),
         comment: "I made this for my family and they loved it. I will definitely be making it again."
         },
         {
           username: insertusers[3],
-          date: "2023-01-07",
+          date: new Date("2023-01-30"),
           comment: "I was pleasantly surprised by how healthy this dish was while still being so flavorful and filling."
         }
       ]
@@ -237,12 +237,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "These tacos are so good! I added some cheese and sour cream, and it was delicious."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made these for a vegan friend and they loved it. I will definitely be making them again."
         }
       ]
@@ -262,12 +262,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This recipe is amazing! I added some spinach and it was delicious."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made this for my family and they loved it. I will definitely be making it again."
         }
       ]
@@ -287,12 +287,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This recipe was delicious! I would definitely make it again."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made this for dinner and it was a hit with my family. Even my meat-loving husband enjoyed it!"
         }
       ]
@@ -312,12 +312,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This recipe was delicious! I would definitely make it again."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made this for dinner and it was a hit with my family. Even my meat-loving husband enjoyed it!"
         }
       ]
@@ -337,12 +337,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This recipe was delicious! I would definitely make it again."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made this for dinner and it was a hit with my family. It was very flavorful."
         }
       ]
@@ -362,12 +362,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This recipe was very easy to make and tasted delicious!"
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I made this for dinner and it was a hit with my family. It's a great way to use up leftover rice."
         }
       ]
@@ -387,12 +387,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "These vegan breakfast tacos were so delicious and easy to make. I will definitely be making them again!"
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved these vegan breakfast tacos! They were a great way to start my day, and I appreciated the simple, clean ingredients."
         }
       ]
@@ -412,12 +412,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This traditional English breakfast was delicious. It was a great way to start the day and I loved all the different components."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this traditional English breakfast, it was a real treat! The black pudding was a new experience for me but I liked it a lot."
         }
       ]
@@ -437,12 +437,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This Kung Pao chicken was delicious! The spicy Kung Pao sauce was perfect and I loved the crunch of the peanuts."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this Kung Pao chicken, it had just the right amount of heat for me and the vegetables were cooked perfectly. I will definitely be making this again!"
         }
       ]
@@ -462,12 +462,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This tonkatsu was delicious! The pork was so tender and the breading was crispy and flavorful. The tonkatsu sauce was the perfect complement to the dish."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this tonkatsu, the flavors were well balanced and it was cooked to perfection. I will definitely be making this again!"
         }
       ]
@@ -487,12 +487,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This meat pie was delicious! The filling was hearty and flavorful, and the pastry was flaky and buttery. The tomato sauce was the perfect complement to the dish."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this meat pie, it reminded me of home. The flavors were well balanced and it was cooked to perfection. I will definitely be making this again!"
         }
       ]
@@ -512,12 +512,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This Fattoush salad was delicious and refreshing. The dressing was tangy and balanced nicely with the herbs and vegetables. I liked the addition of the feta cheese and toasted pita bread. It was a great side dish."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this salad. It was light and healthy, but still filling. The herbs and vegetables were so fresh and the dressing was perfect. I will definitely be making this again!"
         }
       ]
@@ -537,12 +537,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This Spicy Sausage and Potato Skillet was a delicious and easy dinner. The sausage and potatoes were cooked perfectly and the added vegetables made it a healthy and balanced meal. The cheese on top was a nice touch."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this recipe! It was so easy to make and had a great balance of flavors. The spicy sausage and tender potatoes were the perfect combination. I will definitely be making this again!"
         }
       ]
@@ -562,12 +562,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This spicy potato and chickpea curry was delicious and satisfying. The flavors were spot-on and the potatoes and chickpeas were cooked perfectly. I will definitely be making this again!"
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This curry was so delicious! The spices were just right and the chickpeas and potatoes were a great combination. I served it over rice and it was the perfect comfort food on a cold night."
         }
       ]
@@ -587,12 +587,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "These grilled chicken and vegetable skewers were delicious and so easy to make. The marinade added a lot of flavor and the garlic yogurt sauce was the perfect complement."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "These skewers were a hit at our BBQ! The marinade was delicious and the vegetables were cooked perfectly. The garlic yogurt sauce was also a great addition."
         }
       ]
@@ -612,12 +612,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This spicy shrimp and cauliflower rice dish was amazing! The spices added a lot of flavor and the cauliflower rice was a great healthy alternative to regular rice."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this dish! The shrimp was cooked perfectly and the cauliflower rice was a great way to add more vegetables to the meal. I will definitely be making this again."
         }
       ]
@@ -637,12 +637,12 @@ const recipes = [
       comments: [
         {
           username: insertusers[1],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "This Mediterranean quinoa salad was delicious! The lemon vinaigrette was so flavorful and the quinoa added a nice texture. I will definitely be making this again."
         },
         {
           username: insertusers[2],
-          date: "2023-01-30",
+          date: new Date("2023-01-30"),
           comment: "I loved this salad! It was so fresh and flavorful. The quinoa added a great source of protein. I will be making this again and again."
         }
       ]
