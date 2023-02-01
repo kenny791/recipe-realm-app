@@ -7,7 +7,7 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     const nav = useNavigate()
 
     const initialEntry = {
-        recipeId: 4,
+        recipeId: '',
         name: '',
         description: '',
         tags: '',
@@ -21,19 +21,27 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     // Styling for divs for input
     const styled = {margin: '15px'}
 
+    // Parse single string input to an array of strings
+    function splitBySemicolon(longEntry) {
+        return longEntry.split(';')
+    }
+
     const addEntry = async (user, entry) => {
         // Cannot just be recipeList.length in case there are deleted recipes, in which case there will be duplicate ids
         const id = recipeList[recipeList.length - 1].id + 1
+        const ingredients = splitBySemicolon(entry.ingredients)
+        const method = splitBySemicolon(entry.method)
+        const tags = splitBySemicolon(entry.tags)
 
         const newEntry = {
             recipeId: id,
             name: entry.name,
             author: user._id,
             description: entry.description,
-            tags: entry.tags,
+            tags: tags,
             image: entry.image,
-            ingredients: entry.ingredients,
-            method: entry.method
+            ingredients: ingredients,
+            method: method
         }
 
         const returnedEntry = await fetch("https://server-production-6a0e.up.railway.app/recipes/", {
@@ -49,6 +57,7 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
         setRecipeList([...recipeList, newRecipe])
         alert('Recipe successfully created!')
         nav(`/recipe/${id}`)
+        console.log(newRecipe)
     }
 
     function updateEntry(evt) {
@@ -60,9 +69,7 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
 
     function submit(evt) {
         evt.preventDefault()
-        // alert(`Successfully submitted! ${{entry}}`)
         addEntry(loggedInUser, entry)
-        // console.log(entry)
     }
 
 
@@ -81,9 +88,9 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
                 </div>
                 <div className="form-group" style={styled}>
                     <label htmlFor="tags">Recipe Tags  
-                        <span className="fw-light">  (separated by commas)</span>
+                        <span className="fw-light">  (separated by semi-colons)</span>
                     </label>
-                    <input type="text" className="form-control" id="tags" placeholder="e.g. Asian, soup, chicken" onChange={updateEntry} value={tags} required/>
+                    <input type="text" className="form-control" id="tags" placeholder="e.g. Asian; soup; chicken" onChange={updateEntry} value={tags} required/>
                 </div>
                 <div className="form-group" style={styled}>
                     <label htmlFor="image">Image
@@ -99,9 +106,9 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
                 </div>
                 <div className="form-group" style={styled}>
                     <label htmlFor="methods">Method 
-                        <span className="fw-light">  (separated by semi-colons)</span>
+                        <span className="fw-light">  (separated by semi-colons; numbers will be automatically added)</span>
                     </label>
-                    <textarea className="form-control" id="method" placeholder="e.g. 1. Cut carrots, onions and celeries into big chunks; 2. Place chicken and vegetables in large pot and boil for 30 minutes; 3. Serve with parsley" required onChange={updateEntry} value={method}/>
+                    <textarea className="form-control" id="method" placeholder={`e.g. Cut carrots, onions and celeries into big chunks;\n Place chicken and vegetables in large pot and boil for 30 minutes;\n Serve with parsley`} required onChange={updateEntry} value={method}/>
                 </div>
                 <input type="submit" className="btn btn-primary btn-lg mx-3" value="Submit"/>
             </form>
