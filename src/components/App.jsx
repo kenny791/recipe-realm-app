@@ -49,7 +49,7 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput} recipeList={recipeList} />} />
       <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />
-      <Route path='/user' element={<User loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>} />
+      <Route path='/user' element={<User loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>} />
       <Route path='/recipe/:recipeId' element={<Recipe recipeList={recipeList} loggedInUser={loggedInUser} />} />
 
       <Route path='/recipe/add' element={<NewRecipe loggedInUser={loggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>} />
