@@ -124,7 +124,7 @@ router.patch("/recipes/:id", async (request, response) => {
         }
     }
     catch (err) {
-        res.status(500).send({ error: err.message})
+        response.status(500).send({ error: err.message})
     }
 })
 
