@@ -15,7 +15,7 @@ export default ({recipeRating, recipe, loggedInUser }) => {
   }
 
   const updateRatings = async (rating) => {
-    const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
+    const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipeId}`,
     {
       method: 'PATCH',
       headers: {
