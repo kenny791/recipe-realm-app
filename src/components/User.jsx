@@ -11,7 +11,7 @@ const User = ({ loggedInUser, setLoggedInUser, recipeList, setRecipeList}) => {
 
 
 	return (
-		<div className="container text-center">
+		<div className="m-5 d-flex flex-column align-items-center justify-content-center">
 			<h1>Welcome {loggedInUser.username}</h1>
 			<div className="container text-center">
 			<ProfileComments loggedInUser={loggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>
