@@ -17,14 +17,15 @@ router.get("/recipes", async (request, response) => {
     }
 })
 
-router.post("/recipes", async(request, response) => {
+router.post("/recipes", async (request, response) => {
     try {
         // Create new recipe entry
         const { recipeId, name, author, description, tags, image, ingredients, method } = request.body
+        const userObject = await UserModel.findOne({ _id: author })
         const newRecipe = { 
             id: recipeId, 
             name: name, 
-            author: author, 
+            author: userObject._id, 
             description: description, 
             rating_list: [], 
             tags: tags, 
