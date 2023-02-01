@@ -128,27 +128,11 @@ router.patch("/recipes/:id", async (request, response) => {
     }
 })
 
-// Repeat of above
-// router.patch("/recipes/:id", async (req, res) => {
-//     try {
-//         const recipe = await RecipeModel.findByIdAndUpdate(req.params.id, req.body, { returnDocument: "after" })
-//         if (recipe) {
-//             res.json(recipe)
-//         } else {
-//             res.status(404).json({ message: "Recipe not found" })
-//         }
-//     } catch (err) {
-//         res.status(500).json({ message: err.message })
-//     }
-// })
-        
-
-//to be fixed
 router.delete("/recipes/:id", async (request, response) => {
     try {
-        const recipe = await RecipeModel.findByIdAndDelete(request.params.id)
+        const recipe = await RecipeModel.findOneAndDelete({ id: request.params.id })
         if (recipe) {
-            response.send(recipe)
+            response.sendStatus(204)
         } else {
             response.status(404).send({message: "Recipe not found"})
         }
