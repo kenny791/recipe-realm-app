@@ -20,18 +20,17 @@ router.get("/recipes", async (request, response) => {
 router.post("/recipes", async(request, response) => {
     try {
         // Create new recipe entry
-        const { user, recipe } = request.body
-        const userObject = await UserModel.findOne({ username: user })
+        const { id, name, author, description, tags, image, ingredients, method } = request.body
         const newRecipe = { 
-            id: recipe.id, 
-            name: recipe.name, 
-            author: userObject._id, 
-            description: recipe.description, 
+            id: id, 
+            name: name, 
+            author: author, 
+            description: description, 
             rating_list: [], 
-            tags: recipe.tags, 
-            image: recipe.image, 
-            ingredients: recipe.ingredients, 
-            method: recipe.method, 
+            tags: tags, 
+            image: image || "http://placekitten.com/200/300", 
+            ingredients: ingredients, 
+            method: method, 
             comments: []}
         const insertedRecipe = await RecipeModel.create(newRecipe)
         // Send new entry with 201 status
@@ -110,19 +109,19 @@ router.post("/recipes/:id/rating", async (request, response) => {
     }
 })
 
-//to be fixed
-router.post("/recipes", async (request, response) => {
-    try {
-        const { name, author, tags, ingredients, preparation, image } = request.body
-        const newRecipe = { name, author, tags, ingredients, preparation, image }
-        const insertedRecipe = await RecipeModel.create(newRecipe)
-        response.status(201).send(insertedRecipe)
-        console.log(insertedRecipe)
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
-    }
-})
+// Already done above
+// router.post("/recipes", async (request, response) => {
+//     try {
+//         const { name, author, tags, ingredients, preparation, image } = request.body
+//         const newRecipe = { name, author, tags, ingredients, preparation, image }
+//         const insertedRecipe = await RecipeModel.create(newRecipe)
+//         response.status(201).send(insertedRecipe)
+//         console.log(insertedRecipe)
+//     }
+//     catch (err) {
+//         response.status(500).send({error: err.message})
+//     }
+// })
 
 //to be fixed
 router.put("/recipes/:id", async (request, response) => {
