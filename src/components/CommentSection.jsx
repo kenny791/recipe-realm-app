@@ -9,12 +9,16 @@ export default ({ recipe, loggedInUser }) => {
   const [comments, setComments] = useState(recipeComments)
 
   const addComment = (newComment) => {
-    setComments([...comments, { username: loggedInUser, date: new Date(), comment: newComment }])
-    console.log([...comments, { username: loggedInUser, date: new Date(), comment: newComment }])
+    const newComments = [...comments, { username: loggedInUser, date: new Date(), comment: newComment }]
+    newComments.sort((a, b) => new Date(b.date) - new Date(a.date))
+    setComments(newComments)
     updateComments(newComment)
   }
 
   const updateComments = async (newComment) => {
+    const updatedComments = [...recipe.comments, {username: loggedInUser, date: new Date(), comment: newComment}]
+    const sortedComments = updatedComments.sort((a, b) => new Date(b.date) - new Date(a.date))
+
     const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipe._id}`,
       {
         method: 'PATCH',
@@ -22,8 +26,7 @@ export default ({ recipe, loggedInUser }) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          comments: [...recipe.comments,
-            { username: loggedInUser, date: new Date(), comment: newComment }]
+          comments: sortedComments
         })
       })
     const data = await res.json()
