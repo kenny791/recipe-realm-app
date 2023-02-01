@@ -1,6 +1,6 @@
 import express from 'express'
 import { RecipeModel, UserModel } from '../db.js'
-import mongoose from 'mongoose'
+
 
 const router = express.Router()
 
@@ -28,7 +28,7 @@ router.post("/recipes", async (request, response) => {
             description: description, 
             rating_list: [], 
             tags: tags, 
-            image: image || "http://placekitten.com/200/300", 
+            image: image || "https://res.cloudinary.com/dzz3meeb6/image/upload/v1675248494/Recipe%20Photos/image_a9nqqw.png", 
             ingredients: ingredients, 
             method: method, 
             comments: []}
@@ -195,24 +195,6 @@ router.delete("/recipes/:recipeId/comments/:commentId", async (request, response
         }
     } catch (err) {
         response.status(500).send({ error: err.message })
-    }
-})
-
-
-// add new recipe alternate route
-router.post("/addrecipes", async (request, response) => {
-    try {
-        const {recipeId, name, author, description, rating_list, tags, image, ingredients, method, comments} = request.body
-        if (image.length < 1) {
-            image = "http://placekitten.com/200/300"
-          }
-        const id = recipeId
-        const newRecipe = {id, name, author, description, rating_list, tags, image, ingredients, method, comments }
-        const insertedRecipe = await RecipeModel.create(newRecipe)
-        response.status(201).send(await insertedRecipe.populate({ path: 'author', select: ['_id', 'username']}))
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
     }
 })
 
