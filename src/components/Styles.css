@@ -181,6 +181,25 @@ p::before {content: "P..."}
 
 
 
+/* Carousel */
+.carousel-control-prev, .carousel-control-next {
+    /*size */
+    height: 40vh;
+    width: 5vw;
+    min-width: 2rem;
+    /*color */
+    background: #5e5e5e none repeat scroll 0 0;
+    opacity: 0.5;
+    /*shape border*/
+    border: 0px solid #1b1b1b;
+    border-radius: 0%; /*zero for square */
+    /*symbol */
+    color: #fff;
+    line-height: 70px;
+    /*vertical position */
+    /* top: 50%;
+    margin: 0 3vw 0; */
+}
 
 
 
@@ -190,10 +209,16 @@ p::before {content: "P..."}
 
 
 
-
-
-
-
+/* ------------------------ Landing Page ------------------------*/
+Search page
+.figurediv {
+    transition: transform 2s;
+  }
+  
+  .figurediv:hover  {
+    transform: scale(1.02);
+  }
+  
 
 
 
