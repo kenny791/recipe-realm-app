@@ -143,8 +143,6 @@ router.delete("/recipes/:id", async (request, response) => {
 })
 
 
-
-
 //delete comment by recipe id and comment id
 router.delete("/recipes/:recipeId/comments/:commentId", async (request, response) => {
     try {
@@ -170,6 +168,5 @@ router.delete("/recipes/:recipeId/comments/:commentId", async (request, response
         response.status(500).send({ error: err.message })
     }
 })
-
 
 export default router
