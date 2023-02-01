@@ -22,10 +22,10 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     const styled = {margin: '15px'}
 
     const addEntry = async (user, entry) => {
-        // const id = recipeList.length
+        const id = recipeList.length
 
         const newEntry = {
-            recipeId: 50,
+            recipeId: id,
             name: entry.name,
             author: user._id,
             description: entry.description,
@@ -44,10 +44,11 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
             },
             body: JSON.stringify(newEntry)
         })
-
+        
         const newRecipe = await returnedEntry.json()
         setRecipeList([...recipeList, newRecipe])
-        
+        console.log(newRecipe)
+        console.log(recipeList)
         // nav(`/recipe/${id}`)
     }
 
