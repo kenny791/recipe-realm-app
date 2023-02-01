@@ -1,9 +1,13 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
 
+    const nav = useNavigate()
+
     const initialEntry = {
+        recipeId: 4,
         name: '',
         description: '',
         tags: '',
@@ -18,10 +22,10 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     const styled = {margin: '15px'}
 
     const addEntry = async (user, entry) => {
-        // Cannot just use recipeList.length in case recipes have been deleted (and then there would be duplicate ids)
-        const id = recipeList[recipeList.length - 1].id + 1
+        // const id = recipeList.length
+
         const newEntry = {
-            id: id,
+            recipeId: 50,
             name: entry.name,
             author: user._id,
             description: entry.description,
@@ -30,6 +34,21 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
             ingredients: entry.ingredients,
             method: entry.method
         }
+        console.log(newEntry)
+
+        const returnedEntry = await fetch("https://server-production-6a0e.up.railway.app/recipes/", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newEntry)
+        })
+
+        const newRecipe = await returnedEntry.json()
+        setRecipeList([...recipeList, newRecipe])
+        
+        // nav(`/recipe/${id}`)
     }
 
     function updateEntry(evt) {
@@ -42,7 +61,8 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     function submit(evt) {
         evt.preventDefault()
         // alert(`Successfully submitted! ${{entry}}`)
-        console.log(entry)
+        addEntry(loggedInUser, entry)
+        // console.log(entry)
     }
 
 
