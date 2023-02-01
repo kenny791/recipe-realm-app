@@ -20,9 +20,9 @@ router.get("/recipes", async (request, response) => {
 router.post("/recipes", async(request, response) => {
     try {
         // Create new recipe entry
-        const { id, name, author, description, tags, image, ingredients, method } = request.body
+        const { recipeId, name, author, description, tags, image, ingredients, method } = request.body
         const newRecipe = { 
-            id: id, 
+            id: recipeId, 
             name: name, 
             author: author, 
             description: description, 
