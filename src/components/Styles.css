@@ -89,18 +89,48 @@ p::before {content: "P..."}
 
 
 /* ------------------------ Nav Bar ------------------------*/
-/* large screen navbar */
+/* large screen navbar
 /* default properties */
-.navbar.large, .navbar.compact {
+/* .navbar.large, .navbar.compact {
     background-color: rgba(250, 250, 250, 0)  !important;
     transition: box-shadow 0.5s ease-out ;
     transition: background-color 0.5s ease-out;
-}
+} */
 /* scrolled properties */
-.navbar.large.scrolled, .navbar.compact {
+/* .navbar.large.scrolled, .navbar.compact {
     background-color: var(--secondary-color)  !important;
     box-shadow: rgba(0,0,0,.1) 0px 5px 10px ;
-}
+}  */
+
+
+
+@media (min-width: 992px) {
+    /* styles to be applied when screen width is less than or equal to 768px */
+    .navbar {
+        background-color: rgba(250, 250, 250, 0)  !important;
+        transition: box-shadow 0.5s ease-out ;
+        transition: background-color 0.5s ease-out;
+    }
+    .navbar.scrolled {
+        background-color: var(--secondary-color)  !important;
+        box-shadow: rgba(0,0,0,.1) 0px 5px 10px ;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* unclicked link text colour */
 .navbar-brand, .nav-link{ 
@@ -131,6 +161,23 @@ p::before {content: "P..."}
 .navbar-brand:hover::after, .nav-link:hover::after {
     width: 100%;
 }
+
+.nav-item{
+    padding: 0 .1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

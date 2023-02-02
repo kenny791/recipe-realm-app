@@ -7,6 +7,7 @@ export default ({ setSearchInput, loggedInUser }) => {
 	const [navbarClass, setNavbarClass] = useState("")
 	const [isLoggedIn, setIsLoggedIn] = useState(true)
 
+	// Listens for scroll event and adds class to navbar if scrolled down 
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 70) {
@@ -20,51 +21,28 @@ export default ({ setSearchInput, loggedInUser }) => {
 		  		window.removeEventListener("scroll", handleScroll)
 			}
 	}, [])
-		
-	const ListLink = ({ isSmallNav, to, textToDisplay }) => {
-		return (
-			<li className="nav-item">
-				<Link className="nav-link" onClick={() => { isSmallNav ? handleLinkClick() : null; setSearchInput("")}}  to={to}>
-				{textToDisplay}
-				</Link>
-			</li>
-		)
-	}
-
 
 	return (
-		<div className="container-fluid">
-			{/* large navbar */}
-			<div className="d-none d-md-block" >
-				<nav className={`navbar large fixed-top  navbar-expand-md   ${navbarClass}`}>
-					<div className="container-fluid">
-						<Link className="navbar-brand" onClick={() =>setSearchInput("")} to="/">Recipe Realm</Link>
-						<ul className="navbar-nav mb-2 mb-md-0 ms-auto">
-							<ListLink isSmallNav={false} to="/search" textToDisplay="Search" />
-							<ListLink isSmallNav={false} to="/recipe/add" textToDisplay="Add Recipe" />
-							<ListLink isSmallNav={false} to={isLoggedIn ? "/user" : "/login"} textToDisplay={isLoggedIn ? `${loggedInUser.username} Profile` : "Login"} />
-						</ul>
-					</div>
-				</nav>
+		<nav className={`navbar  fixed-top  navbar-expand-lg navbar-light bg-light ${navbarClass}`}>
+			<div className="container-fluid">
+				<Link className="navbar-brand" onClick={() =>setSearchInput("")} to="/">Recipe Realm</Link>
+				<button className="navbar-toggler" type="button" onClick={() => setIsOpen(!isOpen)}>
+					<span className="navbar-toggler-icon"></span>
+				</button>
+				<div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
+					<ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
+						<li className="nav-item ">
+							<Link className="nav-link" onClick={handleLinkClick} to="/search" >Search</Link>
+						</li>
+						<li className="nav-item" >
+							<Link className="nav-link" onClick={handleLinkClick} to="/recipe/add">Submit Recipe</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" onClick={handleLinkClick} to="/">{isLoggedIn ? `${loggedInUser.username} Profile` : "Login"}</Link>
+						</li>
+					</ul>
+				</div>
 			</div>
-			{/* small navbar */}
-			<div className="d-block d-md-none ">
-				<nav className="navbar compact fixed-top  navbar-expand-md ">
-					<div className="container-fluid">
-						<Link className="navbar-brand" onClick={() => {handleLinkClick();setSearchInput("")}} to="/">Recipe Realm</Link>
-						<button className="navbar-toggler" type="button" onClick={() => setIsOpen(!isOpen)}>
-							<span className="navbar-toggler-icon"></span>
-						</button>
-						<div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
-							<ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
-								<ListLink isSmallNav={true} to="/search" textToDisplay="Search" />
-								<ListLink isSmallNav={true} to="/recipe/add" textToDisplay="Add Recipe" />
-								<ListLink isSmallNav={true} to={isLoggedIn ? "/user" : "/login"} textToDisplay={isLoggedIn ? `${loggedInUser.username} Profile` : "Login"} />
-							</ul>
-						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
+		</nav>
 	)
 }
