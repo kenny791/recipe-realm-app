@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import RecipeInputLine from "./RecipeInputLine"
-import RecipeInputBlock from "./RecipeInputBlock"
+// import RecipeInputLine from "./RecipeInputLine"
+// import RecipeInputBlock from "./RecipeInputBlock"
+import RecipeInputForm from "./RecipeInputForm"
 
 const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
 
@@ -76,45 +77,16 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     <>
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
             <h1>Submit a new recipe</h1>
-            <form className="m-3 mt-5 w-75" onSubmit={submit}>
-                <RecipeInputLine title="Recipe Name" id="name" value={name} updateEntry={updateEntry} required={true} /> 
-
-                <RecipeInputBlock title="Description" id="description" value={description} updateEntry={updateEntry} />
-
-                <RecipeInputLine 
-                    title="Recipe Tags" 
-                    id="tags" 
-                    value={tags} 
-                    aid={"  (separated by semi-colons)"} 
-                    prompt={"e.g. Asian; soup; chicken"}
-                    required={true}
-                    updateEntry={updateEntry}  />
-
-                <RecipeInputLine 
-                    title="Image" 
-                    id="image" 
-                    value={image} 
-                    aid={"  (URL format, default image applied if none entered)"} 
-                    required={false}
-                    updateEntry={updateEntry}  />
-
-                <RecipeInputBlock 
-                    title="Ingredients" 
-                    id="ingredients" 
-                    value={ingredients} 
-                    aid={"  (separated by semi-colons)"} 
-                    prompt={"e.g. 500g chicken (diced); 2 carrots; 2 onions; 2 stalks celery"}
-                    updateEntry={updateEntry}  />
-
-                <RecipeInputBlock 
-                    title="Method" 
-                    id="method" 
-                    value={method} 
-                    aid={"  (separated by semi-colons; numbers will be automatically added)"} 
-                    prompt={`e.g. Cut carrots, onions and celeries into big chunks;\n Place chicken and vegetables in large pot and boil for 30 minutes;\n Serve with parsley`}
-                    updateEntry={updateEntry}  />
-                <input type="submit" className="btn btn-primary btn-lg mx-3" value="Submit"/>
-            </form>
+            <RecipeInputForm 
+                name={name}
+                description={description}
+                tags={tags}
+                image={image}
+                ingredients={ingredients}
+                method={method}
+                submit={submit}
+                updateEntry={updateEntry}
+                buttonMsg={"Submit"}/>
         </div>
         
     </>
