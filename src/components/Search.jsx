@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import SearchFilters from './SearchFilters'
 
 const Search = ({ searchInput, setSearchInput, recipeList }) => {
+	// Scroll to top on page load
+	useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
 
 	// State for each filter option
 	const [filter1, setFilter1] = useState('')
