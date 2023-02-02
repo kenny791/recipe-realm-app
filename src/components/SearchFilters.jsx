@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-const SearchFilters = () => {
+const SearchFilters = ( {setFilter1, setFilter2, setFilter3, setFilter4, recipeList}) => {
 	// Get list of all tags for all recipes
 	let recipeTags = []
 	for (let recipe of recipeList) {
@@ -21,6 +21,15 @@ const SearchFilters = () => {
 		{name: "Difficulty", content: ['Easy', 'Medium', 'Hard']},
 		{name: "Other", content: recipeTags}
 	]
+
+    // Function to set filter
+	function setFilterOption(evt, setFilter) {
+		if (evt.target.value == evt.target.firstChild.value) { 
+			setFilter('')
+		} else {
+			setFilter(evt.target.value.toLowerCase())
+		}
+	}
 
 	// Update filter each time a new change is selected
 	function changeHandler(evt) {
