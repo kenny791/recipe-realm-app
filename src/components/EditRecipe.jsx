@@ -24,20 +24,27 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
     }
 
     const [recipe, setRecipe] = useState(initialRecipe)
+    const { name, description, tags, image, ingredients, method } = recipe
 
-    // Retrieve recipe (Need a separate state object so unsaved changes are not automatically applied to recipeList)
+    // Retrieve recipe 
     useEffect(() => {
         async function getRecipe() {
             const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`)
             const data = await res.json()
+            // Separate out entries by ';'
+            data.ingredients = data.ingredients.map(x => x).join("; ")
+            data.tags = data.tags.map(x => x).join("; ")
+            data.method = data.method.map(x => x).join("; ")
             setRecipe(data)
         }
         getRecipe()
     }, [])
     
-    const { name, description, tags, image, ingredients, method } = recipe
+    function splitBySemicolon(longEntry) {
+        return longEntry.split(';')
+    }
 
-    const updateRecipe = async (recipe) => {
+    const updateRecipeBackend = async (recipe) => {
         const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
         {
             method: 'PATCH',
@@ -46,12 +53,6 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
             },
             body: JSON.stringify(recipe)
         })
-        // const data = await res.json()
-        // console.log(data)
-        console.log(recipeList)
-        // setRecipeList(...recipeList, {prevrecipe: recipe})
-        // alert('Recipe successfully created!')
-        // nav(`/recipe/${recipeId}`)
     }
 
     function updateEntry(evt) {
@@ -63,9 +64,25 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
 
     function submit(evt) {
         evt.preventDefault()
-        updateRecipe(recipe)
-        console.log(recipeList)
-        // setRecipeList([...recipeList, recipe])
+        updateRecipeBackend(recipe)
+        updateRecipeList(recipe)
+        alert('Recipe successfully updated!')
+        nav(`/recipe/${recipeId}`)
+    }
+
+    function updateRecipeList() {
+        // const newRecipeList = [...recipeList]
+        // or even better
+        const newRecipeList = JSON.parse(JSON.stringify(recipeList))
+        const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)
+        const oldRecipe = newRecipeList[indexToEdit]
+        oldRecipe.name = name
+        oldRecipe.description = description
+        oldRecipe.tags = splitBySemicolon(tags)
+        oldRecipe.image = image
+        oldRecipe.ingredients = splitBySemicolon(ingredients)
+        oldRecipe.method = splitBySemicolon(method)
+        setRecipeList(newRecipeList)
     }
 
   return (
