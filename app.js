@@ -8,8 +8,7 @@ import cors from 'cors'
 
 //create a new instance of express
 const app = express()
-//port number for the server to listen on
-const port = process.env.PORT || 8080
+
 
 //json middleware
 app.use(express.json())
@@ -64,3 +63,5 @@ import s3Upload2 from './s3service.js'
 //         }
 //     }
 // })
+
+export default app
