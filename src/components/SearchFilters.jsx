@@ -48,26 +48,26 @@ const SearchFilters = ( {setFilter1, setFilter2, setFilter3, setFilter4, recipeL
 
 	return (
         <div className="container w-75">
-        <div className="row">
-        {/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
+            <div className="row">
+                {/* <div className="d-flex flex-wrap w-75 justify-content-center"> */}
 
-        {filteroptions.map((filteroption, index) => (
-            <div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2" key={index}>
-                <div className="p-0 flex-fill">
-                    <div className="form-floating">
-                        <select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler}>
-                            <option defaultValue>{filteroption.name}</option>
-                            {filteroption.content.map((selection, index) => (
-                                <option value={selection} key={index}>{selection}</option>
-                            ))}
-                        </select>
-                        <label htmlFor="floatingSelect">Filter</label>
-                    </div>
-                </div>
-            </div>					
-        ))}
+                {filteroptions.map((filteroption, index) => (
+                    <div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2" key={index}>
+                        <div className="p-0 flex-fill">
+                            <div className="form-floating">
+                                <select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler}>
+                                    <option defaultValue>{filteroption.name}</option>
+                                    {filteroption.content.map((selection, index) => (
+                                        <option value={selection} key={index}>{selection}</option>
+                                    ))}
+                                </select>
+                                <label htmlFor="floatingSelect">Filter</label>
+                            </div>
+                        </div>
+                    </div>					
+                ))}
+            </div>
         </div>
-    </div>
 	)
 }
 
