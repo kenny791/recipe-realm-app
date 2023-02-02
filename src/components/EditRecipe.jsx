@@ -3,6 +3,9 @@ import { useNavigate, useParams } from "react-router-dom"
 
 
 const EditRecipe = ({ recipeList, setRecipeList }) => {
+    // Scroll to top on page load
+	useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
+    
     const nav = useNavigate()
 
     const { recipeId } = useParams()

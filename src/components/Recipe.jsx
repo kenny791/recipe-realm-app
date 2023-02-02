@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import CommentSection from './CommentSection'
 import Description from './Description'
@@ -7,6 +7,8 @@ import Method from './Method'
 import RecipeMenu from './RecipeMenu'
 
 export default ({ recipeList, loggedInUser  }) => {
+  // Scroll to top on page load
+  useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
 
   const { recipeId } = useParams()
   // Find recipe by id rather than indexing recipeId in case of deleted recipes (then recipeId will not match with id)

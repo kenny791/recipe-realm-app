@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import './Styles.css'
 
 const Home = ({ setSearchInput , recipeList }) => {
-	
 	// Scroll to top on page load
-	useEffect(() => { window.scrollTo(0, 0) }, [])
+	useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
 
 	//handles prefilling of search page
 	const handleClick = (prefillSearch ) => {

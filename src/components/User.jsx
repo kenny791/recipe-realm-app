@@ -7,16 +7,15 @@ import ProfileComments from './ProfileComments'
 
 
 const User = ({ loggedInUser, setLoggedInUser, recipeList, setRecipeList}) => {
-
-
+	useEffect(() => { window.scrollTo(0, 0) }, [])
 
 	return (
-		<div className="mt-5 d-flex flex-column align-items-center justify-content-center">
+		<div className="container text-center">
 			<h1>Welcome {loggedInUser.username}</h1>
 			<div className="container text-center">
-				<ProfileRatings loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>
-				<ProfileComments loggedInUser={loggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>
-				<ProfileFavourites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList} />
+			<ProfileComments loggedInUser={loggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>
+			<ProfileRatings loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>
+			<ProfileFavourites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
 			</div>
 		</div>
 	)
