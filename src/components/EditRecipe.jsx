@@ -24,23 +24,25 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
     }
 
     const [recipe, setRecipe] = useState(initialRecipe)
+    const { name, description, tags, image, ingredients, method } = recipe
 
-    function splitBySemicolon(longEntry) {
-        return longEntry.split(';')
-    }
-    
-
-    // Retrieve recipe (Need a separate state object so unsaved changes are not automatically applied to recipeList)
+    // Retrieve recipe 
     useEffect(() => {
         async function getRecipe() {
             const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`)
             const data = await res.json()
+            // Separate out entries by ';'
+            data.ingredients = data.ingredients.map(x => x).join("; ")
+            data.tags = data.tags.map(x => x).join("; ")
+            data.method = data.method.map(x => x).join("; ")
             setRecipe(data)
         }
         getRecipe()
     }, [])
     
-    const { name, description, tags, image, ingredients, method } = recipe
+    function splitBySemicolon(longEntry) {
+        return longEntry.split(';')
+    }
 
     const updateRecipe = async (recipe) => {
         const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
@@ -75,11 +77,10 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         // setRecipeList([...recipeList, recipe])
     }
 
-    function updateRecipeList(recipe) {
-        console.log(recipeList)
-        const newRecipeList = [...recipeList]
+    function updateRecipeList() {
+        // const newRecipeList = [...recipeList]
         // or even better
-        // const newRecipeList = JSON.parse(JSON.stringify(recipeList))
+        const newRecipeList = JSON.parse(JSON.stringify(recipeList))
         const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)
         newRecipeList[indexToEdit].name = name
         newRecipeList[indexToEdit].description = description
@@ -88,7 +89,6 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         newRecipeList[indexToEdit].ingredients = splitBySemicolon(ingredients)
         newRecipeList[indexToEdit].method = splitBySemicolon(method)
         setRecipeList(newRecipeList)
-        console.log(recipeList)
     }
 
   return (
