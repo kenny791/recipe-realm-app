@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import SearchFilters from './SearchFilters'
 
 const Search = ({ searchInput, setSearchInput, recipeList }) => {
 
@@ -106,22 +107,6 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 						</div>
 					</div>					
 				))}
-
-					{/* Dropdown extended example */}
-					{/* <div className="col-12 col-md-6 col-lg-3 p-1 p-lg-2">
-						<div className="p-0 flex-fill">
-							<div className="form-floating">
-								<select className="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={changeHandler}>
-									<option defaultValue key={0} >Dietary</option>
-									<option value="1" key={1}>One</option>
-									<option value="2" key={2}>Spicy</option>
-									<option value="3" key={3}>Salad</option>
-								</select>
-								<label htmlFor="floatingSelect">Filter</label>
-							</div>
-						</div>
-					</div> */}
-					{/* </div> */}
 				</div>
 			</div>
 
@@ -138,14 +123,6 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 							</Link>
 						</div>
 					))}
-
-					{/* Recipe display extended example
-						<div className="col-12 col-md-6 col-lg-4 col-xl-3 p-1 p-lg-2">
-						<figure className="figure">
-							<img src="https://loremflickr.com/320/240/sushi" className="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." />
-							<p>Description here</p>
-						</figure>
-					</div> */}
 				</div>
 			</div>
 		</div>
