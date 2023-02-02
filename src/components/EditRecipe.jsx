@@ -44,7 +44,7 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         return longEntry.split(';')
     }
 
-    const updateRecipe = async (recipe) => {
+    const updateRecipeBackend = async (recipe) => {
         const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
         {
             method: 'PATCH',
@@ -53,12 +53,6 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
             },
             body: JSON.stringify(recipe)
         })
-        // const data = await res.json()
-        // console.log(data)
-        // console.log(recipeList)
-        // setRecipeList(...recipeList, {prevrecipe: recipe})
-        // alert('Recipe successfully created!')
-        nav(`/recipe/${recipeId}`)
     }
 
     function updateEntry(evt) {
@@ -68,13 +62,12 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         })
     }
 
-
     function submit(evt) {
         evt.preventDefault()
-        updateRecipe(recipe)
-        // console.log(recipeList)
+        updateRecipeBackend(recipe)
         updateRecipeList(recipe)
-        // setRecipeList([...recipeList, recipe])
+        alert('Recipe successfully updated!')
+        nav(`/recipe/${recipeId}`)
     }
 
     function updateRecipeList() {
@@ -82,12 +75,13 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         // or even better
         const newRecipeList = JSON.parse(JSON.stringify(recipeList))
         const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)
-        newRecipeList[indexToEdit].name = name
-        newRecipeList[indexToEdit].description = description
-        newRecipeList[indexToEdit].tags = splitBySemicolon(tags)
-        newRecipeList[indexToEdit].image = image
-        newRecipeList[indexToEdit].ingredients = splitBySemicolon(ingredients)
-        newRecipeList[indexToEdit].method = splitBySemicolon(method)
+        const oldRecipe = newRecipeList[indexToEdit]
+        oldRecipe.name = name
+        oldRecipe.description = description
+        oldRecipe.tags = splitBySemicolon(tags)
+        oldRecipe.image = image
+        oldRecipe.ingredients = splitBySemicolon(ingredients)
+        oldRecipe.method = splitBySemicolon(method)
         setRecipeList(newRecipeList)
     }
 
