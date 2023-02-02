@@ -7,6 +7,7 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
 
     const nav = useNavigate()
 
+    // To overcome warning message about component changing an uncontrolled input to be controlled
     const initialEntry = {
         recipeId: '',
         name: '',
@@ -18,9 +19,6 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     }
     const [entry, setEntry] = useState(initialEntry)
     const { name, description, tags, image, ingredients, method } = entry
-
-    // Styling for divs for input
-    const styled = {margin: '15px'}
 
     // Parse single string input to an array of strings
     function splitBySemicolon(longEntry) {
