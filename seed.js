@@ -51,7 +51,7 @@ const recipes = [
     {
       id: 1,
       name: "Spaghetti Bolognese",
-      author: insertusers[0],
+      author: insertusers[1],
       description: "A classic Italian dish made with a rich meat sauce and spaghetti.",
       rating_list: [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
@@ -81,7 +81,7 @@ const recipes = [
     {
       id: 2,
       name: "Lemon Garlic Shrimp Scampi",
-      author: insertusers[0],
+      author: insertusers[3],
       description: "This Lemon Garlic Shrimp Scampi recipe is the perfect quick and easy dinner that can be ready in under 30 minutes. Succulent shrimp are cooked in a buttery lemon garlic sauce and served over pasta for a satisfying meal.",
       rating_list: [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
@@ -195,7 +195,7 @@ const recipes = [
     {
       id: 5,
       name: "Spicy Peanut Noodles",
-      author: insertusers[0],
+      author: insertusers[3],
       description: "This recipe is perfect for a quick and easy weeknight dinner that is packed with flavor. Spicy peanut noodles are made with a homemade peanut sauce, and are perfect served over rice or noodles.",
       rating_list: [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
@@ -375,7 +375,7 @@ const recipes = [
     {
       id: 12,
       name: "Vegan Breakfast Tacos",
-      author: insertusers[0],
+      author: insertusers[3],
       description: "These vegan breakfast tacos are a delicious and healthy way to start your day. They're filled with scrambled tofu, sautéed peppers, and onions, and topped with avocado and salsa. They're perfect for a quick and easy breakfast, and can be easily customized to suit your taste.",
       rating_list: [
         {username: insertusers[1], rating: 4}, {username: insertusers[2], rating: 5}
