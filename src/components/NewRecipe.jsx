@@ -1,7 +1,5 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-// import RecipeInputLine from "./RecipeInputLine"
-// import RecipeInputBlock from "./RecipeInputBlock"
 import RecipeInputForm from "./RecipeInputForm"
 
 const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
@@ -88,7 +86,6 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
                 updateEntry={updateEntry}
                 buttonMsg={"Submit"}/>
         </div>
-        
     </>
   )
 }

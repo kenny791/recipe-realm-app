@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import RecipeInputLine from "./RecipeInputLine"
-import RecipeInputBlock from "./RecipeInputBlock"
+import RecipeInputForm from "./RecipeInputForm"
 
 const EditRecipe = ({ recipeList, setRecipeList }) => {
     const nav = useNavigate()
@@ -40,6 +39,7 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         return longEntry.split(';')
     }
 
+    // Update database
     const updateRecipeBackend = async (recipe) => {
         const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
         {
@@ -58,14 +58,7 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         })
     }
 
-    function submit(evt) {
-        evt.preventDefault()
-        updateRecipeBackend(recipe)
-        updateRecipeList(recipe)
-        alert('Recipe successfully updated!')
-        nav(`/recipe/${recipeId}`)
-    }
-
+    // Update recipeList state
     function updateRecipeList() {
         // const newRecipeList = [...recipeList]
         // or even better
@@ -81,49 +74,30 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         setRecipeList(newRecipeList)
     }
 
+    function submit(evt) {
+        evt.preventDefault()
+        updateRecipeBackend(recipe)
+        updateRecipeList(recipe)
+        alert('Recipe successfully updated!')
+        nav(`/recipe/${recipeId}`)
+    }
+
+
+
   return (
     <>
         <div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
             <h1>Edit recipe</h1>
-            <form className="m-3 mt-5 w-75" onSubmit={submit}>
-                <RecipeInputLine title="Recipe Name" id="name" value={name} updateEntry={updateEntry} required={true} /> 
-
-                <RecipeInputBlock title="Description" id="description" value={description} updateEntry={updateEntry} />
-
-                <RecipeInputLine 
-                    title="Recipe Tags" 
-                    id="tags" 
-                    value={tags} 
-                    aid={"  (separated by semi-colons)"} 
-                    prompt={"e.g. Asian; soup; chicken"}
-                    required={true}
-                    updateEntry={updateEntry}  />
-
-                <RecipeInputLine 
-                    title="Image" 
-                    id="image" 
-                    value={image} 
-                    aid={"  (URL format, default image applied if none entered)"} 
-                    required={false}
-                    updateEntry={updateEntry}  />
-
-                <RecipeInputBlock 
-                    title="Ingredients" 
-                    id="ingredients" 
-                    value={ingredients} 
-                    aid={"  (separated by semi-colons)"} 
-                    prompt={"e.g. 500g chicken (diced); 2 carrots; 2 onions; 2 stalks celery"}
-                    updateEntry={updateEntry}  />
-
-                <RecipeInputBlock 
-                    title="Method" 
-                    id="method" 
-                    value={method} 
-                    aid={"  (separated by semi-colons; numbers will be automatically added)"} 
-                    prompt={`e.g. Cut carrots, onions and celeries into big chunks;\n Place chicken and vegetables in large pot and boil for 30 minutes;\n Serve with parsley`}
-                    updateEntry={updateEntry}  />
-                <input type="submit" className="btn btn-primary btn-lg mx-3" value="Update recipe"/>
-            </form>
+            <RecipeInputForm 
+                name={name}
+                description={description}
+                tags={tags}
+                image={image}
+                ingredients={ingredients}
+                method={method}
+                submit={submit}
+                updateEntry={updateEntry}
+                buttonMsg={"Update Recipe"}/>
         </div>
     </>
     )
