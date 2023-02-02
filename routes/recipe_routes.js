@@ -43,7 +43,7 @@ router.post("/recipes", async (request, response) => {
 
 router.get("/recipes/:id", async (request, response) => {
     try{
-        const recipe = await RecipeModel.findById(request.params.id)
+        const recipe = await RecipeModel.findOne({ id: request.params.id })
             .populate({path: "author", select: "username"})
             .populate({path: "rating_list.username", select: "username"})
             .populate({path: "comments.username", select: "username"})
