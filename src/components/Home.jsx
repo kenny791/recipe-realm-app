@@ -15,7 +15,7 @@ const Home = ({ setSearchInput , recipeList }) => {
 	const handleChange = (event) => {
 		setSearchInput(event.target.value)
 	}
-
+console.log(setSearchInput)
 	//highest rated recipe for featured recipe and image url
 	let highest_average_rating = 0;
 	let highest_rated_recipe = ""
@@ -35,7 +35,7 @@ const Home = ({ setSearchInput , recipeList }) => {
 	// Carousel link component
 	const CarouselLink = ({searchPrefill, imgURL, carouselText, active}) => {
 		return (
-			<Link className="carousel-link" to="/search" onClick={() => handleClick({searchPrefill})}>
+			<Link className="carousel-link" to="/search" onClick={() => handleClick(`${searchPrefill}`)}>
 				<div className={`carousel-item   ${active} ? "active" : "" }`}>
 					<img src={imgURL} className="backdrop rounded" alt="..."/>
 					<p className="text-center display-1 mt-5">{carouselText}</p>
@@ -86,8 +86,8 @@ const Home = ({ setSearchInput , recipeList }) => {
 			{/* carousel */}
 			<div>
 				<div id="carouselExampleIndicators" className="carousel slide m-5">
-					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<div className="carousel-indicators">
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
 						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
@@ -100,13 +100,13 @@ const Home = ({ setSearchInput , recipeList }) => {
 						<CarouselLink searchPrefill="salad" carouselText="SALAD" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/salad-g732cb055a_1280.jpg" />
 						<CarouselLink searchPrefill="vegetarian" carouselText="VEGETARIAN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/casserole-dish-g300399764_1280.jpg" />
 					</div>
-					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
+					<button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span className="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span className="visually-hidden">Previous</span>
 					</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
+				<button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+					<span className="carousel-control-next-icon" aria-hidden="true"></span>
+					<span className="visually-hidden">Next</span>
 				</button>
 				</div>	
 			</div>
