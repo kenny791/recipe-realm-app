@@ -14,46 +14,26 @@ const ProfileRatings = ({loggedInUser, recipeList}) => {
 		if (recipe.rating !== null) {
 			return (
 				<div className="container text-center" key={index}>
-	
-				
-
-
-
-	<div className="container" key={index}>
-	<div className="card mb-3">
-		<div className="row g-0">
-			<div className="col-md-4">
-				<Link to={`/recipe/${recipe.id}`}>
-					<img src={recipe.image} className="img-fluid rounded-start my-3" alt={recipe.name} />
-				</Link>
-			</div>
-			<div className="col-md-8 text-start">
-					<div className="card-body">
-							<Link to={`/recipe/${recipe.id}`}>
-								<h4>{recipe.name}</h4>
-								<h4>{recipe.rating}★️️️️️</h4>
-							</Link>
+					<div className="container" key={index}>
+						<div className="card mb-3">
+							<div className="row g-0">
+								<div className="col-md-2">
+									<Link to={`/recipe/${recipe.id}`}>
+										<img src={recipe.image} className="img-fluid rounded-start my-3" alt={recipe.name} />
+									</Link>
+								</div>
+								<div className="col-md-8 text-start">
+										<div className="card-body">
+											<Link to={`/recipe/${recipe.id}`}>
+												<h4>{recipe.name}</h4>
+												<h4>Rated: {recipe.rating}★️️️️️</h4>
+											</Link>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
 				</div>
-			</div>
-		</div>
-	</div>
-		</div>	
-
-
-
-
-		</div>
-
-
-
-
-
-
-
-
-
-
-
 			)
 		}
 	})
@@ -61,21 +41,10 @@ const ProfileRatings = ({loggedInUser, recipeList}) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   return (
 	<>
-	  <div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
+		<div id="ratingsAnchor" style={{padding: "30px"}}></div>
+	  	<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
 			<h1>Ratings</h1>
 			{ratings}
 		</div>

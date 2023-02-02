@@ -37,12 +37,12 @@ const ProfileComments = ({loggedInUser, recipeList, setRecipeList}) => {
 				<div className="container" key={index}>
 					<div className="card mb-3">
 						<div className="row g-0">
-							<div className="col-md-4">
+							<div className="col-md-2">
 								<Link to={`/recipe/${recipe.id}`}>
-									<img src={recipe.image} className="img-fluid rounded-start my-3" alt={recipe.name} />
+									<img src={recipe.image} className="img-fluid rounded-start my-3"  alt={recipe.name} />
 								</Link>
 							</div>
-							<div className="col-md-8 text-start">
+							<div className="col-md-10 text-start">
 									<div className="card-body">
 											<Link to={`/recipe/${recipe.id}`}>
 												<h4>{recipe.name}</h4>
@@ -60,7 +60,7 @@ const ProfileComments = ({loggedInUser, recipeList, setRecipeList}) => {
 
 	return (
 	<>
-	  <div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
+	  <div className="h-100 d-flex flex-column align-items-center justify-content-center m-5" >
 			<h1>Submitted Comments</h1>
 			{comments}
 		</div>
