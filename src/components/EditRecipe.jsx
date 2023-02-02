@@ -25,6 +25,11 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
 
     const [recipe, setRecipe] = useState(initialRecipe)
 
+    function splitBySemicolon(longEntry) {
+        return longEntry.split(';')
+    }
+    
+
     // Retrieve recipe (Need a separate state object so unsaved changes are not automatically applied to recipeList)
     useEffect(() => {
         async function getRecipe() {
@@ -48,10 +53,10 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         })
         // const data = await res.json()
         // console.log(data)
-        console.log(recipeList)
+        // console.log(recipeList)
         // setRecipeList(...recipeList, {prevrecipe: recipe})
         // alert('Recipe successfully created!')
-        // nav(`/recipe/${recipeId}`)
+        nav(`/recipe/${recipeId}`)
     }
 
     function updateEntry(evt) {
@@ -61,11 +66,29 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
         })
     }
 
+
     function submit(evt) {
         evt.preventDefault()
         updateRecipe(recipe)
-        console.log(recipeList)
+        // console.log(recipeList)
+        updateRecipeList(recipe)
         // setRecipeList([...recipeList, recipe])
+    }
+
+    function updateRecipeList(recipe) {
+        console.log(recipeList)
+        const newRecipeList = [...recipeList]
+        // or even better
+        // const newRecipeList = JSON.parse(JSON.stringify(recipeList))
+        const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)
+        newRecipeList[indexToEdit].name = name
+        newRecipeList[indexToEdit].description = description
+        newRecipeList[indexToEdit].tags = splitBySemicolon(tags)
+        newRecipeList[indexToEdit].image = image
+        newRecipeList[indexToEdit].ingredients = splitBySemicolon(ingredients)
+        newRecipeList[indexToEdit].method = splitBySemicolon(method)
+        setRecipeList(newRecipeList)
+        console.log(recipeList)
     }
 
   return (
