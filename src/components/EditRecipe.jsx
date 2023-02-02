@@ -1,18 +1,20 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
 
-const EditRecipe = ({ recipeList }) => {
-
+const EditRecipe = ({ recipeList, setRecipeList }) => {
     const nav = useNavigate()
 
     const { recipeId } = useParams()
-    // Find recipe by id rather than indexing recipeId in case of deleted recipes (then recipeId will not match with id)
-    const index = recipeList.findIndex(recipe => recipe.id == recipeId)
-    const recipe = recipeList[index]
+    // const index = recipeList.findIndex(recipe => recipe.id == recipeId)
+    // const prevrecipe = recipeList[index]
+    // console.log(index)
 
-    const initialEntry = {
-        recipeId: '',
+    // Styling for divs for input
+    const styled = {margin: '15px'}
+    
+    // Overcome warning about component changing an uncontrolled input to be controlled
+    const initialRecipe = {
         name: '',
         description: '',
         tags: '',
@@ -20,68 +22,56 @@ const EditRecipe = ({ recipeList }) => {
         ingredients: '',
         method: ''
     }
-    const [entry, setEntry] = useState(initialEntry)
-    const { name, description, tags, image, ingredients, method } = entry
 
-    // Styling for divs for input
-    const styled = {margin: '15px'}
+    const [recipe, setRecipe] = useState(initialRecipe)
 
-    // Parse single string input to an array of strings
-    function splitBySemicolon(longEntry) {
-        return longEntry.split(';')
-    }
-
-    const addEntry = async (user, entry) => {
-        // Cannot just be recipeList.length in case there are deleted recipes, in which case there will be duplicate ids
-        const id = recipeList[recipeList.length - 1].id + 1
-        const ingredients = splitBySemicolon(entry.ingredients)
-        const method = splitBySemicolon(entry.method)
-        const tags = splitBySemicolon(entry.tags)
-
-        const newEntry = {
-            recipeId: id,
-            name: entry.name,
-            author: user._id,
-            description: entry.description,
-            tags: tags,
-            image: entry.image,
-            ingredients: ingredients,
-            method: method
+    // Retrieve recipe (Need a separate state object so unsaved changes are not automatically applied to recipeList)
+    useEffect(() => {
+        async function getRecipe() {
+            const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`)
+            const data = await res.json()
+            setRecipe(data)
         }
+        getRecipe()
+    }, [])
+    
+    const { name, description, tags, image, ingredients, method } = recipe
 
-        const returnedEntry = await fetch("https://server-production-6a0e.up.railway.app/recipes/", {
-            method: "POST",
+    const updateRecipe = async (recipe) => {
+        const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
+        {
+            method: 'PATCH',
             headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
+            'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newEntry)
+            body: JSON.stringify(recipe)
         })
-        
-        const newRecipe = await returnedEntry.json()
-        setRecipeList([...recipeList, newRecipe])
-        alert('Recipe successfully created!')
-        nav(`/recipe/${id}`)
-        console.log(newRecipe)
+        // const data = await res.json()
+        // console.log(data)
+        console.log(recipeList)
+        // setRecipeList(...recipeList, {prevrecipe: recipe})
+        // alert('Recipe successfully created!')
+        // nav(`/recipe/${recipeId}`)
     }
 
     function updateEntry(evt) {
-        setEntry({
-            ...entry,
+        setRecipe({
+            ...recipe,
             [evt.target.id]: evt.target.value
         })
     }
 
     function submit(evt) {
         evt.preventDefault()
-        addEntry(loggedInUser, entry)
+        updateRecipe(recipe)
+        console.log(recipeList)
+        // setRecipeList([...recipeList, recipe])
     }
-
 
   return (
     <>
-		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
-            <h1>Submit a new recipe</h1>
+        <div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
+            <h1>Edit recipe</h1>
             <form className="m-3 mt-5 w-75" onSubmit={submit}>
                 <div className="form-group" style={styled}>
                     <label htmlFor="name">Recipe Name</label>
@@ -115,12 +105,11 @@ const EditRecipe = ({ recipeList }) => {
                     </label>
                     <textarea className="form-control" id="method" placeholder={`e.g. Cut carrots, onions and celeries into big chunks;\n Place chicken and vegetables in large pot and boil for 30 minutes;\n Serve with parsley`} required onChange={updateEntry} value={method}/>
                 </div>
-                <input type="submit" className="btn btn-primary btn-lg mx-3" value="Submit"/>
+                <input type="submit" className="btn btn-primary btn-lg mx-3" value="Update recipe"/>
             </form>
         </div>
-        
     </>
-  )
+    )
 }
 
 // fieldset
