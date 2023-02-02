@@ -1,7 +1,4 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-
 
 const SearchFilters = ( {setFilter1, setFilter2, setFilter3, setFilter4, recipeList}) => {
 	// Get list of all tags for all recipes
@@ -48,7 +45,6 @@ const SearchFilters = ( {setFilter1, setFilter2, setFilter3, setFilter4, recipeL
 				break
 		}
 	}
-
 
 	return (
         <div className="container w-75">
