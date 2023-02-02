@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Favourite from './Favourite'
 import Rating from './Rating'
+import { HashLink } from 'react-router-hash-link'
 
 export default ({ recipe, loggedInUser }) => {
 
@@ -22,7 +23,7 @@ export default ({ recipe, loggedInUser }) => {
               <h4>{recipe.author.username}</h4>
             </div>
             <div className='col p-3'>
-              <h4><Link to='#comment-anchor' className='text-decoration-none'>Comments</Link></h4>
+              <h4><HashLink to='#comment-anchor' className='text-decoration-none'>Comments</HashLink></h4>
             </div>
             <div className='col p-3'>
               <h4>Rating</h4>
