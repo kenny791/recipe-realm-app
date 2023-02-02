@@ -25,8 +25,21 @@ describe('App component', () => {
 
     const navbarHome = container.querySelector('Link.navbar-brand')
     userEvent.click(navbarHome)
+
     const heading = container.querySelector('p.display-1')
+    const navbarSearch = screen.getByText('Search')
+    const navbarSubmit = screen.getByText('Submit Recipe')
+    const navbarProfile = screen.getByText(/.*\sProfile|Login/);
+
+
     expect(heading).toBeDefined()
+    expect(navbarSearch).toBeDefined()
+    expect(navbarSubmit).toBeDefined()
+    expect(navbarProfile).toBeDefined()
+
     expect(heading).toHaveTextContent('Recipe Realm')
+    expect(navbarSearch).toHaveTextContent('Search')
+    expect(navbarSubmit).toHaveTextContent('Submit Recipe')
+    expect(navbarProfile).toHaveTextContent(/.*\sProfile|Login/)
   })
 })
