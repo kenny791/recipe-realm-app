@@ -79,41 +79,27 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
             <h1>Submit a new recipe</h1>
             <form className="m-3 mt-5 w-75" onSubmit={submit}>
-                {/* <div className="form-group" style={styled}>
-                    <label htmlFor="name">Recipe Name</label>
-                    <input type="text" className="form-control" id="name" onChange={updateEntry} value={name} required/>
-                </div> */}
-                <RecipeInputLine title="Recipe Name" updateEntry={updateEntry} id="name" value={name} /> 
-                {/* <div className="form-group" style={styled}>
-                    <label htmlFor="description">Description</label>
-                    <textarea className="form-control" id="description" onChange={updateEntry} value={description} required/>
-                </div> */}
-                <RecipeInputBlock title="Description" updateEntry={updateEntry} id="description" value={description} />
-                {/* <div className="form-group" style={styled}>
-                    <label htmlFor="tags">Recipe Tags  
-                        <span className="fw-light">  (separated by semi-colons)</span>
-                    </label>
-                    <input type="text" className="form-control" id="tags" placeholder="e.g. Asian; soup; chicken" onChange={updateEntry} value={tags} required/>
-                </div> */}
+                <RecipeInputLine title="Recipe Name" id="name" value={name} updateEntry={updateEntry} required={true} /> 
+
+                <RecipeInputBlock title="Description" id="description" value={description} updateEntry={updateEntry} />
+
                 <RecipeInputLine 
                     title="Recipe Tags" 
                     id="tags" 
                     value={tags} 
                     aid={"  (separated by semi-colons)"} 
                     prompt={"e.g. Asian; soup; chicken"}
+                    required={true}
                     updateEntry={updateEntry}  />
-                <div className="form-group" style={styled}>
-                    <label htmlFor="image">Image
-                        <span className="fw-light">  (URL format, default image applied if none entered)</span>
-                    </label>
-                    <input type="text" className="form-control" id="image" onChange={updateEntry} value={image}/>
-                </div>
-                {/* <div className="form-group" style={styled}>
-                    <label htmlFor="ingredients">Ingredients 
-                        <span className="fw-light">  (separated by semi-colons)</span>
-                    </label>
-                    <textarea className="form-control" id="ingredients" placeholder="e.g. 500g chicken (diced); 2 carrots; 2 onions; 2 stalks celery" required onChange={updateEntry} value={ingredients}/>
-                </div> */}
+
+                <RecipeInputLine 
+                    title="Image" 
+                    id="image" 
+                    value={image} 
+                    aid={"  (URL format, default image applied if none entered)"} 
+                    required={false}
+                    updateEntry={updateEntry}  />
+
                 <RecipeInputBlock 
                     title="Ingredients" 
                     id="ingredients" 
@@ -121,12 +107,7 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
                     aid={"  (separated by semi-colons)"} 
                     prompt={"e.g. 500g chicken (diced); 2 carrots; 2 onions; 2 stalks celery"}
                     updateEntry={updateEntry}  />
-                {/* <div className="form-group" style={styled}>
-                    <label htmlFor="methods">Method 
-                        <span className="fw-light">  (separated by semi-colons; numbers will be automatically added)</span>
-                    </label>
-                    <textarea className="form-control" id="method" placeholder={`e.g. Cut carrots, onions and celeries into big chunks;\n Place chicken and vegetables in large pot and boil for 30 minutes;\n Serve with parsley`} required onChange={updateEntry} value={method}/>
-                </div> */}
+
                 <RecipeInputBlock 
                     title="Method" 
                     id="method" 
@@ -141,7 +122,5 @@ const NewRecipe = ({ loggedInUser, recipeList, setRecipeList }) => {
     </>
   )
 }
-
-// fieldset
 
 export default NewRecipe
