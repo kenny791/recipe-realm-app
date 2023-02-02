@@ -52,6 +52,10 @@ div
 
 .display-1 {
     color: var(--primary-color);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+
+
 }
 
 h1{

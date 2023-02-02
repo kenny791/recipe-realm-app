@@ -38,7 +38,7 @@ export default ({ setSearchInput, loggedInUser }) => {
 							<Link className="nav-link" onClick={handleLinkClick} to="/recipe/add">Submit Recipe</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" onClick={handleLinkClick} to="/">{isLoggedIn ? `${loggedInUser.username} Profile` : "Login"}</Link>
+							<Link className="nav-link" onClick={handleLinkClick} to="/user">{isLoggedIn ? `${loggedInUser.username} Profile` : "Login"}</Link>
 						</li>
 					</ul>
 				</div>

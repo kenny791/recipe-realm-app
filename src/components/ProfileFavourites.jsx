@@ -41,7 +41,7 @@ const ProfileFavourites = ({loggedInUser, setLoggedInUser, recipeList}) => {
 			<div className="container" key={index}>
 				<div className="card mb-3">
 					<div className="row g-0">
-						<div className="col-md-4">
+						<div className="col-md-2">
 							<img src={recipe.image} className="img-fluid rounded-start my-3 " alt={recipe.name} />
 						</div>
 						<div className="col-md-8 text-start">
@@ -62,7 +62,8 @@ const ProfileFavourites = ({loggedInUser, setLoggedInUser, recipeList}) => {
 
   	return (
 	<>
-		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
+		<div id="favouritesAnchor" style={{padding: "30px"}}></div>
+		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5" >
 			<h1>Favourites</h1>
 			{favourites}
 		</div>
