@@ -47,8 +47,11 @@ export default ({recipeRating, recipe, loggedInUser }) => {
     const oldRecipe = newRecipeList[indexToEdit]
     // console.log(oldRecipe)
     const indexToUser = oldRecipe.rating_list.findIndex((rating) => rating.username.username == loggedInUser.username)
-    // console.log(indexToUser)
-    oldRecipe.rating_list[indexToUser].rating = rating
+    if (indexToUser != -1) {
+      oldRecipe.rating_list[indexToUser].rating = rating
+    } else {
+      console.log("no prev ")
+    }
     // console.log(oldRecipe.rating_list)
     // console.log(oldRecipe.rating_list[2].rating)
     setRecipeList(newRecipeList)
