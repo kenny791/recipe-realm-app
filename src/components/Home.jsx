@@ -53,7 +53,7 @@ console.log(setSearchInput)
 				<img src="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675251255/Recipe%20Photos/image_tafm0z.png" className="img-fluid backdrop" alt="Responsive image"/>
 				{/* hero */}
 				<p className="display-1">Recipe Realm</p>
-				<p className="display-6">Lorem ipsum dolor sit </p>
+				<p className="display-6">Nourish your taste buds, one recipe at a time</p>
 				<div className="col-lg-6 mx-auto">
 					<div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
 						<div className="input-group mb-3 ">
