@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import RecipeContext from '../context'
 
-const ProfileRecipes = ({loggedInUser, recipeList, setRecipeList}) => {
+const ProfileRecipes = () => {
 
-	
+	const { loggedInUser, recipeList, setRecipeList } = useContext(RecipeContext)
+
 	//on click send delete request to server, remove recipe from recipeList
 	const handleClick = (recipeId) => {
 		sendData(recipeId)

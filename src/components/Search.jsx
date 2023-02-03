@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import RecipeContext from '../context'
 import SearchFilters from './SearchFilters'
 
-const Search = ({ searchInput, setSearchInput, recipeList }) => {
+const Search = ({ searchInput, setSearchInput }) => {
 	// Scroll to top on page load
 	useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
+
+	const { recipeList } = useContext(RecipeContext)
 
 	// State for each filter option
 	const [filter1, setFilter1] = useState('')
@@ -47,7 +50,7 @@ const Search = ({ searchInput, setSearchInput, recipeList }) => {
 			</div>
 			
 			{/* Filter dropdowns */}
-			<SearchFilters setFilter1={setFilter1} setFilter2={setFilter2} setFilter3={setFilter3} setFilter4={setFilter4} recipeList={recipeList} />
+			<SearchFilters setFilter1={setFilter1} setFilter2={setFilter2} setFilter3={setFilter3} setFilter4={setFilter4} />
 
 			{/* List of recipes/display recipes */}
 			<div className="container d-flex flex-wrap align-items-center justify-content-center mt-5 w-75">

@@ -48,15 +48,15 @@ export default function App() {
   return (
     <>
     <RecipeContext.Provider value={{ recipeList, setRecipeList, loggedInUser, setLoggedInUser }}>
-    <Navbar loggedInUser={loggedInUser} setSearchInput={setSearchInput} />
+    <Navbar setSearchInput={setSearchInput} />
     <Routes>
-      <Route path='/' element={<Home setSearchInput={setSearchInput} recipeList={recipeList} />} />
-      <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />
-      <Route path='/user' element={<User loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>} />
-      <Route path='/recipe/:recipeId' element={<Recipe recipeList={recipeList} loggedInUser={loggedInUser} setRecipeList={setRecipeList}/>} />
+      <Route path='/' element={<Home setSearchInput={setSearchInput} />} />
+      <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} />} />
+      <Route path='/user' element={<User />} />
+      <Route path='/recipe/:recipeId' element={<Recipe />} />
 
-      <Route path='/recipe/add' element={<NewRecipe loggedInUser={loggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>} />
-      <Route path='/recipe/:recipeId/edit' element={<EditRecipe recipeList={recipeList} setRecipeList={setRecipeList}/>} />
+      <Route path='/recipe/add' element={<NewRecipe />} />
+      <Route path='/recipe/:recipeId/edit' element={<EditRecipe />} />
       <Route path='/apitest' element={<ApiTest recipeList={recipeList}/>} />
       <Route path='*' element={<div className='container'><h3>Page not found!</h3></div>} />
     </Routes>

@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
 import RecipeContext from '../context'
 
-export default ({recipeRating, recipe, loggedInUser }) => {
+export default ({ recipeRating, recipe }) => {
 
   // For updating state with changes
-  const { recipeList, setRecipeList } = useContext(RecipeContext)
+  const { recipeList, setRecipeList, loggedInUser } = useContext(RecipeContext)
 
   const averageRating = Math.round(recipeRating.reduce((acc, curr) => acc + curr.rating, 0) / recipeRating.length)
   const recipeId = recipe._id

@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import RecipeInputForm from "./RecipeInputForm"
+import RecipeContext from '../context'
 
-const EditRecipe = ({ recipeList, setRecipeList }) => {
+const EditRecipe = () => {
     // Scroll to top on page load
 	useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
-    
-    const nav = useNavigate()
 
+    const { recipeList, setRecipeList } = useContext(RecipeContext)
+    const nav = useNavigate()
     const { recipeId } = useParams()
     
     // Overcome warning about component changing an uncontrolled input to be controlled
