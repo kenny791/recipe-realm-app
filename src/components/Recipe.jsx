@@ -7,7 +7,7 @@ import Method from './Method'
 import RecipeMenu from './RecipeMenu'
 import RecipeTags from './RecipeTags'
 
-export default ({ recipeList, loggedInUser  }) => {
+export default ({ recipeList, loggedInUser, setRecipeList }) => {
   // Scroll to top on page load
   useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
 
@@ -30,7 +30,7 @@ export default ({ recipeList, loggedInUser  }) => {
 
   return (
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
-      <RecipeMenu recipe={recipe} loggedInUser={loggedInUser} />
+      <RecipeMenu recipe={recipe} loggedInUser={loggedInUser} setRecipeList={setRecipeList}/>
       <Description recipeDescription={recipe.description} />
       <Ingredients recipeIngredients={recipe.ingredients} />
       <Method recipeMethod={recipe.method} />

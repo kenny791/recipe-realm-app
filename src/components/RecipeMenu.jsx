@@ -4,7 +4,7 @@ import Favourite from './Favourite'
 import Rating from './Rating'
 import { HashLink } from 'react-router-hash-link'
 
-export default ({ recipe, loggedInUser }) => {
+export default ({ recipe, loggedInUser, setRecipeList }) => {
 
   return (
     <div className='container w-75 mb-3 mt-5'>
@@ -27,7 +27,7 @@ export default ({ recipe, loggedInUser }) => {
             </div>
             <div className='col p-3'>
               <h4>Rating</h4>
-              <Rating recipeRating={recipe.rating_list} recipe={recipe} loggedInUser={loggedInUser} />
+              <Rating recipeRating={recipe.rating_list} recipe={recipe} loggedInUser={loggedInUser} setRecipeList={setRecipeList}/>
             </div>
             <div className='col p-3'>
               <Favourite recipe={recipe} loggedInUser={loggedInUser} />

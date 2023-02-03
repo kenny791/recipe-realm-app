@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default ({recipeRating, recipe, loggedInUser }) => {
+export default ({recipeRating, recipe, loggedInUser, setRecipeList }) => {
 
   const averageRating = Math.round(recipeRating.reduce((acc, curr) => acc + curr.rating, 0) / recipeRating.length)
   const recipeId = recipe._id
@@ -28,6 +28,10 @@ export default ({recipeRating, recipe, loggedInUser }) => {
     })
     const data = await res.json()
     console.log(data)
+  }
+
+  function updateState() {
+
   }
 
 const stars = []
