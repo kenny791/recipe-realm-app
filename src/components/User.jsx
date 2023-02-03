@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import RecipeContext from '../context'
 import ProfileFavourites from './ProfileFavourites'
 import ProfileRatings from './ProfileRatings'
 import ProfileComments from './ProfileComments'
@@ -8,8 +8,10 @@ import ProfileRecipes from './ProfileRecipes'
 import { HashLink } from 'react-router-hash-link'
 
 
-const User = ({ loggedInUser, setLoggedInUser, recipeList, setRecipeList}) => {
+const User = () => {
 	useEffect(() => { window.scrollTo(0, 0) }, [])
+
+	const { loggedInUser, setLoggedInUser, recipeList, setRecipeList } = useContext(RecipeContext)
 
 	let nav = document.getElementsByClassName("navbar")
 	let sticky = nav.offsetTop;
@@ -52,7 +54,7 @@ const User = ({ loggedInUser, setLoggedInUser, recipeList, setRecipeList}) => {
 				<ProfileComments />
 				<ProfileRecipes />
 				<ProfileRatings />
-				<ProfileFavourites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
+				<ProfileFavourites  />
 			</div>
 		</div>
 	)

@@ -51,8 +51,8 @@ export default function App() {
     <Navbar setSearchInput={setSearchInput} />
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput} />} />
-      <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} recipeList={recipeList}/>} />
-      <Route path='/user' element={<User loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>} />
+      <Route path='/search' element={<Search searchInput={searchInput} setSearchInput={setSearchInput} />} />
+      <Route path='/user' element={<User />} />
       <Route path='/recipe/:recipeId' element={<Recipe />} />
 
       <Route path='/recipe/add' element={<NewRecipe />} />

@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import RecipeContext from '../context'
 
-const SearchFilters = ( {setFilter1, setFilter2, setFilter3, setFilter4, recipeList}) => {
+const SearchFilters = ({ setFilter1, setFilter2, setFilter3, setFilter4 }) => {
+	
+	const { recipeList } = useContext(RecipeContext)
+
 	// Get list of all tags for all recipes
 	let recipeTags = []
 	for (let recipe of recipeList) {
