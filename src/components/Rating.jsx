@@ -89,7 +89,7 @@ const stars = []
   return (
     <div className='container'>
       {stars} 
-      <span> | {averageRating}</span>
+      <span> | {averageRating ? averageRating : "-"}</span>
     </div>
   )
 }
