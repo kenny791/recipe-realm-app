@@ -4,23 +4,25 @@ import { RecipeModel, UserModel } from '../db.js'
 
 const router = express.Router()
 
-router.get("/recipes", async (request, response) => {
+// Get all recipes
+router.get("/recipes", async (req, res) => {
     try {
         const recipes = await RecipeModel.find()
             .populate({path: "author", select: "username"})
             .populate({path: "rating_list.username", select: "username"})
             .populate({path: "comments.username", select: "username"})
-        response.send(recipes)
+        res.send(recipes)
     }
     catch (err) {
-        response.status(500).send({error: err.message})
+        res.status(500).send({error: err.message})
     }
 })
 
-router.post("/recipes", async (request, response) => {
+// Post new recipe
+router.post("/recipes", async (req, res) => {
     try {
         // Create new recipe entry
-        const { recipeId, name, author, description, tags, image, ingredients, method } = request.body
+        const { recipeId, name, author, description, tags, image, ingredients, method } = req.body
         const newRecipe = { 
             id: recipeId, 
             name: name, 
@@ -34,34 +36,35 @@ router.post("/recipes", async (request, response) => {
             comments: []}
         const insertedRecipe = await RecipeModel.create(newRecipe)
         // Send new entry with 201 status
-        response.status(201).send(await insertedRecipe.populate({ path: 'author', select: ['_id', 'username']}))
+        res.status(201).send(await insertedRecipe.populate({ path: 'author', select: ['_id', 'username']}))
     }
     catch (err) {
-        response.status(500).send({ error: err.message })
+        res.status(500).send({ error: err.message })
     }
 })
 
-router.get("/recipes/:id", async (request, response) => {
+// Get recipe by id
+router.get("/recipes/:id", async (req, res) => {
     try{
-        const recipe = await RecipeModel.findOne({ id: request.params.id })
+        const recipe = await RecipeModel.findOne({ id: req.params.id })
             .populate({path: "author", select: "username"})
             .populate({path: "rating_list.username", select: "username"})
             .populate({path: "comments.username", select: "username"})
         if (recipe) {
-            response.send(recipe)
+            res.send(recipe)
         } else {
-            response.status(404).send({message: "Recipe not found"})
+            res.status(404).send({message: "Recipe not found"})
         }
     }
     catch (err) {
-        response.status(500).send({error: err.message})
+        res.status(500).send({error: err.message})
     }
 })
 
 //add new comment by username 
-// router.post("/recipes/:id/comments", async (request, response) => {
+// router.post("/recipes/:id/comments", async (req, res) => {
 //     try {
-//         const { username, comment } = request.body
+//         const { username, comment } = req.body
 //         //find user id by username
 //         const userId = await UserModel.findOne( {username: username} ) 
 //         const  newComment = {
@@ -69,62 +72,62 @@ router.get("/recipes/:id", async (request, response) => {
 //             date: Date.now(),
 //             comment: comment
 //         }
-//         const recipe = await RecipeModel.findOne({ id: request.params.id })
+//         const recipe = await RecipeModel.findOne({ id: req.params.id })
 //         if (recipe) {
 //             recipe.comments.push(newComment)
 //             await recipe.save()
-//             response.send({
+//             res.send({
 //                 message: "Comment added",
 //                 comments: recipe.comments
 //               })
 //         } else {
-//             response.status(404).send({message: "Recipe not found"})
+//             res.status(404).send({message: "Recipe not found"})
 //         }
 //     }
 //     catch (err) {
-//         response.status(500).send({error: err.message})
+//         res.status(500).send({error: err.message})
 //     }
 // })
 
-//add new rating by username 
-router.post("/recipes/:id/rating", async (request, response) => {
+// Add new rating by username 
+router.post("/recipes/:id/rating", async (req, res) => {
     try {
-        const { username, rating } = request.body
+        const { username, rating } = req.body
         //find user id by username
-        const userId = await UserModel.findOne( {username: request.body.username} )
+        const userId = await UserModel.findOne( {username: req.body.username} )
         const  newRating = {
             username: userId._id,
-            rating: request.body.rating
+            rating: req.body.rating
         }
-        const recipe = await RecipeModel.findById(request.params.id)
+        const recipe = await RecipeModel.findById(req.params.id)
         if (recipe) {
             recipe.rating_list.push(newRating)
             await recipe.save()
-            response.send(recipe.rating_list)
+            res.send(recipe.rating_list)
         } else {
-            response.status(404).send({message: "Recipe not found"})
+            res.status(404).send({message: "Recipe not found"})
         }
     }
     catch (err) {
-        response.status(500).send({error: err.message})
+        res.status(500).send({error: err.message})
     }
 })
 
-// Edit recipes
-router.patch("/recipes/:id", async (request, response) => {
+// Edit single recipe
+router.patch("/recipes/:id", async (req, res) => {
     try {
-        // const { recipeId, name, author, description, tags, image, ingredients, method } = request.body
-        const { name, description, tags, image, ingredients, method } = request.body
+        // const { recipeId, name, author, description, tags, image, ingredients, method } = req.body
+        const { name, description, tags, image, ingredients, method } = req.body
         const editedEntry = { name, description, tags, image, ingredients, method }
-        const entry = await RecipeModel.findOneAndUpdate({id: request.params.id}, editedEntry, { returnDocument: 'after' })
+        const entry = await RecipeModel.findOneAndUpdate({id: req.params.id}, editedEntry, { returnDocument: 'after' })
         if (entry) {
-            response.send(entry)
+            res.send(entry)
         } else {
-            response.status(404).send({ error: 'Entry not found'})
+            res.status(404).send({ error: 'Entry not found'})
         }
     }
     catch (err) {
-        response.status(500).send({ error: err.message})
+        res.status(500).send({ error: err.message})
     }
 })
 
@@ -142,44 +145,45 @@ router.patch("/recipes/edit/:id", async (req, res) => {
     }
 })
 
-router.delete("/recipes/:id", async (request, response) => {
+// Delete single recipe
+router.delete("/recipes/:id", async (req, res) => {
     try {
-        const recipe = await RecipeModel.findOneAndDelete({ id: request.params.id })
+        const recipe = await RecipeModel.findOneAndDelete({ id: req.params.id })
         if (recipe) {
-            response.sendStatus(204)
+            res.sendStatus(202)
         } else {
-            response.status(404).send({message: "Recipe not found"})
+            res.status(404).send({message: "Recipe not found"})
         }
     }
     catch (err) {
-        response.status(500).send({error: err.message})
+        res.status(500).send({error: err.message})
     }
 })
 
 
-//delete comment by recipe id and comment id
-router.delete("/recipes/:recipeId/comments/:commentId", async (request, response) => {
+// Delete comment by recipe id and comment id
+router.delete("/recipes/:recipeId/comments/:commentId", async (req, res) => {
     try {
-        const recipe = await RecipeModel.findById(request.params.recipeId)
+        const recipe = await RecipeModel.findById(req.params.recipeId)
         if (recipe) {
             const commentIndex = recipe.comments.findIndex(
-            comment => comment._id.toString() === request.params.commentId
+            comment => comment._id.toString() === req.params.commentId
             )
             if (commentIndex !== -1) {
                 recipe.comments.splice(commentIndex, 1)
                 await recipe.save()
-                response.send({
+                res.send({
                 message: "Comment deleted",
                 comments: recipe.comments
                 })
             } else {
-                response.status(404).send({ message: "Comment not found" })
+                res.status(404).send({ message: "Comment not found" })
             }
         } else {
-            response.status(404).send({ message: "Recipe not found" })
+            res.status(404).send({ message: "Recipe not found" })
         }
     } catch (err) {
-        response.status(500).send({ error: err.message })
+        res.status(500).send({ error: err.message })
     }
 })
 

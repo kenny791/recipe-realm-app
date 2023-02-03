@@ -21,9 +21,7 @@ app.use(authRoutes)
 app.use(userRoutes)
 
 // make route for /
-app.get("/", (request, response) => {
-    response.send("Recipe Realm API")
-})
+app.get("/", (request, response) => response.send({ info: "Recipe Realm API" }))
 
 
 // // AWS s3 upload route

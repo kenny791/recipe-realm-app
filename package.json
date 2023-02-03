@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll --detectOpenHandles",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -32,5 +32,9 @@
     "path": "^0.12.7",
     "request": "^2.88.2",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.4.1",
+    "supertest": "^6.3.3"
   }
 }
