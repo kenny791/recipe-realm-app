@@ -2,7 +2,6 @@ import express, { response } from 'express'
 import { UserModel, RecipeModel } from './db.js'
 import recipeRoutes from './routes/recipe_routes.js'
 import userRoutes from './routes/user_routes.js'
-import authRoutes from './routes/auth_routes.js'
 import cors from 'cors'
 
 
@@ -17,7 +16,6 @@ app.use(cors())
 
 //routers for the different routes
 app.use(recipeRoutes)
-app.use(authRoutes)
 app.use(userRoutes)
 
 // make route for /
