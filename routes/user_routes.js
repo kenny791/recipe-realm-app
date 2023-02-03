@@ -10,6 +10,7 @@ const router = express.Router()
 router.get("/users", async (request, response) => {
     try {
         const users = await UserModel.find()
+        .select("-password")
         response.send(users)
     }
     catch (err) {
