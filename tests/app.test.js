@@ -1,5 +1,5 @@
-import app from "../app.js"
-import request from "supertest"
+import app from '../app.js'
+import request from 'supertest'
 
 describe("App tests", () => {
     test("Get home page", async () => {
