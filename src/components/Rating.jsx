@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import RecipeContext from '../context'
 
 export default ({recipeRating, recipe, loggedInUser }) => {
+  // console.log(recipe.rating_list)
+  // For updating state with changes
+  const { recipeList, setRecipeList } = useContext(RecipeContext)
 
   const averageRating = Math.round(recipeRating.reduce((acc, curr) => acc + curr.rating, 0) / recipeRating.length)
   const recipeId = recipe._id
@@ -12,6 +16,8 @@ export default ({recipeRating, recipe, loggedInUser }) => {
     const index = Array.from(list).indexOf(event.target)
     setRating(index + 1)
     updateRatings(index + 1)
+    updateState()
+    // console.log(recipeList)
   }
 
   const updateRatings = async (rating) => {
@@ -27,19 +33,19 @@ export default ({recipeRating, recipe, loggedInUser }) => {
       })
     })
     const data = await res.json()
-    console.log(data)
+    // console.log(data)
   }
 
   function updateState() {
     const newRecipeList = JSON.parse(JSON.stringify(recipeList))
+    console.log(newRecipeList)
+    // console.log(recipeList[1])
     const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)
+    console.log(indexToEdit)
     const oldRecipe = newRecipeList[indexToEdit]
-    oldRecipe.name = name
-    oldRecipe.description = description
-    oldRecipe.tags = splitBySemicolon(tags)
-    oldRecipe.image = image
-    oldRecipe.ingredients = splitBySemicolon(ingredients)
-    oldRecipe.method = splitBySemicolon(method)
+    // console.log(oldRecipe)
+    const indexToUser = oldRecipe.rating_list.findIndex((rating) => rating.username == loggedInUser)
+    oldRecipe.rating_list[indexToUser] = rating
     setRecipeList(newRecipeList)
   }
 

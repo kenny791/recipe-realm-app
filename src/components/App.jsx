@@ -9,7 +9,7 @@ import ApiTest from './ApiTest'
 import Footer from './Footer'
 import NewRecipe from './NewRecipe'
 import EditRecipe from './EditRecipe'
-import RecipeContext from '../RecipeContext'
+import RecipeContext from '../context'
 
 export default function App() {
   // stores all recipes
