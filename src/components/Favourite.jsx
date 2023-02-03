@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import RecipeContext from '../context'
 
-export default ({ recipe, loggedInUser }) => {
+export default ({ recipe }) => {
+
+  const { loggedInUser, setLoggedInUser } = useContext(RecipeContext)
 
   const [favourite, setFavourite] = useState(
     loggedInUser.favourites.some(fav => fav._id === recipe._id)
@@ -23,7 +26,9 @@ export default ({ recipe, loggedInUser }) => {
       body: JSON.stringify({ favourites: newFavourites })
     })
     const data = await res.json()
-    console.log(data)
+    
+    // Update state 
+    setLoggedInUser({ ...loggedInUser, favourites: newFavourites })
   }
 
   return (

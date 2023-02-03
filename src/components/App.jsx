@@ -47,7 +47,7 @@ export default function App() {
 
   return (
     <>
-    <RecipeContext.Provider value={{ recipeList, setRecipeList }}>
+    <RecipeContext.Provider value={{ recipeList, setRecipeList, loggedInUser, setLoggedInUser }}>
     <Navbar loggedInUser={loggedInUser} setSearchInput={setSearchInput} />
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput} recipeList={recipeList} />} />
