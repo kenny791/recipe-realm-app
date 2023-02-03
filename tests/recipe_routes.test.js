@@ -65,6 +65,14 @@ describe("Get single recipe", () => {
         expect(res.body.comments).toBeInstanceOf(Array)
         expect(Object.keys(res.body.comments[0])).toEqual(["username", "date",  "comment", "_id"])
     })
+    it ("should return a 404 if the recipe id does not exist", async () => {
+        const res = await request(app).get("/recipes/999")
+        expect(res.status).toBe(404)
+    })
+    it ("should return a 500 message if the recipe id is not a number", async () => {
+        const res = await request(app).get("/recipes/abc")
+        expect(res.status).toBe(500)
+    })
 })
 
 describe("Post a new recipe", () => {
@@ -92,7 +100,15 @@ describe("Post a new recipe", () => {
     it("should apply the default image if no image URL is sent", () => {
         expect(res.body.image).toMatch("https://res.cloudinary.com/dzz3meeb6/image/upload/v1675248494/Recipe%20Photos/image_a9nqqw.png")
     })
-})    
+    it("should receive a 500 error if the body is missing any of the required fields", async () => {
+        const res = await request(app).post("/recipes")
+        .send({
+            "recipeId": 100,
+            "name": "test recipe",
+        })
+        expect(res.status).toBe(500)
+    })
+})
 
 describe("Add new rating to recipe", () => {
     let res
@@ -108,6 +124,22 @@ describe("Add new rating to recipe", () => {
     it("should return back the recipes array of ratings, with the new rating added", () => {
         expect(res.body).toBeInstanceOf(Array)
     })
+    // it("should return a 404 if the recipe id does not exist", async () => {
+    //     const res = await request(app).post("/recipes/9/rating")
+    //     .send({
+    //         "username": "BakeBoss",
+    //         "rating": "4"
+    //     })
+    //     expect(res.status).toBe(404)
+    // })
+    it("should return a 500 if the recipe id is not a number", async () => {
+        const res = await request(app).post("/recipes/abc/rating")
+        .send({
+            "username": "BakeBoss",
+            "rating": "4"
+        })
+        expect(res.status).toBe(500)
+    })
 })
 
 describe("Edit a recipe", () => {
@@ -120,7 +152,8 @@ describe("Edit a recipe", () => {
             "tags": ["tag3", "tag4"],
             "image": "",
             "ingredients": ["ingredient3", "ingredient4"],
-            "method": ["method3", "method4"]
+            "method": ["method3", "method4"],
+            "comments": ["comment1", "comment2", "comment3", "comment4", "comment5"]
         })
         expect(res.status).toBe(200)
         expect(res.headers["content-type"]).toMatch(/json/i)
@@ -132,13 +165,83 @@ describe("Edit a recipe", () => {
     it ("should return a 404 if the recipe id is not found", async () => {
         res = await request(app).patch("/recipes/123456789")
         expect(res.status).toBe(404)
-    }) 
+    })
+    it ("should return a 500 if the recipe id is not a number", async () => {
+        res = await request(app).patch("/recipes/abc")
+        expect(res.status).toBe(500)
+    })
 })
+
+describe("Update a recipe's rating", () => {
+    let res
+    beforeAll(async () => {
+        res = await request(app).patch(`/recipes/edit/${body._id}`)
+        .send({
+            "username": "BakeBoss",
+            "rating": "3"
+        })
+        expect(res.status).toBe(200)
+        expect(res.headers["content-type"]).toMatch(/json/i)
+    })
+    it("should return a 404 if the recipe id does not exist", async () => {
+        const res = await request(app).patch("/recipes/edit/aaaaaaaaaaaaaaaaaaaaaaaa")
+        .send({
+            "username": "BakeBoss",
+            "rating": "4"
+        })
+        expect(res.status).toBe(404)
+    })
+    it("should return a 500 if the recipe id is not the correct id format", async () => {
+        const res = await request(app).patch("/recipes/edit/aaaa")
+        .send({
+            "username": "BakeBoss",
+            "rating": "4"
+        })
+        expect(res.status).toBe(500)
+    })
+})
+
+describe("Delete a comment by recipe id and comment id", () => {
+    let res
+    beforeAll(async () => {
+        //add a comment to the recipe
+        res = await request(app).patch(`/recipes/edit/${body._id}`)
+        .send({
+            "comments": [
+                    {
+                        "comment":"seeded test comment"
+                    }
+                ]
+            })
+        expect(res.status).toBe(200)
+        expect(res.headers["content-type"]).toMatch(/json/i)
+        //delete the comment
+        res = await request(app).delete(`/recipes/${body._id}/comments/${res.body.comments[0]._id}`)
+        expect(res.status).toBe(200)
+    })
+    it("should return a 404 if the recipe id does not exist", async () => {
+        const res = await request(app).delete("/recipes/aaaaaaaaaaaaaaaaaaaaaaaa/comments/aaaaaaaaaaaaaaaaaaaaaaaa")
+        expect(res.status).toBe(404)
+    })
+    it("should return a 500 if the comment id or recipe id is in the wrong format", async () => {
+        const res = await request(app).delete("/recipes/aaaa/comments/aaaa")
+        expect(res.status).toBe(500)
+    })
+})
+
 
 describe("Delete a recipe", () => {
     let res
-    test ("should return a 202 status code if the recipe is deleted", async () => {
+    beforeAll(async () => {
         res = await request(app).delete(`/recipes/${body.id}`)
         expect(res.status).toBe(202)
+    })
+    it("should return a 404 if the recipe id does not exist", async () => {
+        const res = await request(app).delete("/recipes/9999")
+        expect(res.status).toBe(404)
+    })
+    it("should return a 500 if the recipe id is not a number", async () => {
+        const res = await request(app).delete("/recipes/abc")
+        expect(res.status).toBe(500)
     })
 })

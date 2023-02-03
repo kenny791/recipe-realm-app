@@ -28,16 +28,9 @@ router.get("/users/:val", async (request, response) => {
             response.send(user)
         } 
         else if (request.params.val.length === 24) {
-            const user = await UserModel.findById(request.params.val)
-            .select("-password")
-            .populate({path: "favourites", select: "name"})
-            if (user) {
-                response.send(user)
-            }
-        }
-        else {
-            response.status(404).send({message: "User not found"})
-        }
+            const user = await UserModel.findById(request.params.val).select("-password").populate({path: "favourites", select: "name"})
+            if (user) {response.send(user)}}
+        else {response.status(404).send({message: "User not found"})}
     }
     catch (err) {
         response.status(500).send({error: err.message})
@@ -45,23 +38,25 @@ router.get("/users/:val", async (request, response) => {
 })
 
 //get comments by one user
-router.get("/users/:id/comments", async (request, response) => {
-    try{
-        const recipe = await RecipeModel.findOne( {username: request.params.id} )
-    if (recipe) {
-        response.send(recipe.comments)
-    } else {
-        response.status(404).send({message: "Comments not found"})
-    }
-    }
-    catch (err) {
-        response.status(500).send({error: err.message})
-    }
-})
+// router.get("/users/:id/comments", async (request, response) => {
+//     try{
+//         const recipe = await RecipeModel.findOne( {username: request.params.id} )
+//     if (recipe) {
+//         response.send(recipe.comments)
+//     } else {
+//         response.status(404).send({message: "Comments not found"})
+//     }
+//     }
+//     catch (err) {
+//         response.status(500).send({error: err.message})
+//     }
+// })
 
+// update user favourites array
 router.patch("/users/:id", async (req, res) => {
     try {
         const user = await UserModel.findByIdAndUpdate(req.params.id, req.body, { returnDocument: "after" })
+        .select("-password")
         if (user) {
             res.json(user)
         } else {
@@ -72,7 +67,7 @@ router.patch("/users/:id", async (req, res) => {
     }
 })
 
-//replace favourites array of user
+//submit favourites array of user
 router.post("/users/:userId/favourites", async (request, response) => {
     try {
         const user = await UserModel.findByIdAndUpdate(
@@ -85,7 +80,6 @@ router.post("/users/:userId/favourites", async (request, response) => {
     catch (err) {
         response.status(500).send({ error: err.message })
     }
-
 })
 
 
