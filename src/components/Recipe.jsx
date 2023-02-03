@@ -7,6 +7,7 @@ import RecipeIngredients from './RecipeIngredients'
 import RecipeMethod from './RecipeMethod'
 import RecipeMenu from './RecipeMenu'
 import RecipeTags from './RecipeTags'
+import LoadingPage from './LoadingPage'
 
 export default () => {
   // Scroll to top on page load
@@ -19,15 +20,19 @@ export default () => {
   const index = recipeList.findIndex(recipe => recipe.id == recipeId)
   const recipe = recipeList[index]
   
-  if (!recipe) {
+  if (recipeList.length === 0) {
     return (
-      <div className='container'>
-        <br />
-        <h3>
-          This recipe does not seem to exist...
-        </h3>
-        <br />
-      </div>
+      <LoadingPage />
+    )
+  }
+
+  if (recipeList.length !== 0 && !recipe) {
+    return (
+      <>
+        <div className="mh-100 d-flex justify-content-center align-items-center m-5 p-5" style={{height: "80vh"}}>
+          <h3>This recipe does not exist</h3>
+        </div>
+      </>
     )
   }
 
