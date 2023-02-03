@@ -8,6 +8,7 @@ const ProfileRecipes = ({loggedInUser, recipeList, setRecipeList}) => {
 	const handleClick = (recipeId) => {
 		sendData(recipeId)
 		setRecipeList(recipeList.filter(recipe => recipe.id !== recipeId))
+		alert("Recipe deleted!")
 	}
 
 
