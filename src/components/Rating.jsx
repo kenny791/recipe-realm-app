@@ -17,7 +17,7 @@ export default ({recipeRating, recipe, loggedInUser }) => {
     setRating(index + 1)
     updateRatings(index + 1)
     updateState()
-    // console.log(recipeList)
+    console.log(recipeList)
   }
 
   const updateRatings = async (rating) => {
@@ -38,15 +38,21 @@ export default ({recipeRating, recipe, loggedInUser }) => {
 
   function updateState() {
     const newRecipeList = JSON.parse(JSON.stringify(recipeList))
-    console.log(newRecipeList)
+    // console.log(newRecipeList)
     // console.log(recipeList[1])
-    const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)
-    console.log(indexToEdit)
+    // console.log(newRecipeList[2].id)
+    // console.log(recipe.id)
+    const indexToEdit = newRecipeList.findIndex((sub) => sub.id == recipe.id)
+    // console.log(indexToEdit)
     const oldRecipe = newRecipeList[indexToEdit]
     // console.log(oldRecipe)
-    const indexToUser = oldRecipe.rating_list.findIndex((rating) => rating.username == loggedInUser)
-    oldRecipe.rating_list[indexToUser] = rating
+    const indexToUser = oldRecipe.rating_list.findIndex((rating) => rating.username.username == loggedInUser.username)
+    // console.log(indexToUser)
+    oldRecipe.rating_list[indexToUser].rating = rating
+    // console.log(oldRecipe.rating_list)
+    // console.log(oldRecipe.rating_list[2].rating)
     setRecipeList(newRecipeList)
+    return true
   }
 
 const stars = []
