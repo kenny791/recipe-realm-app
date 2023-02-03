@@ -16,7 +16,6 @@ const ProfileFavourites = () => {
     sendData(extractIds(updatedFavourites))
   }
 
-
   const sendData = async (favourites) => {
     try {
       const response = await fetch(`http://server-production-6a0e.up.railway.app/users/${loggedInUser._id}/favourites`, {
@@ -37,7 +36,6 @@ const ProfileFavourites = () => {
     }
   }
  
-
 	//display favourites
 	const favourites = loggedInUser.favourites && Array.isArray(loggedInUser.favourites) ? loggedInUser.favourites.map((recipe, index) => {		  
 		return (
@@ -66,7 +64,7 @@ const ProfileFavourites = () => {
   	return (
 	<>
 		<div id="favouritesAnchor" style={{padding: "30px"}}></div>
-		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5" >
+		<div className="h-100 d-flex flex-column align-items-center justify-content-center" >
 			<h1>Favourites</h1>
 			{favourites}
 		</div>
