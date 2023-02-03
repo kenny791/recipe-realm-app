@@ -35,7 +35,7 @@ export default ({ recipeList, loggedInUser }) => {
       <RecipeIngredients recipeIngredients={recipe.ingredients} />
       <RecipeMethod recipeMethod={recipe.method} />
       <RecipeTags recipeTags={recipe.tags} />
-      <CommentSection recipe={recipe} loggedInUser={loggedInUser} />
+      <CommentSection recipe={recipe} />
     </div>
   )
 }

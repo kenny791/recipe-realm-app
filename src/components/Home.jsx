@@ -1,10 +1,14 @@
-import React,{useEffect} from 'react'
+import React, { useEffect, useContext} from 'react'
 import { Link } from 'react-router-dom'
+import RecipeContext from '../context'
 import './Styles.css'
 
-const Home = ({ setSearchInput , recipeList }) => {
+
+const Home = ({ setSearchInput }) => {
 	// Scroll to top on page load
 	useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
+
+	const { recipeList } = useContext(RecipeContext)
 
 	//handles prefilling of search page
 	const handleClick = (prefillSearch ) => {

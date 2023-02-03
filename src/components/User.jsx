@@ -49,7 +49,7 @@ const User = ({ loggedInUser, setLoggedInUser, recipeList, setRecipeList}) => {
 
 			<div id="commentsAnchor" style={{padding: "20px"}}></div>
 			<div className="container text-center">
-				<ProfileComments loggedInUser={loggedInUser} recipeList={recipeList} setRecipeList={setRecipeList}/>
+				<ProfileComments />
 				<ProfileRecipes loggedInUser={loggedInUser}  recipeList={recipeList} setRecipeList={setRecipeList}/>
 				<ProfileRatings loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>
 				<ProfileFavourites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />

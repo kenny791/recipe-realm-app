@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import RecipeContext from '../context'
 
-const ProfileComments = ({loggedInUser, recipeList, setRecipeList}) => {
+const ProfileComments = () => {
+
+	const { loggedInUser, recipeList, setRecipeList } = useContext(RecipeContext)
 
 	//on click remove comment from recipeList
 	const handleClick = (commentId, recipeId) => {

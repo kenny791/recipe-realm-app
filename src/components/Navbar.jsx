@@ -1,7 +1,11 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import RecipeContext from '../context'
 
-export default ({ setSearchInput, loggedInUser }) => {
+export default ({ setSearchInput }) => {
+
+	const { loggedInUser } = useContext(RecipeContext)
+
 	const [isOpen, setIsOpen] = useState(false)
 	const handleLinkClick = () => setIsOpen(false)
 	const [navbarClass, setNavbarClass] = useState("")
