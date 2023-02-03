@@ -4,7 +4,7 @@ import CommentForm from './CommentForm'
 import RecipeContext from '../context'
 
 export default ({ recipe }) => {
-  const { loggedInUser } = useContext(RecipeContext)
+  const { loggedInUser, recipeList, setRecipeList } = useContext(RecipeContext)
   const recipeComments = recipe.comments
 
   const [comments, setComments] = useState(recipeComments)
@@ -14,6 +14,7 @@ export default ({ recipe }) => {
     newComments.sort((a, b) => new Date(b.date) - new Date(a.date))
     setComments(newComments)
     updateComments(newComment)
+    updateState(newComments)
   }
 
   const updateComments = async (newComment) => {
@@ -30,8 +31,16 @@ export default ({ recipe }) => {
           comments: sortedComments
         })
       })
-    const data = await res.json()
-    console.log(data)
+    // const data = await res.json()
+    // console.log(data)
+  }
+
+  function updateState(newComments) {
+    const newRecipeList = JSON.parse(JSON.stringify(recipeList))
+    const indexToEdit = newRecipeList.findIndex((sub) => sub.id == recipe.id)
+    const oldRecipe = newRecipeList[indexToEdit]
+    oldRecipe.comments = newComments
+    setRecipeList(newRecipeList)
   }
   
 
