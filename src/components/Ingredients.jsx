@@ -7,7 +7,7 @@ export default ({recipeIngredients}) => {
   })
 
   return (
-    <div className='container row justify-content-md-center mx-auto'>
+    <div className='container row justify-content-md-center mx-auto mb-3'>
       <div className='col-12 col-lg-10'>
         <h3>Ingredients</h3>
           <ul>

@@ -5,6 +5,7 @@ import Description from './Description'
 import Ingredients from './Ingredients'
 import Method from './Method'
 import RecipeMenu from './RecipeMenu'
+import RecipeTags from './RecipeTags'
 
 export default ({ recipeList, loggedInUser  }) => {
   // Scroll to top on page load
@@ -33,6 +34,7 @@ export default ({ recipeList, loggedInUser  }) => {
       <Description recipeDescription={recipe.description} />
       <Ingredients recipeIngredients={recipe.ingredients} />
       <Method recipeMethod={recipe.method} />
+      <RecipeTags recipeTags={recipe.tags} />
       <CommentSection recipe={recipe} loggedInUser={loggedInUser} />
     </div>
   )

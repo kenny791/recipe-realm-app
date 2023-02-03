@@ -7,7 +7,7 @@ import { HashLink } from 'react-router-hash-link'
 export default ({ recipe, loggedInUser }) => {
 
   return (
-    <div className='container w-75 mb-3'>
+    <div className='container w-75 mb-3 mt-5'>
       <div className='row align-items-center justify-content-center'>
 
         {/* Image column */}
