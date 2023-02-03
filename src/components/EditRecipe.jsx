@@ -63,7 +63,7 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
 
     // Update recipeList state
     function updateRecipeList() {
-        // const newRecipeList = [...recipeList]
+        // const newRecipeList = [...recipeList]vv
         // or even better
         const newRecipeList = JSON.parse(JSON.stringify(recipeList))
         const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)

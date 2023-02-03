@@ -1,13 +1,13 @@
 import React,{useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import CommentSection from './CommentSection'
-import Description from './Description'
-import Ingredients from './Ingredients'
-import Method from './Method'
+import RecipeDescription from './RecipeDescription'
+import RecipeIngredients from './RecipeIngredients'
+import RecipeMethod from './RecipeMethod'
 import RecipeMenu from './RecipeMenu'
 import RecipeTags from './RecipeTags'
 
-export default ({ recipeList, loggedInUser  }) => {
+export default ({ recipeList, loggedInUser }) => {
   // Scroll to top on page load
   useEffect(() => {setTimeout(() => {window.scrollTo(0, 0)}, 0)}, [])
 
@@ -30,10 +30,10 @@ export default ({ recipeList, loggedInUser  }) => {
 
   return (
 		<div className="h-100 d-flex flex-column align-items-center justify-content-center m-5">
-      <RecipeMenu recipe={recipe} loggedInUser={loggedInUser} />
-      <Description recipeDescription={recipe.description} />
-      <Ingredients recipeIngredients={recipe.ingredients} />
-      <Method recipeMethod={recipe.method} />
+      <RecipeMenu recipe={recipe} loggedInUser={loggedInUser}/>
+      <RecipeDescription recipeDescription={recipe.description} />
+      <RecipeIngredients recipeIngredients={recipe.ingredients} />
+      <RecipeMethod recipeMethod={recipe.method} />
       <RecipeTags recipeTags={recipe.tags} />
       <CommentSection recipe={recipe} loggedInUser={loggedInUser} />
     </div>
