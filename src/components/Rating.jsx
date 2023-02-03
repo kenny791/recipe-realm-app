@@ -19,21 +19,44 @@ export default ({recipeRating, recipe, loggedInUser }) => {
     updateState(index +1)
   }
 
+  // Update ratings to database
   const updateRatings = async (rating) => {
-    const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipeId}`,
-    {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        rating_list: [...recipe.rating_list,
-          {username: loggedInUser, rating: rating}]
+    // Check if user already has a rating for this recipe
+    const existingRating = recipeRating.find((entry) => entry.username.username == loggedInUser.username)
+    // If yes, update user rating in database (to avoid duplicate rating)
+    if (existingRating) {
+      existingRating.rating = rating
+      const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipeId}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          rating_list: recipeRating
+        })
       })
-    })
-    const data = await res.json()
+      // const data = await res.json()
+      // console.log(data.rating_list)
+    } else {
+      // If not, then create a new rating entry
+      const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipeId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            rating_list: [...recipe.rating_list,
+              {username: loggedInUser, rating: rating}]
+          })
+        })
+    }
+
+    
   }
 
+  // Update recipeList state (so changes are updated on other pages without having to refresh)
   function updateState(review) {
     const newRecipeList = JSON.parse(JSON.stringify(recipeList))
     const indexToEdit = newRecipeList.findIndex((sub) => sub.id == recipe.id)
