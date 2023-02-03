@@ -50,8 +50,8 @@ const User = ({ loggedInUser, setLoggedInUser, recipeList, setRecipeList}) => {
 			<div id="commentsAnchor" style={{padding: "20px"}}></div>
 			<div className="container text-center">
 				<ProfileComments />
-				<ProfileRecipes loggedInUser={loggedInUser}  recipeList={recipeList} setRecipeList={setRecipeList}/>
-				<ProfileRatings loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} recipeList={recipeList}/>
+				<ProfileRecipes />
+				<ProfileRatings />
 				<ProfileFavourites loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
 			</div>
 		</div>

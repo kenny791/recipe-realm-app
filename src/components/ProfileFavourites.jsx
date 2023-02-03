@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import RecipeContext from '../context'
 
-const ProfileFavourites = ({loggedInUser, setLoggedInUser, recipeList}) => {
+const ProfileFavourites = () => {
+
+	const { loggedInUser, setLoggedInUser, recipeList } = useContext(RecipeContext)
 
 	const extractIds = (favourites) => {
     	return favourites.map((recipe) => recipe._id);

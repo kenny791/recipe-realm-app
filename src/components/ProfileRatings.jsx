@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import RecipeContext from '../context'
 
-const ProfileRatings = ({loggedInUser, recipeList}) => {
+const ProfileRatings = () => {
 
+	const { loggedInUser, recipeList } = useContext(RecipeContext)
 
 	// adds the user's ratings to the recipe object
 	for (let i = 0; i < recipeList.length; i++) {
