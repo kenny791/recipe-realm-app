@@ -65,7 +65,6 @@ const NewRecipe = () => {
             ...entry,
             [evt.target.id]: evt.target.value
         })
-        console.log(evt.target.value)
     }
 
     function submit(evt) {
