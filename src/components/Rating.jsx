@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default ({recipeRating, recipe, loggedInUser, setRecipeList }) => {
+export default ({recipeRating, recipe, loggedInUser }) => {
 
   const averageRating = Math.round(recipeRating.reduce((acc, curr) => acc + curr.rating, 0) / recipeRating.length)
   const recipeId = recipe._id
