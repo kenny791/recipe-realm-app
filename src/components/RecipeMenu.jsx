@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import FavouriteButton from './FavouriteButton'
-import Rating from './Rating'
+import RatingsSection from './RatingsSection'
 import { HashLink } from 'react-router-hash-link'
 
 export default ({ recipe }) => {
@@ -27,7 +27,7 @@ export default ({ recipe }) => {
             </div>
             <div className='col p-3'>
               <h4>Rating</h4>
-              <Rating recipeRating={recipe.rating_list} recipe={recipe} />
+              <RatingsSection recipeRating={recipe.rating_list} recipe={recipe} />
             </div>
             <div className='col p-3'>
               <FavouriteButton recipe={recipe} />
