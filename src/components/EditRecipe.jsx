@@ -44,6 +44,7 @@ const EditRecipe = ({ recipeList, setRecipeList }) => {
 
     // Update database
     const updateRecipeBackend = async (recipe) => {
+        // Note can also instead use fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipe._id}`,
         const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
         {
             method: 'PATCH',
