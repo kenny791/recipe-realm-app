@@ -19,7 +19,7 @@ export default ({ comments }) => {
 
   return (
   <div className='row justify-content-md-center'>
-    <div className='col'>
+    <div className='col my-3'>
       <h4>{commentHeader}</h4>
     </div>
     {commentsList}
