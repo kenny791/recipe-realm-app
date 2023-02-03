@@ -30,7 +30,7 @@ export default ({ recipe, loggedInUser }) => {
               <Rating recipeRating={recipe.rating_list} recipe={recipe} loggedInUser={loggedInUser} />
             </div>
             <div className='col p-3'>
-              <Favourite recipe={recipe} loggedInUser={loggedInUser} />
+              <Favourite recipe={recipe} />
             </div>
           </div>
         </div>
