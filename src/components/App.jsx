@@ -9,6 +9,7 @@ import ApiTest from './ApiTest'
 import Footer from './Footer'
 import NewRecipe from './NewRecipe'
 import EditRecipe from './EditRecipe'
+import RecipeContext from '../RecipeContext'
 
 export default function App() {
   // stores all recipes
@@ -46,6 +47,7 @@ export default function App() {
 
   return (
     <>
+    <RecipeContext.Provider value={{ recipeList, setRecipeList }}>
     <Navbar loggedInUser={loggedInUser} setSearchInput={setSearchInput} />
     <Routes>
       <Route path='/' element={<Home setSearchInput={setSearchInput} recipeList={recipeList} />} />
@@ -59,6 +61,7 @@ export default function App() {
       <Route path='*' element={<div className='container'><h3>Page not found!</h3></div>} />
     </Routes>
     <Footer />
+    </RecipeContext.Provider>
     </>
   )
 }

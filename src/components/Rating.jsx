@@ -31,7 +31,16 @@ export default ({recipeRating, recipe, loggedInUser, setRecipeList }) => {
   }
 
   function updateState() {
-
+    const newRecipeList = JSON.parse(JSON.stringify(recipeList))
+    const indexToEdit = newRecipeList.findIndex((recipe) => recipe.id == recipeId)
+    const oldRecipe = newRecipeList[indexToEdit]
+    oldRecipe.name = name
+    oldRecipe.description = description
+    oldRecipe.tags = splitBySemicolon(tags)
+    oldRecipe.image = image
+    oldRecipe.ingredients = splitBySemicolon(ingredients)
+    oldRecipe.method = splitBySemicolon(method)
+    setRecipeList(newRecipeList)
   }
 
 const stars = []
