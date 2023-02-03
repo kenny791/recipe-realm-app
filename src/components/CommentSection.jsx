@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import Comments from './Comments'
+import CommentsDisplay from './CommentsDisplay'
 import CommentForm from './CommentForm'
 import RecipeContext from '../context'
 
@@ -48,7 +48,7 @@ export default ({ recipe }) => {
     <div className='container row justify-content-md-center mx-auto'>
       <div className='col-12 col-lg-10'>
         <CommentForm addComment={addComment} />
-        <Comments comments={comments} />
+        <CommentsDisplay comments={comments} />
       </div>
     </div>
   )
