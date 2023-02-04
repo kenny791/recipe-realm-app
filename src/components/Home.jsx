@@ -25,7 +25,7 @@ const Home = ({ setSearchInput }) => {
 		return (
 			<Link className="carousel-link" to="/search" onClick={() => handleClick(`${searchPrefill}`)}>
 				<div className={`carousel-item   ${active} ? "active" : "" }`}>
-					<img src={imgURL} className="backdrop rounded" alt="..."/>
+					<img src={imgURL} className="carousel-image" alt="carousel image"/>
 					<p className="text-center display-1 mt-5">{carouselText}</p>
 				</div>
 			</Link>
@@ -36,11 +36,9 @@ const Home = ({ setSearchInput }) => {
 			{/* main landing */}
 			<div className="text-center hero">
 				{/* backdrop image */}
-				{/* <img src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" className="img-fluid backdrop" alt="Responsive image"/> */}
-				{/* <img src="https://res.cloudinary.com/dzz3meeb6/image/upload/a_180/v1675250314/Recipe%20Photos/image_ogmf9q.png" className="img-fluid backdrop" alt="Responsive image"/> */}
 				<img src="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675251255/Recipe%20Photos/image_tafm0z.png" className="img-fluid backdrop" alt="Responsive image"/>
 				{/* hero */}
-				<p className="display-1">Recipe Realm</p>
+				<p className="display-1 hero-text">Recipe Realm</p>
 				<p className="display-6">Nourish your taste buds, one recipe at a time</p>
 				<div className="col-lg-6 mx-auto">
 					<div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -66,11 +64,11 @@ const Home = ({ setSearchInput }) => {
 						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
 					</div>
 					<div className="carousel-inner">
-						<CarouselLink active="active" searchPrefill="chicken" carouselText="CHICKEN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/barbecue-g82e9c37de_1280.jpg" />
-						<CarouselLink searchPrefill="mexican" carouselText="MEXICAN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/mexican-gbb5482fa4_1280.jpg" />
-						<CarouselLink searchPrefill="indian" carouselText="INDIAN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/biryani-g849e363c0_1280.jpg" />
-						<CarouselLink searchPrefill="salad" carouselText="SALAD" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/salad-g732cb055a_1280.jpg" />
-						<CarouselLink searchPrefill="vegetarian" carouselText="VEGETARIAN" imgURL="https://recipe-realm-images.s3.amazonaws.com/uploads/casserole-dish-g300399764_1280.jpg" />
+						<CarouselLink active="active" searchPrefill="chicken" carouselText="CHICKEN" imgURL="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675479088/Recipe%20Photos/cisco-lin-YMkX5NjURhk-unsplash_bgi62i.jpg" />
+						<CarouselLink searchPrefill="mexican" carouselText="MEXICAN" imgURL="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675479373/Recipe%20Photos/mexican-gbb5482fa4_1280_lspk4l.jpg" />
+						<CarouselLink searchPrefill="indian" carouselText="INDIAN" imgURL="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675479433/Recipe%20Photos/biryani-g849e363c0_1280_dqlpie.jpg" />
+						<CarouselLink searchPrefill="italian" carouselText="ITALIAN" imgURL="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675481912/Recipe%20Photos/photo-1595295333158-4742f28fbd85_sc7qqy.jpg" />
+						<CarouselLink searchPrefill="vegetarian" carouselText="VEGETARIAN" imgURL="https://res.cloudinary.com/dzz3meeb6/image/upload/v1675479742/Recipe%20Photos/casserole-dish-g300399764_1280_wrwf0b.jpg" />
 					</div>
 					<button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
 						<span className="carousel-control-prev-icon" aria-hidden="true"></span>
