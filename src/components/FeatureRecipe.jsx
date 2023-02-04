@@ -18,6 +18,7 @@ export default () => {
         averageRating: recipe.rating_list.reduce((acc, curr) => acc + curr.rating, 0) / recipe.rating_list.length
     }))
 
+    // Get a random recipe with an average rating of 4.2 or higher
     function getFeatureRecipe(recipes) {
         const featureRecipe = recipes.filter((recipe) => recipe.averageRating > 4.2)
         return featureRecipe[Math.floor(Math.random()*featureRecipe.length)]
