@@ -17,7 +17,7 @@ const Home = ({ setSearchInput }) => {
 
 	//handles search input change
 	const handleChange = (event) => {
-		setSearchInput(event.target.value)
+		setSearchInput(event.target.value.toLowerCase())
 	}
 
 	// Carousel link component
