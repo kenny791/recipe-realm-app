@@ -59,7 +59,7 @@ const ProfileFavourites = () => {
 			</div>
 		)
 	})
-	: null
+	: ''
 
   	return (
 	<>
