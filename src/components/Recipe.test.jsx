@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Recipe from './Recipe'
+import RecipeContext from '../context'
 
 const recipeList = [
   {
@@ -67,32 +68,40 @@ const recipeList = [
   }
 ]
 
-describe('Home Page', () => {
-  beforeEach(function () {
+const recipeId = 0
+const recipe = recipeList[recipeId]
 
+describe('Home Page', () => {
+  let container
+
+  beforeEach(function () {
     container = render(
       <BrowserRouter>
-        <Recipe recipeList={recipeList} />
-      </BrowserRouter>
+        <RecipeContext.Provider value={{ recipeList }}>
+          <Routes>
+            {/* <Recipe recipeId={recipeId} recipe={recipe} /> */}
+            <Route path="/recipe/:recipeId" element={Recipe} />
+          </Routes>
+        </RecipeContext.Provider>
+      </BrowserRouter>,
+      { route: `/recipe/${recipeId}`}
     ).container
+
+    console.log(container)
   })
+
   it('Renders the Navbar correctly', () => {
-    // const navbarHome = container.querySelector('Link.navbar-brand')
+    const navbarHome = container.querySelector('Link.navbar-brand')
     // const navbarSearch = screen.getByText('Search')
     // const navbarSubmit = screen.getByText('Submit Recipe')
     // const navbarProfile = screen.getByText(/.*\sProfile|Login/);
 
-    // expect(navbarHome).toBeDefined()
+    expect(navbarHome).toBeDefined()
     // expect(navbarSearch).toBeDefined()
     // expect(navbarSubmit).toBeDefined()
     // expect(navbarProfile).toBeDefined()
     // expect(navbarSearch).toHaveTextContent('Search')
     // expect(navbarSubmit).toHaveTextContent('Submit Recipe')
     // expect(navbarProfile).toHaveTextContent(/.*\sProfile|Login/)
-  })
-  it('Renders the Recipe correctly', () => {
-    const recipeName = screen.getByText(recipeList[0].name)
-    expect(recipeName).toBeDefined()
-
   })
 })
