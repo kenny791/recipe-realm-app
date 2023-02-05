@@ -2,14 +2,6 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
 
-/* //db creation code to be used in mongo db playground for reference
-use ("reciperealm")
-db.users.insertMany([
-  {username: "user1", password: "password1"},
-  {username: "user2", password: "password2"},
-  {username: "user3", password: "password3"}
-]) 
-*/
 
 mongoose.set("strictQuery", true)
 
@@ -27,7 +19,6 @@ catch (err) {
     console.log(err)
 }
 
-//defines the structure the model will need to conform to
 
 //recipe schema and model
 const recipeSchema = new mongoose.Schema({

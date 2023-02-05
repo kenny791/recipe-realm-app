@@ -37,20 +37,20 @@ router.get("/users/:val", async (request, response) => {
     }
 })
 
-//get comments by one user
-// router.get("/users/:id/comments", async (request, response) => {
-//     try{
-//         const recipe = await RecipeModel.findOne( {username: request.params.id} )
-//     if (recipe) {
-//         response.send(recipe.comments)
-//     } else {
-//         response.status(404).send({message: "Comments not found"})
-//     }
-//     }
-//     catch (err) {
-//         response.status(500).send({error: err.message})
-//     }
-// })
+//submit favourites array of user
+router.post("/users/:userId/favourites", async (request, response) => {
+    try {
+        const user = await UserModel.findByIdAndUpdate(
+            request.params.userId,
+            { favourites: request.body.favourites },
+            { new: true, select: "-password" }
+        )
+        response.send(user)
+    }
+    catch (err) {
+        response.status(500).send({ error: err.message })
+    }
+})
 
 // update user favourites array
 router.patch("/users/:id", async (req, res) => {
@@ -66,22 +66,6 @@ router.patch("/users/:id", async (req, res) => {
         res.status(500).json({ message: err.message })
     }
 })
-
-//submit favourites array of user
-router.post("/users/:userId/favourites", async (request, response) => {
-    try {
-        const user = await UserModel.findByIdAndUpdate(
-            request.params.userId,
-            { favourites: request.body.favourites },
-            { new: true }
-        )
-        response.send(user)
-    }
-    catch (err) {
-        response.status(500).send({ error: err.message })
-    }
-})
-
 
 
 
