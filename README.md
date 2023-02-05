@@ -23,9 +23,9 @@
 
 ## The contents of your `README.md` as submitted for `Full Stack App - Part A`
 
-- [README.md for T3A2-A](https://github.com/Recipe-devs/T3A2-A#readme)
+- [🔗 README.md for T3A2-A](https://github.com/Recipe-devs/T3A2-A#readme)
 
-## A link and screenshots of your Trello board throughout the duration of the project
+## Link of Trello board
 - [🔗 Trello board](https://trello.com/invite/b/JfWoK2nu/ATTI6bf7c2b22f4a8e965bd1a41cb684c3b0C437EF79/recipe-realm)  
 
 
@@ -46,8 +46,8 @@ To install the application, follow the instructions below:
 ### Server
 
 - Create a new directory on your local machine where you would like to store the application  
-- 'CD' into the directory created  
-- open terminal and run the following command:  
+- `CD` into the directory created  
+- Open terminal and run the following command:  
 ```git clone https://github.com/Recipe-devs/Server.git```  
 - Change directory into the server directory  
 - Install the required dependencies by running the following command:  
@@ -60,8 +60,19 @@ To install the application, follow the instructions below:
 ```nodemon```  
 
 ### Client
+- Create a new directory on your local machine where you would like to store the application
+- `CD` into the directory created
+- Open terminal and run the following command:
+```git clone git@github.com:Recipe-devs/Client.git```
+- Change directory into the client directory
+- Install the required dependencies by running the following command:
+```npm i --legacy-peer-deps```
+- Run the following command to start the client:
+```npm run start```
 
-### API Endpoints
+
+
+## API Endpoints
 
 | Recipes             | Users          | Favourites                | Ratings                  | Comments                               |
 | ------------------- | -------------- | ------------------------- |--------------------------|----------------------------------------|
@@ -142,6 +153,26 @@ For this project we have decided to use the Agile methodology for project manage
 This will be managed is Trello, a Kanban style project management tool, where individual tasks are noted on separate cards. Each card will have properties to determine which member of the group it is assigned to, when it is due, and the estimated time to complete the task. Within the cards there are also sub-lists, to further breakdown the tasks and allow for incremental progress to be seen.
 
 
-## Trello
+## Trello Screenshots
+### January 23
+![January 23](./docs/0123.png)
+### January 24
+![January 24](./docs/0124.png)
+### January 25
+![January 25](./docs/0125.png)
+### January 26
+![January 26](./docs/0126.png)
+### January 30
+![January 30](./docs/0130.png)
+### January 31
+![January 31](./docs/0131.png)
+### February 1
+![February 1](./docs/0201.png)
+### February 2
+![February 2](./docs/0202.png)
+### February 3
+![February 3](./docs/0203.png)
+### February 5
+![February 5](./docs/0205.png)
 
 
