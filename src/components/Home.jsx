@@ -87,5 +87,3 @@ const Home = ({ setSearchInput }) => {
 }
 
 export default Home
-
-
