@@ -1,17 +1,34 @@
-# Client  
+# T3A2-B - Recipe Realm
 
+#### *Kenny Lai, John Masters, Vicky Nie*
 
-- [Part A - Docs - Repo](https://github.com/Recipe-devs/T3A2-A)
-- [Part B - Client - Repo](https://github.com/Recipe-devs/Client)
-- [Part B - Server - Repo](https://github.com/Recipe-devs/Server)
-- [Deployed Front End](https://recipe-realm.up.railway.app/)
-- [Deployed Back End](https://server-production-6a0e.up.railway.app/)
+---
 
-## Table of Contents  
+## Table of Contents
 
+- [T3A2-B - Recipe Realm](#t3a2-b---recipe-realm)
+      - [*Kenny Lai, John Masters, Vicky Nie*](#kenny-lai-john-masters-vicky-nie)
+  - [Table of Contents](#table-of-contents)
+  - [R10 - A link (URL) to your deployed website](#r10---a-link-url-to-your-deployed-website)
+  - [R11 - A link to your GitHub repository](#r11---a-link-to-your-github-repository)
 
+## R10 - A link (URL) to your deployed website
 
+- [Website deployed with Railway](https://recipe-realm.up.railway.app/)
 
+## R11 - A link to your GitHub repository
+
+- [Server repository](https://github.com/Recipe-devs/Server)
+- [Client repository](https://github.com/Recipe-devs/Client)
+
+## R12 - The contents of your `README.md` as submitted for `Full Stack App - Part A`
+
+- [README.md for T3A2-A](https://github.com/Recipe-devs/T3A2-A#readme)
+
+## R13 - A link and screenshots of your Trello board throughout the duration of the project
+
+## -----TO DO-----
+-----Installation Instructions (copy to server docs)
 
 ## Installation Instructions
 To install the application, follow the instructions below:  
@@ -25,7 +42,7 @@ Server:
 - 'CD' into the directory created  
 - open terminal and run the following command:  
 ```git clone https://github.com/Recipe-devs/Server.git```  
-- `CD` into the server directory  
+- Change directory into the server directory  
 - Install the required dependencies by running the following command:  
 ```npm install```  
 - Create a .env file in the root directory of the server and add the following:  
@@ -36,5 +53,16 @@ Server:
 ```nodemon```  
 
 
+client
 
-Client: 
+API Endpoints
+
+Testing
+
+Server Libraries & Dependencies:
+
+Client Libraries & Dependencies:
+
+Explain purpose of library
+
+Project management
