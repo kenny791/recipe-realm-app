@@ -28,16 +28,20 @@
 ## A link and screenshots of your Trello board throughout the duration of the project
 
 ## -----TO DO-----
+
 -----Installation Instructions (copy to server docs)
 
 ## Installation Instructions
+
 To install the application, follow the instructions below:  
 
-### Requirements:  
+### Requirements  
+
 - [Node.js](https://nodejs.org/en/)  
 - [Mongodb atlas account](https://www.mongodb.com/atlas)  
   
-### Server:  
+### Server
+
 - Create a new directory on your local machine where you would like to store the application  
 - 'CD' into the directory created  
 - open terminal and run the following command:  
@@ -52,11 +56,10 @@ To install the application, follow the instructions below:
 - Run the following command to start the server:  
 ```nodemon```  
 
-
 ### Client
 
-
 ### API Endpoints
+
 | Recipes             | Users          | Favourites                | Ratings                  | Comments                               |
 | ------------------- | -------------- | ------------------------- |--------------------------|----------------------------------------|
 | Get /recipes        | Get /users     | Post users/:id/favourites | Post /recipes/:id/rating |  Patch /recipes/edit/:id               |
@@ -67,14 +70,14 @@ To install the application, follow the instructions below:
 
 ---
 
-  
-  
 ## Testing
+
 [Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)
 
-
 ## Libraries & Dependencies
-### Server 
+
+### Server
+
 - express: is an open source web application framework for Node.js. It is used to create the server and handle the routing of the application.
 - mongoose: is the object data modelling library used to connect the application to the mongodb database. It is used to allow the application to interact with the database.
 - dotnev: is a library that allows the use of environment variables. This was used to pass in the mongodb creditentials from the .env file to the application.  
@@ -83,21 +86,9 @@ To install the application, follow the instructions below:
 - jest: a JavaScript testing framework used to test the application.
 - supertest: a Node.js library that allows for testing of HTTP endpoints.
 
+### Client
 
-Client Libraries & Dependencies:
-
-
-
-Explain purpose of library
-
-
-
-
-
-Project management
-
-Task Delegation
-
-
-
-Trello
+- react: This is the main react library. It provides tools for building user interfaces based on UI components.
+- react-dom: This is a package that provides methods that can used to interact with webpages through the DOM.
+- react-router-dom: This library enables implementation of dynamic routing in a React application.
+- react-router-hash-link: This allows smooth scrolling to anchor tags.
