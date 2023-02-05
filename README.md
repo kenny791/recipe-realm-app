@@ -96,9 +96,18 @@ To install the application, follow the instructions below:
 - react-dom: This is a package that provides methods that can used to interact with webpages through the DOM.
 - react-router-dom: This library enables implementation of dynamic routing in a React application.
 - react-router-hash-link: This allows smooth scrolling to anchor tags.
-Client Libraries & Dependencies:
-
-
+- @testing-library/jest-dom: A library that provides a custom set of jest matchers to test the state of the DOM.
+- @testing-library/react: A lightweight library for testing React components. It provides a complete testing library for DOM testing in React.
+- @testing-library/react-hooks: A library that enables easy testing of React hooks.
+- @testing-library/user-event: A library that allows you to simulate real user events that happen in the browser, like clicks.
+- @types/react: Provides type definitions for React.
+- @types/react-dom: Provides type definitions for React DOM.
+- @vitejs/plugin-react: A Vite plugin for React, and provides various utilities for React.
+- @vitest/coverage-c8: A Vite test library, which provides test coverage reports.
+- @vitest/ui: A Vite test library, which provides a user interface for running tests.
+- jsdom: A library for creating a virtual DOM in Node.js, which is used for testing React components.
+- vite: A frontend build tool that provides a fast and efficient development experience.
+- vitest: A testing library designed for Vite built apps and components.
 
 Explain purpose of library
 
