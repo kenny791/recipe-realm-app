@@ -123,7 +123,7 @@ const recipes = [
       tags: ["Chicken", "Italian", "Medium"],
       image: "https://res.cloudinary.com/dzz3meeb6/image/upload/c_scale,w_600/v1675125914/Recipe%20Photos/image_wwiqvd.png",
       ingredients: ["4 boneless, skinless chicken breasts", "Salt and pepper", "Flour for dusting", "1/4 cup olive oil", "1/4 cup butter", "1/2 cup chicken broth", "1/2 cup lemon juice", "1/4 cup capers", "1/4 cup chopped fresh parsley"],
-      method: ["Pound the chicken breasts to an even thickness, season with salt and pepper, and dust with flour. In a large skillet, heat the olive oil and butter over medium-high heat. Cook the chicken for 3-4 minutes per side, or until golden brown and cooked through. Remove the chicken to a platter and cover with foil to keep warm. In the same skillet, add the chicken broth, lemon juice, capers, and parsley. Cook for 2-3 minutes, or until the sauce is thickened and bubbly. Serve the chicken over spaghetti or rice, and spoon the sauce over the top."],
+      method: ["Pound the chicken breasts to an even thickness, season with salt and pepper, and dust with flour.","In a large skillet, heat the olive oil and butter over medium-high heat. Cook the chicken for 3-4 minutes per side, or until golden brown and cooked through.", "Remove the chicken to a platter and cover with foil to keep warm.", "In the same skillet, add the chicken broth, lemon juice, capers, and parsley.", "Cook for 2-3 minutes, or until the sauce is thickened and bubbly.", "Serve the chicken over spaghetti or rice, and spoon the sauce over the top."],
       comments: [
         {
           username: insertusers[1],
