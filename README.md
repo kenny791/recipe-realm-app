@@ -76,7 +76,7 @@ To install the application, follow the instructions below:
 ## Testing
 
  - Database to be reseeded before and after testing to ensure data integrity.  
-[Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)
+[🔗 Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)
 
 ## Libraries & Dependencies
 
@@ -108,22 +108,24 @@ Explain purpose of library
 
 
 ## App Screenshots
-### Landing Page  
-![Landing Page](docs/polpolypane_landing1.png)
-
-
+### Landing Page
+![Landing Page](./docs/polypane_landing1.png)
+![Landing Page cont.](./docs/polypane_landing2.png)
+![Landing Page cont.](./docs/polypane_landing3.png)  
 
 ### Search Page  
-
+![Search Page](./docs/polypane_search1.png)
+![Search Page cont.](./docs/polypane_search2.png)  
 
 ### Recipe Details Page
-
+![Recipe Details Page](./docs/polypane_recipe1.png)
+![Recipe Details Page cont.](./docs/polypane_recipe2.png)
+![Recipe Details Page cont.](./docs/polypane_recipe3.png)  
 ### Submit Recipe Page
-
-
-
+![Submit Recipe Page](./docs/polypane_submit1.png)  
 ### User Profile Page
-
+![User Profile Page](./docs/polypane_profile1.png)
+![User Profile Page cont.](./docs/polypane_profile2.png)  
 
 
 
