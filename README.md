@@ -82,8 +82,17 @@ To install the application, follow the instructions below:
 
 ## Testing
 
- - Database to be reseeded before and after testing to ensure data integrity.  
-[🔗 Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)
+### Server
+
+- Database to be reseeded before and after testing to ensure data integrity.
+- [🔗 Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)
+
+### Client
+
+- Testing can be run by run with a few commands from the root directory of the Client folder.
+- To run the standard tests, you can run `npm run test`
+- To check the coverage of the tests, you can run `npm run coverage`
+- To run the tests in the web based GUI, you can run `npm run test:ui`
 
 ## Libraries & Dependencies
 
