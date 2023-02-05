@@ -6,11 +6,13 @@
 
 ## Table of Contents
 
-- [T3A2-B - Recipe Realm](#t3a2-b---recipe-realm)
-      - [*Kenny Lai, John Masters, Vicky Nie*](#kenny-lai-john-masters-vicky-nie)
   - [Table of Contents](#table-of-contents)
-  - [R10 - A link (URL) to your deployed website](#r10---a-link-url-to-your-deployed-website)
-  - [R11 - A link to your GitHub repository](#r11---a-link-to-your-github-repository)
+  - [Deployed website](#deployed-website)
+  - [GitHub repository](#github-repository)
+  - [Full Stack App - Part A README](#full-stack-app---part-a-readme)
+  - [Trello board](#trello-board)
+  - [App Screenshots](#app-screenshots)
+  - [Trello Screenshots](#trello-screenshots)
 
 ## Deployed website
 
@@ -21,18 +23,12 @@
 - [🔗 Server repository](https://github.com/Recipe-devs/Server)
 - [🔗 Client repository](https://github.com/Recipe-devs/Client)
 
-## The contents of your `README.md` as submitted for `Full Stack App - Part A`
-
+## Full Stack App - Part A README
 - [🔗 README.md for T3A2-A](https://github.com/Recipe-devs/T3A2-A#readme)
 
-## Link of Trello board
+## Trello board
 - [🔗 Trello board](https://trello.com/invite/b/JfWoK2nu/ATTI6bf7c2b22f4a8e965bd1a41cb684c3b0C437EF79/recipe-realm)  
 
-
-
-## -----TO DO-----
-
------Installation Instructions (copy to server docs)
 
 ## Installation Instructions
 
@@ -111,22 +107,17 @@ Client Libraries & Dependencies:
 
 
 
-Explain purpose of library
-
-
-
-
-
-
 ## App Screenshots
 ### Landing Page
 ![Landing Page](./docs/polypane_landing1.png)
 ![Landing Page cont.](./docs/polypane_landing2.png)
-![Landing Page cont.](./docs/polypane_landing3.png)  
 
 ### Search Page  
 ![Search Page](./docs/polypane_search1.png)
-![Search Page cont.](./docs/polypane_search2.png)  
+![Search Page cont.](./docs/polypane_search2.png)
+
+### Search Page With Filters
+![Landing Page cont.](./docs/polypane_landing3.png)  
 
 ### Recipe Details Page
 ![Recipe Details Page](./docs/polypane_recipe1.png)
@@ -145,7 +136,7 @@ Explain purpose of library
 
 
 ## Task Delegation  
-Tasks were delegated to each team member based on their strengths and interests. Team members were also encouraged to select tasks from the trello To do list, that they we interested in learning more about.If there was a taks that a team member was not confident in completing, they were encouraged to ask for help from the other team members during the daily stand up.
+Tasks were delegated to each team member based on their strengths and interests. Team members were also encouraged to select tasks from the trello To do list, that they we interested in learning more about.If there was a tasks that a team member was not confident in completing, they were encouraged to ask for help from the other team members during the daily stand up.
 
 ## Project management
 For this project we have decided to use the Agile methodology for project management. This will see the quick completion of tasks, daily stand ups of what tasks have been completed and will be completed in the next 24 hours, and flexibility to changes to the requirements of the project.
