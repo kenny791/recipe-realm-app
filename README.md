@@ -81,14 +81,17 @@ To install the application, follow the instructions below:
 ---
 
 ## Testing
-
+For the Development user testing and Production user testing please refer to the link google sheets.  [🔗 Testing Log](https://docs.google.com/spreadsheets/d/1Frl0Zy8GrOcx9Is8IIautDvwdgYqtHtHU5fn7SwIDXE/edit?usp=sharing)
 ### Server
 
-- Database to be reseeded before and after testing to ensure data integrity.
-- [🔗 Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)
+- *Database to be reseeded before and after testing to ensure data integrity.  
+Testing was performed using Jest and Supertest. Please see files for results
+- Development and Production testing was performed on the server via [🔗 Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)  
+  Testing was also performed using JESt and Supertest. Please use the following commands to run the tests.
+- To run the standard tests, you can run `npm run test`
+- To check the coverage of the tests, you can run `npm run test-cc`
 
 ### Client
-
 - Testing can be run by run with a few commands from the root directory of the Client folder.
 - To run the standard tests, you can run `npm run test`
 - To check the coverage of the tests, you can run `npm run coverage`
@@ -158,13 +161,19 @@ To install the application, follow the instructions below:
 
 ## Task Delegation
 
-Tasks were delegated to each team member based on their strengths and interests. Team members were also encouraged to select tasks from the trello To do list, that they we interested in learning more about.If there was a tasks that a team member was not confident in completing, they were encouraged to ask for help from the other team members during the daily stand up.
+
+## Task Delegation  
+Tasks were delegated to each team member based on their strengths and interests. Team members were also encouraged to select tasks from the trello To do list that they we interested in learning more about, for example testing, deployment, route creation. If there was a tasks that a team member was not confident in completing, they were encouraged to ask for help from the other team members during the daily stand up, where they could discuss the task and how to complete it.  
+<br>
+This project was to be a learning experience for all team members, and as such, the team members were rotated through the main roles, of project leader, front-end lead developer, back-end lead developer, and tester. This allowed for each team member to gain experience in each role, and to learn from the other team members.
+
 
 ## Project management
 
 For this project we have decided to use the Agile methodology for project management. This will see the quick completion of tasks, daily stand ups of what tasks have been completed and will be completed in the next 24 hours, and flexibility to changes to the requirements of the project.
 
-This will be managed is Trello, a Kanban style project management tool, where individual tasks are noted on separate cards. Each card will have properties to determine which member of the group it is assigned to, when it is due, and the estimated time to complete the task. Within the cards there are also sub-lists, to further breakdown the tasks and allow for incremental progress to be seen.
+
+This will be managed is Trello, a Kanban style project management tool, where individual tasks are noted on separate cards. Each card will have properties to determine which member of the group it is assigned to, when it is due, and the estimated time to complete the task. Within the cards there are also sub-lists, to further breakdown the tasks and allow for incremental progress to be seen.  
 
 ## Trello Screenshots
 
