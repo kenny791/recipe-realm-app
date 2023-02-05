@@ -61,33 +61,6 @@ router.get("/recipes/:id", async (req, res) => {
     }
 })
 
-//add new comment by username 
-// router.post("/recipes/:id/comments", async (req, res) => {
-//     try {
-//         const { username, comment } = req.body
-//         //find user id by username
-//         const userId = await UserModel.findOne( {username: username} ) 
-//         const  newComment = {
-//             username: userId._id,
-//             date: Date.now(),
-//             comment: comment
-//         }
-//         const recipe = await RecipeModel.findOne({ id: req.params.id })
-//         if (recipe) {
-//             recipe.comments.push(newComment)
-//             await recipe.save()
-//             res.send({
-//                 message: "Comment added",
-//                 comments: recipe.comments
-//               })
-//         } else {
-//             res.status(404).send({message: "Recipe not found"})
-//         }
-//     }
-//     catch (err) {
-//         res.status(500).send({error: err.message})
-//     }
-// })
 
 // Add new rating by username 
 router.post("/recipes/:id/rating", async (req, res) => {
@@ -145,7 +118,7 @@ router.patch("/recipes/edit/:id", async (req, res) => {
     }
 })
 
-// Delete single recipe
+// Delete single recipe comment
 router.delete("/recipes/:id", async (req, res) => {
     try {
         const recipe = await RecipeModel.findOneAndDelete({ id: req.params.id })
