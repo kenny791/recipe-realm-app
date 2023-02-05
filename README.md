@@ -74,11 +74,8 @@ To install the application, follow the instructions below:
 ---
 
 ## Testing
-<<<<<<< Updated upstream
 
-=======
  - Database to be reseeded before and after testing to ensure data integrity.  
->>>>>>> Stashed changes
 [Postman API testing](https://documenter.getpostman.com/view/25499214/2s8ZDcxKJF#f8afa11a-8578-42d2-8702-39876e69dfca)
 
 ## Libraries & Dependencies
@@ -95,12 +92,10 @@ To install the application, follow the instructions below:
 
 ### Client
 
-<<<<<<< Updated upstream
 - react: This is the main react library. It provides tools for building user interfaces based on UI components.
 - react-dom: This is a package that provides methods that can used to interact with webpages through the DOM.
 - react-router-dom: This library enables implementation of dynamic routing in a React application.
 - react-router-hash-link: This allows smooth scrolling to anchor tags.
-=======
 Client Libraries & Dependencies:
 
 
@@ -148,4 +143,3 @@ This will be managed is Trello, a Kanban style project management tool, where in
 ## Trello
 
 
->>>>>>> Stashed changes
