@@ -17,7 +17,7 @@ export default ({ recipe }) => {
   const updateFavourites = async () => {
     const newFavourites = favourite ? loggedInUser.favourites.filter(fav => fav._id !== recipe._id) : [...loggedInUser.favourites, recipe]
 
-    const res = await fetch(`https://server-production-6a0e.up.railway.app/users/${loggedInUser._id}`,
+    const res = await fetch(`https://recipe-realm-server.vercel.app/users/${loggedInUser._id}`,
     {
       method: 'PATCH',
       headers: {

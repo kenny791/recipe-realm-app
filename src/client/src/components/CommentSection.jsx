@@ -21,7 +21,7 @@ export default ({ recipe }) => {
     const updatedComments = [...recipe.comments, {username: loggedInUser, date: new Date(), comment: newComment}]
     const sortedComments = updatedComments.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-    const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipe._id}`,
+    const res = await fetch(`https://recipe-realm-server.vercel.app/recipes/edit/${recipe._id}`,
       {
         method: 'PATCH',
         headers: {

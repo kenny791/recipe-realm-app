@@ -45,7 +45,7 @@ const NewRecipe = () => {
             method: method
         }
 
-        const returnedEntry = await fetch("https://server-production-6a0e.up.railway.app/recipes/", {
+        const returnedEntry = await fetch("https://recipe-realm-server.vercel.app/recipes/", {
             method: "POST",
             headers: {
                 Accept: "application/json",

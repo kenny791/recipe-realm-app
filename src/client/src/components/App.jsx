@@ -18,7 +18,7 @@ export default function App() {
   
   useEffect(() => {
     async function getRecipeList() {
-      const res = await fetch('https://server-production-6a0e.up.railway.app/recipes/')
+      const res = await fetch('https://recipe-realm-server.vercel.app/recipes/')
       const data = await res.json()
       setRecipeList(data) 
     }
@@ -33,7 +33,7 @@ export default function App() {
 
   useEffect (() => {
     async function getUser() {
-      const res = await fetch('https://server-production-6a0e.up.railway.app/users/WhiskWizard')
+      const res = await fetch('https://recipe-realm-server.vercel.app/users/WhiskWizard')
       const data = await res.json()
       setLoggedInUser(data)
     }

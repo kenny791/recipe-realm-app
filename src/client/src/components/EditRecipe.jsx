@@ -27,7 +27,7 @@ const EditRecipe = () => {
     // Retrieve recipe 
     useEffect(() => {
         async function getRecipe() {
-            const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`)
+            const res = await fetch(`https://recipe-realm-server.vercel.app/recipes/${recipeId}`)
             const data = await res.json()
             // Separate out entries by ';'
             data.ingredients = data.ingredients.map(x => x).join("; ")
@@ -45,8 +45,8 @@ const EditRecipe = () => {
 
     // Update database
     const updateRecipeBackend = async (recipe) => {
-        // Note can also instead use fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipe._id}`,
-        const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/${recipeId}`,
+        // Note can also instead use fetch(`https://recipe-realm-server.vercel.app/recipes/edit/${recipe._id}`,
+        const res = await fetch(`https://recipe-realm-server.vercel.app/recipes/${recipeId}`,
         {
             method: 'PATCH',
             headers: {

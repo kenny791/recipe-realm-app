@@ -26,7 +26,7 @@ export default ({ recipeRating, recipe }) => {
     // If yes, update user rating in database (to avoid duplicate rating)
     if (existingRating) {
       existingRating.rating = rating
-      const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipeId}`,
+      const res = await fetch(`https://recipe-realm-server.vercel.app/recipes/edit/${recipeId}`,
       {
         method: 'PATCH',
         headers: {
@@ -40,7 +40,7 @@ export default ({ recipeRating, recipe }) => {
       // console.log(data.rating_list)
     } else {
       // If not, then create a new rating entry
-      const res = await fetch(`https://server-production-6a0e.up.railway.app/recipes/edit/${recipeId}`,
+      const res = await fetch(`https://recipe-realm-server.vercel.app/recipes/edit/${recipeId}`,
         {
           method: 'PATCH',
           headers: {
