@@ -15,7 +15,7 @@ const ProfileRecipes = () => {
 
 	const sendData = async (recipeId) => {
 	try {
-		const response = await fetch(`http://server-production-6a0e.up.railway.app/recipes/${recipeId}/`, 
+		const response = await fetch(`http://recipe-realm-server.vercel.app/recipes/${recipeId}/`, 
 		{
 			method: "DELETE",
 			headers: {"Content-Type": "application/json"}
