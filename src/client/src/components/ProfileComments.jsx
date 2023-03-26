@@ -24,7 +24,7 @@ const ProfileComments = () => {
 
 	const sendData = async (commentId, recipeId) => {
 	try {
-		const response = await fetch(`http://server-production-6a0e.up.railway.app/recipes/${recipeId}/comments/${commentId}`, 
+		const response = await fetch(`http://recipe-realm-server.vercel.app/recipes/${recipeId}/comments/${commentId}`, 
 		{
 			method: "DELETE",
 			headers: {"Content-Type": "application/json"}
